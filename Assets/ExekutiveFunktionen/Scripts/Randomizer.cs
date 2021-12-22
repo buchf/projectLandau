@@ -43,14 +43,14 @@ public class Randomizer : MonoBehaviour
         fairy.transform.position = new Vector3(-7f, 3f, -1);
 
         
-        if (count1 == 3 && count2 != 1)
+        if (count1 == 3 && count2 != 7)
         {
             count1 = 0;
             count2++;
         } 
 
         // 3 7 richtig
-        if(count1 == 3 && count2 == 1)
+        if(count1 == 3 && count2 == 7)
         {
             //Finish the whole Sequenz so the OutroScene is loaded
             Debug.Log("FINISH");
