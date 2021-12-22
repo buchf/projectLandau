@@ -17,6 +17,10 @@ public class SceneSwitch : MonoBehaviour
     {
         DataSaver.VPN = inputVPN;
         Randomizer.reverse = reverse;
+        if (reverse)
+        {
+            DataSaver.count = 8;
+        }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 123);
     }
 

@@ -112,6 +112,14 @@ public class DataSaver : MonoBehaviour
     public static void MeasureSequenzThree(bool fullSequenz, double reaction, int click1, int click2, int click3, int click4)
     {
         z4.AppendFormat(",sequenz{0}_4,{1},{2}ms,{3},{4},{5},{6}\n", count, fullSequenz, reaction.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture), click1, click2, click3, click4);
-        count++;
+        //count++;
+        if (Randomizer.reverse)
+        {
+            count--;
+        }
+        else
+        {
+            count++;
+        }
     }
 }
