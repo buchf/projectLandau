@@ -58,6 +58,7 @@
     <Compile Include="Assets\Backend\ControlFlow\Trial.cs" />
     <Compile Include="Assets\Backend\UI\Richtungssticker.cs" />
     <Compile Include="Assets\Backend\UI\Zahnrad.cs" />
+    <Compile Include="Assets\ExekutiveFunktionen\Scripts\BlockClick.cs" />
     <Compile Include="Assets\Backend\Helper\DragNDrop.cs" />
     <Compile Include="Assets\Backend\UI\Auswahlzahnrad.cs" />
     <Compile Include="Assets\Backend\Helper\MultiSelector.cs" />
@@ -66,10 +67,13 @@
     <Compile Include="Assets\Backend\UI\RichtungsstickerInstancer.cs" />
     <Compile Include="Assets\Backend\ControlFlow\Block.cs" />
     <Compile Include="Assets\Backend\IO\Measurement.cs" />
+    <Compile Include="Assets\ExekutiveFunktionen\Scripts\SceneSwitch.cs" />
     <Compile Include="Assets\Backend\ControlFlow\InstructionBase.cs" />
     <Compile Include="Assets\Backend\ControlFlow\Implementations\CogTrials.cs" />
     <Compile Include="Assets\Backend\ControlFlow\Experiment.cs" />
     <Compile Include="Assets\Backend\UI\PlayButton.cs" />
+    <Compile Include="Assets\ExekutiveFunktionen\Scripts\DataSaver.cs" />
+    <Compile Include="Assets\ExekutiveFunktionen\Scripts\Player.cs" />
     <Compile Include="Assets\Backend\UI\Bauklotz.cs" />
     <Compile Include="Assets\Backend\UI\UnpauseButton.cs" />
     <Compile Include="Assets\Backend\UI\Auswahlsymbol.cs" />
@@ -77,11 +81,8 @@
     <Compile Include="Assets\Backend\ControlFlow\ReplayInput.cs" />
     <Compile Include="Assets\Backend\UI\Spielbrett.cs" />
     <Compile Include="Assets\Backend\ControlFlow\Implementations\StabilityTrials.cs" />
-    <Compile Include="Assets\ExekutiveFunktionen\Scripts\BlockClick.cs" />
-    <Compile Include="Assets\ExekutiveFunktionen\Scripts\Player.cs" />
-    <Compile Include="Assets\ExekutiveFunktionen\Scripts\DataSaver.cs" />
     <Compile Include="Assets\ExekutiveFunktionen\Scripts\Randomizer.cs" />
-    <Compile Include="Assets\ExekutiveFunktionen\Scripts\SceneSwitch.cs" />
+    <Compile Include="Assets\ExekutiveFunktionen\Scripts\GoNoGo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\ExekutiveFunktionen\TextMesh Pro\Shaders\TMPro.cginc" />

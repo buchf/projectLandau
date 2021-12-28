@@ -34,7 +34,6 @@ public class SceneSwitch : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 125);
     }
 
-
     public void ReadInput(string s)
     {
         inputVPN = s;
@@ -43,5 +42,10 @@ public class SceneSwitch : MonoBehaviour
     public void SetReverse()
     {
         reverse = true;
+    }
+
+    public void StartGoNoGO()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 126);
     }
 }

@@ -395,4 +395,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/ExekutiveFunktionen/Scenes/Outro.unity
     guid: 7eeb90e42a610db4193dba18dda75e2b
+  - enabled: 1
+    path: Assets/ExekutiveFunktionen/Scenes/GoNoGoIntro.unity
+    guid: a59aa638f5bc4ae40aff9cdd4e57db9b
+  - enabled: 1
+    path: Assets/ExekutiveFunktionen/Scenes/GoNoGoPlay.unity
+    guid: d64a985872964c84681c8a57e4efbe0e
   m_configObjects: {}
