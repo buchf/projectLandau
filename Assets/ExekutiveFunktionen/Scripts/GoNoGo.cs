@@ -3,81 +3,88 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Diagnostics;
 
+using Debug = UnityEngine.Debug;
+
 public class GoNoGo : MonoBehaviour
 {
-    //Tiere mue
     public GameObject blue;
     public GameObject red;
     public GameObject green;
     public GameObject normal;
 
+    GameObject current;
+    GameObject currentAnimal;
 
     public static Stopwatch timer = new Stopwatch();
 
+    //counter zum durchiterieren und trialcounter um ab 10 das targettier zu wechseln
+    int counter = 0;
+    int trialCounter = 0;
+
+    //wird angepasst wenn das targettier geaendert werden soll
+    int sequenz = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(testAnimation());
 
-    }
-
-    public void showNormal()
-    {
+        currentAnimal = normal;
+        current = normal;
         normal.SetActive(true);
+        StartSequenz();
     }
 
-    public void showRed()
+    private void Update()
     {
-        red.SetActive(true);
+        if (timer.Elapsed.TotalSeconds >= 2.0)
+        {
+            Debug.Log("aaa");
+            selectAnimal(counter);
+            timer.Reset();
+            counter++;
+            timer.Start();
+        }
+    }
+    public void StartSequenz()
+    {
+        timer.Start();
     }
 
-    public void showGreen()
+    public void compareObject()
     {
-        green.SetActive(true);
+        Debug.Log(timer.Elapsed.TotalSeconds.ToString());
     }
 
-    public void showBlue()
+    void selectAnimal(int counter)
     {
-        blue.SetActive(true);
+        if (counter == 4) showNormal();
+        if (counter == 1) showRed();
+        if (counter == 2) showBlue();
+        if (counter == 3) showGreen();
     }
 
-    IEnumerator animateRed()
+    void showNormal()
     {
-        normal.SetActive(true);
-        yield return new WaitForSeconds(2f);
-        normal.SetActive(false);
-        yield return new WaitForSeconds(0.5f);
-        showRed();
+        current.SetActive(false);
+        current = normal;
+        current.SetActive(true);
     }
-    IEnumerator animateBlue()
+    void showRed()
     {
-        normal.SetActive(true);
-        yield return new WaitForSeconds(2f);
-        normal.SetActive(false);
-        yield return new WaitForSeconds(0.5f);
-        showBlue();
+        current.SetActive(false);
+        current = red;
+        current.SetActive(true);
     }
-    IEnumerator animateGreen()
+    void showGreen()
     {
-        normal.SetActive(true);
-        yield return new WaitForSeconds(2f);
-        normal.SetActive(false);
-        yield return new WaitForSeconds(0.5f);
-        showGreen();
+        current.SetActive(false);
+        current = green;
+        current.SetActive(true);
     }
-
-    IEnumerator testAnimation()
+    void showBlue()
     {
-        normal.SetActive(true);
-        yield return new WaitForSeconds(2f);
-        normal.SetActive(false);
-        green.SetActive(true);
-        yield return new WaitForSeconds(2f);
-        green.SetActive(false);
-        showBlue();
-        yield return new WaitForSeconds(2f);
-        blue.SetActive(false);
-        showRed();
+        current.SetActive(false);
+        current = blue;
+        current.SetActive(true);
     }
 }

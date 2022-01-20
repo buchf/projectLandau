@@ -16,9 +16,10 @@ public class Randomizer : MonoBehaviour
     public static bool reverse;
 
     [SerializeField] Button button;
-    
+   
     private void Start()
     {
+        
         Debug.Log(reverse);
         player = FindObjectOfType<Player>();
         fairy.transform.position = new Vector3(-7f, 3f, -1);
