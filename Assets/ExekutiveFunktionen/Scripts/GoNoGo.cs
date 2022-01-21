@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Diagnostics;
+using UnityEngine.SceneManagement;
 
 using Debug = UnityEngine.Debug;
 
@@ -15,19 +16,21 @@ public class GoNoGo : MonoBehaviour
     GameObject current;
     GameObject currentAnimal;
 
+
+
     public static Stopwatch timer = new Stopwatch();
 
     //counter zum durchiterieren und trialcounter um ab 10 das targettier zu wechseln
-    int counter = 0;
-    int trialCounter = 0;
+    public int counter = 0;
+    public static int trial;
 
     //wird angepasst wenn das targettier geaendert werden soll
-    int sequenz = 0;
+    public int sequenz = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        Debug.Log("trial: " + trial);
         currentAnimal = normal;
         current = normal;
         normal.SetActive(true);
@@ -36,10 +39,17 @@ public class GoNoGo : MonoBehaviour
 
     private void Update()
     {
+
+        if (counter == 20)
+        {
+            Debug.Log("Finish!!!");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        }
+
         if (timer.Elapsed.TotalSeconds >= 2.0)
         {
-            Debug.Log("aaa");
             selectAnimal(counter);
+            Debug.Log("aaa");
             timer.Reset();
             counter++;
             timer.Start();
@@ -57,34 +67,67 @@ public class GoNoGo : MonoBehaviour
 
     void selectAnimal(int counter)
     {
-        if (counter == 4) showNormal();
-        if (counter == 1) showRed();
-        if (counter == 2) showBlue();
-        if (counter == 3) showGreen();
+        switch (counter)
+        {
+            case int n when ((counter % 4) == 0):
+                StartCoroutine(showBlue());
+                break;
+            case int n when ((counter % 3) == 0):
+                StartCoroutine(showGreen());
+                break;
+            case int n when ((counter % 2) == 0):
+                StartCoroutine(showRed());
+                break;
+            case int n when ((counter % 1) == 0):
+                StartCoroutine(showNormal());
+                break;
+        }
     }
 
-    void showNormal()
+    public void compare()
+    {
+        if (current == currentAnimal)
+        {
+            Debug.Log("false");
+        }
+        else
+        {
+            Debug.Log("true");
+        }
+    }
+    IEnumerator showNormal()
     {
         current.SetActive(false);
         current = normal;
+        yield return new WaitForSeconds(0.5f);
         current.SetActive(true);
+
     }
-    void showRed()
+
+    IEnumerator showRed()
     {
         current.SetActive(false);
         current = red;
+        yield return new WaitForSeconds(0.5f);
         current.SetActive(true);
+
     }
-    void showGreen()
+
+    IEnumerator showGreen()
     {
         current.SetActive(false);
         current = green;
+        yield return new WaitForSeconds(0.5f);
         current.SetActive(true);
+
     }
-    void showBlue()
+
+    IEnumerator showBlue()
     {
         current.SetActive(false);
         current = blue;
+        yield return new WaitForSeconds(0.5f);
         current.SetActive(true);
+
     }
 }
