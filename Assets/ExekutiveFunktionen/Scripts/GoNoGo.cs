@@ -30,8 +30,9 @@ public class GoNoGo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("trial: " + trial);
+        
         SelectCurrentAnimal(trial);
+        Debug.Log("trial: " + trial + "animal: " + currentAnimal.name.ToString());
         current = donkey;
         donkey.SetActive(true);
         StartSequenz();
@@ -50,7 +51,6 @@ public class GoNoGo : MonoBehaviour
         if (timer.Elapsed.TotalSeconds >= 2.0)
         {
             selectAnimal(counter);
-            Debug.Log("aaa");
             timer.Reset();
             counter++;
             timer.Start();
@@ -78,16 +78,16 @@ public class GoNoGo : MonoBehaviour
         switch (counter)
         {
             case int n when ((counter % 4) == 0):
-                StartCoroutine(showBlue());
+                StartCoroutine(showPig());
                 break;
             case int n when ((counter % 3) == 0):
-                StartCoroutine(showGreen());
+                StartCoroutine(showCow());
                 break;
             case int n when ((counter % 2) == 0):
-                StartCoroutine(showRed());
+                StartCoroutine(showChicken());
                 break;
             case int n when ((counter % 1) == 0):
-                StartCoroutine(showNormal());
+                StartCoroutine(showDonkey());
                 break;
         }
     }
@@ -103,7 +103,7 @@ public class GoNoGo : MonoBehaviour
             Debug.Log("true");
         }
     }
-    IEnumerator showNormal()
+    IEnumerator showDonkey()
     {
         current.SetActive(false);
         current = donkey;
@@ -111,7 +111,7 @@ public class GoNoGo : MonoBehaviour
         current.SetActive(true);
     }
 
-    IEnumerator showRed()
+    IEnumerator showChicken()
     {
         current.SetActive(false);
         current = chicken;
@@ -119,7 +119,7 @@ public class GoNoGo : MonoBehaviour
         current.SetActive(true);
     }
 
-    IEnumerator showGreen()
+    IEnumerator showCow()
     {
         current.SetActive(false);
         current = cow;
@@ -127,7 +127,7 @@ public class GoNoGo : MonoBehaviour
         current.SetActive(true);
     }
 
-    IEnumerator showBlue()
+    IEnumerator showPig()
     {
         current.SetActive(false);
         current = pig;
