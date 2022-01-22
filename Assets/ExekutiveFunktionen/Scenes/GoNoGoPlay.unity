@@ -267,7 +267,7 @@ GameObject:
   - component: {fileID: 220125962}
   - component: {fileID: 220125963}
   m_Layer: 0
-  m_Name: Lessa blau
+  m_Name: cow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -349,7 +349,7 @@ GameObject:
   - component: {fileID: 819609165}
   - component: {fileID: 819609166}
   m_Layer: 0
-  m_Name: Lessa
+  m_Name: donkey
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -740,7 +740,7 @@ GameObject:
   - component: {fileID: 1637604511}
   - component: {fileID: 1637604510}
   m_Layer: 0
-  m_Name: Lessa grun
+  m_Name: chicken
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -924,10 +924,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7458ccfa0f330d544ad03cc1f1163161, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blue: {fileID: 220125961}
-  red: {fileID: 1939436647}
-  green: {fileID: 1637604509}
-  normal: {fileID: 819609164}
+  pig: {fileID: 1939436647}
+  chicken: {fileID: 1637604509}
+  cow: {fileID: 220125961}
+  donkey: {fileID: 819609164}
   counter: 0
   sequenz: 0
 --- !u!1 &1939436647
@@ -941,7 +941,7 @@ GameObject:
   - component: {fileID: 1939436649}
   - component: {fileID: 1939436648}
   m_Layer: 0
-  m_Name: Lessa rot
+  m_Name: pig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

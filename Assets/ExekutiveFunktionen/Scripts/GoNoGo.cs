@@ -8,10 +8,10 @@ using Debug = UnityEngine.Debug;
 
 public class GoNoGo : MonoBehaviour
 {
-    public GameObject blue;
-    public GameObject red;
-    public GameObject green;
-    public GameObject normal;
+    public GameObject pig;
+    public GameObject chicken;
+    public GameObject cow;
+    public GameObject donkey;
 
     GameObject current;
     GameObject currentAnimal;
@@ -32,8 +32,8 @@ public class GoNoGo : MonoBehaviour
     {
         Debug.Log("trial: " + trial);
         SelectCurrentAnimal(trial);
-        current = normal;
-        normal.SetActive(true);
+        current = donkey;
+        donkey.SetActive(true);
         StartSequenz();
     }
 
@@ -63,10 +63,10 @@ public class GoNoGo : MonoBehaviour
 
     void SelectCurrentAnimal(int trial)
     {
-        if (trial == 1) currentAnimal = normal;
-        if (trial == 2) currentAnimal = green;
-        if (trial == 3) currentAnimal = red;
-        if (trial == 4) currentAnimal = blue;
+        if (trial == 1) currentAnimal = donkey;
+        if (trial == 2) currentAnimal = cow;
+        if (trial == 3) currentAnimal = chicken;
+        if (trial == 4) currentAnimal = pig;
     }
     public void compareObject()
     {
@@ -106,7 +106,7 @@ public class GoNoGo : MonoBehaviour
     IEnumerator showNormal()
     {
         current.SetActive(false);
-        current = normal;
+        current = donkey;
         yield return new WaitForSeconds(0.5f);
         current.SetActive(true);
     }
@@ -114,7 +114,7 @@ public class GoNoGo : MonoBehaviour
     IEnumerator showRed()
     {
         current.SetActive(false);
-        current = red;
+        current = chicken;
         yield return new WaitForSeconds(0.5f);
         current.SetActive(true);
     }
@@ -122,7 +122,7 @@ public class GoNoGo : MonoBehaviour
     IEnumerator showGreen()
     {
         current.SetActive(false);
-        current = green;
+        current = cow;
         yield return new WaitForSeconds(0.5f);
         current.SetActive(true);
     }
@@ -130,7 +130,7 @@ public class GoNoGo : MonoBehaviour
     IEnumerator showBlue()
     {
         current.SetActive(false);
-        current = blue;
+        current = pig;
         yield return new WaitForSeconds(0.5f);
         current.SetActive(true);
     }
