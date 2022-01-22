@@ -22,7 +22,7 @@ public class GoNoGo : MonoBehaviour
 
     //counter zum durchiterieren und trialcounter um ab 10 das targettier zu wechseln
     public int counter = 0;
-    public static int trial;
+    public static int trial = 1;
 
     //wird angepasst wenn das targettier geaendert werden soll
     public int sequenz = 0;
@@ -31,7 +31,7 @@ public class GoNoGo : MonoBehaviour
     void Start()
     {
         Debug.Log("trial: " + trial);
-        currentAnimal = normal;
+        SelectCurrentAnimal(trial);
         current = normal;
         normal.SetActive(true);
         StartSequenz();
@@ -40,10 +40,11 @@ public class GoNoGo : MonoBehaviour
     private void Update()
     {
 
-        if (counter == 20)
+        if (counter == 10 && trial != 5)
         {
             Debug.Log("Finish!!!");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+            trial++;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
         if (timer.Elapsed.TotalSeconds >= 2.0)
@@ -60,6 +61,13 @@ public class GoNoGo : MonoBehaviour
         timer.Start();
     }
 
+    void SelectCurrentAnimal(int trial)
+    {
+        if (trial == 1) currentAnimal = normal;
+        if (trial == 2) currentAnimal = green;
+        if (trial == 3) currentAnimal = red;
+        if (trial == 4) currentAnimal = blue;
+    }
     public void compareObject()
     {
         Debug.Log(timer.Elapsed.TotalSeconds.ToString());
@@ -101,7 +109,6 @@ public class GoNoGo : MonoBehaviour
         current = normal;
         yield return new WaitForSeconds(0.5f);
         current.SetActive(true);
-
     }
 
     IEnumerator showRed()
@@ -110,7 +117,6 @@ public class GoNoGo : MonoBehaviour
         current = red;
         yield return new WaitForSeconds(0.5f);
         current.SetActive(true);
-
     }
 
     IEnumerator showGreen()
@@ -119,7 +125,6 @@ public class GoNoGo : MonoBehaviour
         current = green;
         yield return new WaitForSeconds(0.5f);
         current.SetActive(true);
-
     }
 
     IEnumerator showBlue()
@@ -128,6 +133,5 @@ public class GoNoGo : MonoBehaviour
         current = blue;
         yield return new WaitForSeconds(0.5f);
         current.SetActive(true);
-
     }
 }

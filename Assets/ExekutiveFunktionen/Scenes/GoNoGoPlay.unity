@@ -208,7 +208,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1790550469}
         m_TargetAssemblyTypeName: GoNoGo, Assembly-CSharp
-        m_MethodName: compareObject
+        m_MethodName: compare
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -928,6 +928,8 @@ MonoBehaviour:
   red: {fileID: 1939436647}
   green: {fileID: 1637604509}
   normal: {fileID: 819609164}
+  counter: 0
+  sequenz: 0
 --- !u!1 &1939436647
 GameObject:
   m_ObjectHideFlags: 0
