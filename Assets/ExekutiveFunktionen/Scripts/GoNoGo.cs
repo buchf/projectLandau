@@ -107,7 +107,7 @@ public class GoNoGo : MonoBehaviour
     {
         current.SetActive(false);
         current = donkey;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         current.SetActive(true);
     }
 
@@ -115,7 +115,7 @@ public class GoNoGo : MonoBehaviour
     {
         current.SetActive(false);
         current = chicken;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         current.SetActive(true);
     }
 
@@ -123,7 +123,7 @@ public class GoNoGo : MonoBehaviour
     {
         current.SetActive(false);
         current = cow;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         current.SetActive(true);
     }
 
@@ -131,7 +131,7 @@ public class GoNoGo : MonoBehaviour
     {
         current.SetActive(false);
         current = pig;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         current.SetActive(true);
     }
 }

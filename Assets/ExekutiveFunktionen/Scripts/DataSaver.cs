@@ -36,7 +36,7 @@ public class DataSaver : MonoBehaviour
     public static StringBuilder z2 = new StringBuilder();
     public static StringBuilder z3 = new StringBuilder();
     public static StringBuilder z4 = new StringBuilder();
-    public StringBuilder z1 = new StringBuilder();
+    public static StringBuilder z1 = new StringBuilder();
 
     public static int count = 1;
 
@@ -45,7 +45,16 @@ public class DataSaver : MonoBehaviour
 
     private void Start()
     {
-        fileName = "VPN" + VPN + "_corsi.csv";
+        
+        if(SceneSwitch.reverse == true)
+        {
+            fileName = "VPN" + VPN + "_corsi_reverse.csv";
+        }
+        else
+        {
+            fileName = "VPN" + VPN + "_corsi.csv";
+        }
+        
         filePath = Path.Combine(Application.persistentDataPath, fileName);
 
 

@@ -12,13 +12,20 @@ public class SceneSwitch : MonoBehaviour
      */
 
     private string inputVPN = "";
-    private bool reverse = false;
+    public static bool reverse = false;
     public void StartGame()
     {
+        DataSaver.z1.Clear();
+        DataSaver.z2.Clear();
+        DataSaver.z3.Clear();
+        DataSaver.z4.Clear();
+        DataSaver.results.Clear();
+
         DataSaver.VPN = inputVPN;
         Randomizer.reverse = reverse;
         if (reverse)
         {
+
             DataSaver.count = 8;
         }
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 123);

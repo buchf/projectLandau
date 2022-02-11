@@ -44,14 +44,14 @@ public class Randomizer : MonoBehaviour
         fairy.transform.position = new Vector3(-7f, 3f, -1);
 
         
-        if (count1 == 3 && count2 != 7)
+        if (count1 == 8 && count2 != 2)
         {
             count1 = 0;
             count2++;
         } 
 
         // 3 7 richtig
-        if(count1 == 3 && count2 == 7)
+        if(count1 == 8 && count2 == 2)
         {
             //Finish the whole Sequenz so the OutroScene is loaded
             Debug.Log("FINISH");
@@ -67,87 +67,67 @@ public class Randomizer : MonoBehaviour
         {
             //Trial 1 
             if (count1 == 0 && count2 == 0) StartCoroutine(SequenzOne(5, 1));
-            if (count1 == 1 && count2 == 0) StartCoroutine(SequenzTwo(1, 5, 9));
-            if (count1 == 2 && count2 == 0) StartCoroutine(SequenzThree(8, 4, 9, 6));
+            if (count1 == 1 && count2 == 0) StartCoroutine(SequenzOne(8, 1));
+            if (count1 == 2 && count2 == 0) StartCoroutine(SequenzOne(5, 3));
+            if (count1 == 3 && count2 == 0) StartCoroutine(SequenzOne(9, 8));
+            if (count1 == 4 && count2 == 0) StartCoroutine(SequenzOne(7, 2));
+            if (count1 == 5 && count2 == 0) StartCoroutine(SequenzOne(7, 8));
+            if (count1 == 6 && count2 == 0) StartCoroutine(SequenzOne(7, 6));
+            if (count1 == 7 && count2 == 0) StartCoroutine(SequenzOne(7, 9));
 
             //Trial 2
-            if (count1 == 0 && count2 == 1) StartCoroutine(SequenzOne(8, 1));
+            if (count1 == 0 && count2 == 1) StartCoroutine(SequenzTwo(1, 5, 9));
             if (count1 == 1 && count2 == 1) StartCoroutine(SequenzTwo(1, 4, 9));
-            if (count1 == 2 && count2 == 1) StartCoroutine(SequenzThree(5, 6, 9, 2));
+            if (count1 == 2 && count2 == 1) StartCoroutine(SequenzTwo(2, 8, 6));
+            if (count1 == 3 && count2 == 1) StartCoroutine(SequenzTwo(5, 2, 9));
+            if (count1 == 4 && count2 == 1) StartCoroutine(SequenzTwo(7, 8, 2));
+            if (count1 == 5 && count2 == 1) StartCoroutine(SequenzTwo(5, 2, 8));
+            if (count1 == 6 && count2 == 1) StartCoroutine(SequenzTwo(9, 4, 3));
+            if (count1 == 7 && count2 == 1) StartCoroutine(SequenzTwo(9, 2, 7));
 
             //Trial 3
-            if (count1 == 0 && count2 == 2) StartCoroutine(SequenzOne(5, 3));
-            if (count1 == 1 && count2 == 2) StartCoroutine(SequenzTwo(2, 8, 6));
-            if (count1 == 2 && count2 == 2) StartCoroutine(SequenzThree(1, 9, 3, 6));
-
-            //Trial 4
-            if (count1 == 0 && count2 == 3) StartCoroutine(SequenzOne(9, 8));
-            if (count1 == 1 && count2 == 3) StartCoroutine(SequenzTwo(5, 2, 9));
-            if (count1 == 2 && count2 == 3) StartCoroutine(SequenzThree(9, 1, 7, 6));
-
-            //SequTrialenz 5
-            if (count1 == 0 && count2 == 4) StartCoroutine(SequenzOne(7, 2));
-            if (count1 == 1 && count2 == 4) StartCoroutine(SequenzTwo(7, 8, 2));
-            if (count1 == 2 && count2 == 4) StartCoroutine(SequenzThree(1, 2, 7, 5));
-
-            //Trial 6
-            if (count1 == 0 && count2 == 5) StartCoroutine(SequenzOne(7, 8));
-            if (count1 == 1 && count2 == 5) StartCoroutine(SequenzTwo(5, 2, 8));
-            if (count1 == 2 && count2 == 5) StartCoroutine(SequenzThree(1, 9, 3, 8));
-
-            //Trial 7
-            if (count1 == 0 && count2 == 6) StartCoroutine(SequenzOne(7, 6));
-            if (count1 == 1 && count2 == 6) StartCoroutine(SequenzTwo(9, 4, 3));
-            if (count1 == 2 && count2 == 6) StartCoroutine(SequenzThree(9, 7, 3, 8));
-
-            //Trial 8
-            if (count1 == 0 && count2 == 7) StartCoroutine(SequenzOne(7, 9));
-            if (count1 == 1 && count2 == 7) StartCoroutine(SequenzTwo(9, 2, 7));
-            if (count1 == 2 && count2 == 7) StartCoroutine(SequenzThree(9, 2, 6, 8));
+            if (count1 == 0 && count2 == 2) StartCoroutine(SequenzThree(8, 4, 9, 6));
+            if (count1 == 1 && count2 == 2) StartCoroutine(SequenzThree(5, 6, 9, 2));
+            if (count1 == 2 && count2 == 2) StartCoroutine(SequenzThree(1, 9, 3, 6));         
+            if (count1 == 3 && count2 == 2) StartCoroutine(SequenzThree(9, 1, 7, 6));
+            if (count1 == 4 && count2 == 2) StartCoroutine(SequenzThree(1, 2, 7, 5));
+            if (count1 == 5 && count2 == 2) StartCoroutine(SequenzThree(1, 9, 3, 8));
+            if (count1 == 6 && count2 == 2) StartCoroutine(SequenzThree(9, 7, 3, 8));
+            if (count1 == 7 && count2 == 2) StartCoroutine(SequenzThree(9, 2, 6, 8));
 
             count1++;
         }
         else
         {
-            //Trial 8
+            //Trial 1 - reverse
             if (count1 == 0 && count2 == 0) StartCoroutine(SequenzOne(7, 9));
-            if (count1 == 1 && count2 == 0) StartCoroutine(SequenzTwo(9, 2, 7));
-            if (count1 == 2 && count2 == 0) StartCoroutine(SequenzThree(9, 2, 6, 8));
+            if (count1 == 1 && count2 == 0) StartCoroutine(SequenzOne(7, 6));
+            if (count1 == 2 && count2 == 0) StartCoroutine(SequenzOne(7, 8));
+            if (count1 == 3 && count2 == 0) StartCoroutine(SequenzOne(7, 2));
+            if (count1 == 4 && count2 == 0) StartCoroutine(SequenzOne(9, 8));
+            if (count1 == 5 && count2 == 0) StartCoroutine(SequenzOne(5, 3));
+            if (count1 == 6 && count2 == 0) StartCoroutine(SequenzOne(8, 1));
+            if (count1 == 7 && count2 == 0) StartCoroutine(SequenzOne(5, 1));
 
-            //Trial 7
-            if (count1 == 0 && count2 == 1) StartCoroutine(SequenzOne(7, 6));
+            //Trial 2 - reverse 
+            if (count1 == 0 && count2 == 1) StartCoroutine(SequenzTwo(9, 2, 7));
             if (count1 == 1 && count2 == 1) StartCoroutine(SequenzTwo(9, 4, 3));
-            if (count1 == 2 && count2 == 1) StartCoroutine(SequenzThree(9, 7, 3, 8));
+            if (count1 == 2 && count2 == 1) StartCoroutine(SequenzTwo(5, 2, 8));
+            if (count1 == 3 && count2 == 1) StartCoroutine(SequenzTwo(7, 8, 2));
+            if (count1 == 4 && count2 == 1) StartCoroutine(SequenzTwo(5, 2, 9));
+            if (count1 == 5 && count2 == 1) StartCoroutine(SequenzTwo(2, 8, 6));
+            if (count1 == 6 && count2 == 1) StartCoroutine(SequenzTwo(1, 4, 9));
+            if (count1 == 7 && count2 == 1) StartCoroutine(SequenzTwo(1, 5, 9));
 
-            //Trial 6
-            if (count1 == 0 && count2 == 2) StartCoroutine(SequenzOne(7, 8));
-            if (count1 == 1 && count2 == 2) StartCoroutine(SequenzTwo(5, 2, 8));
+            //Trial 3 - reverse
+            if (count1 == 0 && count2 == 2) StartCoroutine(SequenzThree(9, 2, 6, 8));
+            if (count1 == 1 && count2 == 2) StartCoroutine(SequenzThree(9, 7, 3, 8));
             if (count1 == 2 && count2 == 2) StartCoroutine(SequenzThree(1, 9, 3, 8));
-
-            //SequTrialenz 5
-            if (count1 == 0 && count2 == 3) StartCoroutine(SequenzOne(7, 2));
-            if (count1 == 1 && count2 == 3) StartCoroutine(SequenzTwo(7, 8, 2));
-            if (count1 == 2 && count2 == 3) StartCoroutine(SequenzThree(1, 2, 7, 5));
-
-            //Trial 4
-            if (count1 == 0 && count2 == 4) StartCoroutine(SequenzOne(9, 8));
-            if (count1 == 1 && count2 == 4) StartCoroutine(SequenzTwo(5, 2, 9));
-            if (count1 == 2 && count2 == 4) StartCoroutine(SequenzThree(9, 1, 7, 6));
-
-            //Trial 3
-            if (count1 == 0 && count2 == 5) StartCoroutine(SequenzOne(5, 3));
-            if (count1 == 1 && count2 == 5) StartCoroutine(SequenzTwo(2, 8, 6));
-            if (count1 == 2 && count2 == 5) StartCoroutine(SequenzThree(1, 9, 3, 6));
-
-            //Trial 2
-            if (count1 == 0 && count2 == 6) StartCoroutine(SequenzOne(8, 1));
-            if (count1 == 1 && count2 == 6) StartCoroutine(SequenzTwo(1, 4, 9));
-            if (count1 == 2 && count2 == 6) StartCoroutine(SequenzThree(5, 6, 9, 2));
-
-            //Trial 1 
-            if (count1 == 0 && count2 == 7) StartCoroutine(SequenzOne(5, 1));
-            if (count1 == 1 && count2 == 7) StartCoroutine(SequenzTwo(1, 5, 9));
-            if (count1 == 2 && count2 == 7) StartCoroutine(SequenzThree(8, 4, 9, 6));
+            if (count1 == 3 && count2 == 2) StartCoroutine(SequenzThree(1, 2, 7, 5));
+            if (count1 == 4 && count2 == 2) StartCoroutine(SequenzThree(9, 1, 7, 6));
+            if (count1 == 5 && count2 == 2) StartCoroutine(SequenzThree(1, 9, 3, 6));
+            if (count1 == 6 && count2 == 2) StartCoroutine(SequenzThree(5, 6, 9, 2));
+            if (count1 == 7 && count2 == 2) StartCoroutine(SequenzThree(8, 4, 9, 6));
 
             count1++;
             Debug.Log("test");

@@ -2900,7 +2900,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Matrix
+  m_Text: Go NoGo
 --- !u!222 &1348750070
 CanvasRenderer:
   m_ObjectHideFlags: 0
