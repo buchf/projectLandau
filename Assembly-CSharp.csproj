@@ -80,10 +80,11 @@
     <Compile Include="Assets\Backend\UI\Auswahlsymbol.cs" />
     <Compile Include="Assets\Backend\UI\Propeller.cs" />
     <Compile Include="Assets\Backend\ControlFlow\ReplayInput.cs" />
+    <Compile Include="Assets\ExekutiveFunktionen\Scripts\AnimalSelector.cs" />
     <Compile Include="Assets\Backend\UI\Spielbrett.cs" />
     <Compile Include="Assets\Backend\ControlFlow\Implementations\StabilityTrials.cs" />
     <Compile Include="Assets\ExekutiveFunktionen\Scripts\Randomizer.cs" />
-    <Compile Include="Assets\ExekutiveFunktionen\Scripts\AnimalSelector.cs" />
+    <Compile Include="Assets\ExekutiveFunktionen\Scripts\DataGoNoGO.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\ExekutiveFunktionen\TextMesh Pro\Shaders\TMPro.cginc" />

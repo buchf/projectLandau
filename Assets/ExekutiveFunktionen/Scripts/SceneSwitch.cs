@@ -53,6 +53,7 @@ public class SceneSwitch : MonoBehaviour
 
     public void StartGoNoGO()
     {
+        DataGoNoGO.VPN = inputVPN;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 126);
     }
 }

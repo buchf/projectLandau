@@ -48,6 +48,14 @@ public class GoNoGo : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
+        if (counter == 10 && trial == 5)
+        {
+            Debug.Log("Finish!!!");
+            trial++;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+        }
+
+
         if (timer.Elapsed.TotalSeconds >= 2.0)
         {
             selectAnimal(counter);
