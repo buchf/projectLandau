@@ -40,6 +40,10 @@ public class SceneSwitch : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 125);
     }
+    public void GoNoGoBackStart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 129);
+    }
 
     public void ReadInput(string s)
     {
