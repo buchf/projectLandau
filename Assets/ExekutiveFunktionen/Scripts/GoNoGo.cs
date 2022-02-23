@@ -16,7 +16,7 @@ public class GoNoGo : MonoBehaviour
     GameObject current;
     GameObject currentAnimal;
 
-
+    
 
     public static Stopwatch timer = new Stopwatch();
 
@@ -41,29 +41,36 @@ public class GoNoGo : MonoBehaviour
     private void Update()
     {
 
-        if (counter == 10 && trial != 5)
+        if (counter == 2 && trial != 5)
         {
             Debug.Log("Finish!!!");
             trial++;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
-        if (counter == 10 && trial == 5)
+        if (counter == 2 && trial == 5)
         {
             Debug.Log("Finish!!!");
             trial++;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
         }
 
-
+        //falls timer > 2 sekunden dann naechstes tier
         if (timer.Elapsed.TotalSeconds >= 2.0)
         {
-            selectAnimal(counter);
-            timer.Reset();
-            counter++;
-            timer.Start();
+            SelectNextAnimal();
         }
     }
+
+    //wird benoetigt zur automatischen abfolge oder beim klicken des buttons
+    private void SelectNextAnimal()
+    {
+        selectAnimal(counter);
+        timer.Reset();
+        counter++;
+        timer.Start();
+    }
+
     public void StartSequenz()
     {
         timer.Start();
@@ -100,8 +107,10 @@ public class GoNoGo : MonoBehaviour
         }
     }
 
+    //wird aufgerufen wenn der Button betaetigt wird
     public void compare()
     {
+        
         if (current == currentAnimal)
         {
             Debug.Log("false");
@@ -110,7 +119,17 @@ public class GoNoGo : MonoBehaviour
         {
             Debug.Log("true");
         }
+        //aufrufen um nach betaetigen des buttons direkt zum naechsten tier zu gelangen
+        SelectNextAnimal();
     }
+
+    private void WriteInDatasaver(string current, string shown, int click, bool CRESP, double reaction)
+    {
+        DataGoNoGO.MeasureSequenz(current,shown,click,CRESP,reaction);
+
+    }
+
+
     IEnumerator showDonkey()
     {
         current.SetActive(false);
