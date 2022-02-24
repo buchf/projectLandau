@@ -13,7 +13,7 @@ public class GoNoGo : MonoBehaviour
     public GameObject cow;
     public GameObject donkey;
 
-    GameObject current;
+    GameObject shownAnimal;
     GameObject currentAnimal;
 
     
@@ -24,8 +24,16 @@ public class GoNoGo : MonoBehaviour
     public int counter = 0;
     public static int trial = 1;
 
+    
+    public static int correctClick = 0;
+    public static int incorrectClick = 0;
+    public static int correctNoClick = 0;
+    public static int incorrectNoClick = 0;
+
     //wird angepasst wenn das targettier geaendert werden soll
     public int sequenz = 0;
+
+    public bool checkAnimal;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +41,7 @@ public class GoNoGo : MonoBehaviour
         
         SelectCurrentAnimal(trial);
         Debug.Log("trial: " + trial + "animal: " + currentAnimal.name.ToString());
-        current = donkey;
+        shownAnimal = donkey;
         donkey.SetActive(true);
         StartSequenz();
     }
@@ -58,6 +66,17 @@ public class GoNoGo : MonoBehaviour
         //falls timer > 2 sekunden dann naechstes tier
         if (timer.Elapsed.TotalSeconds >= 2.0)
         {
+            if (shownAnimal == currentAnimal)
+            {
+                checkAnimal = true;
+                correctNoClick++;
+            }
+            else
+            {
+                checkAnimal = false;
+                incorrectNoClick++;
+            }
+            WriteInDatasaver(currentAnimal.name, shownAnimal.name, 0, checkAnimal , timer.Elapsed.TotalMilliseconds);
             SelectNextAnimal();
         }
     }
@@ -66,9 +85,8 @@ public class GoNoGo : MonoBehaviour
     private void SelectNextAnimal()
     {
         selectAnimal(counter);
-        timer.Reset();
         counter++;
-        timer.Start();
+        
     }
 
     public void StartSequenz()
@@ -85,7 +103,7 @@ public class GoNoGo : MonoBehaviour
     }
     public void compareObject()
     {
-        Debug.Log(timer.Elapsed.TotalSeconds.ToString());
+
     }
 
     void selectAnimal(int counter)
@@ -110,15 +128,17 @@ public class GoNoGo : MonoBehaviour
     //wird aufgerufen wenn der Button betaetigt wird
     public void compare()
     {
-        
-        if (current == currentAnimal)
+        if (shownAnimal == currentAnimal)
         {
-            Debug.Log("false");
+            checkAnimal = false;
+            incorrectClick++;
         }
         else
         {
-            Debug.Log("true");
+            checkAnimal = true;
+            correctClick++;
         }
+        WriteInDatasaver(currentAnimal.name, shownAnimal.name, 1, checkAnimal, timer.Elapsed.TotalMilliseconds);
         //aufrufen um nach betaetigen des buttons direkt zum naechsten tier zu gelangen
         SelectNextAnimal();
     }
@@ -126,39 +146,43 @@ public class GoNoGo : MonoBehaviour
     private void WriteInDatasaver(string current, string shown, int click, bool CRESP, double reaction)
     {
         DataGoNoGO.MeasureSequenz(current,shown,click,CRESP,reaction);
-
+        timer.Reset();
     }
 
 
     IEnumerator showDonkey()
     {
-        current.SetActive(false);
-        current = donkey;
+        shownAnimal.SetActive(false);
+        shownAnimal = donkey;
         yield return new WaitForSeconds(1f);
-        current.SetActive(true);
+        shownAnimal.SetActive(true);
+        timer.Start();
     }
 
     IEnumerator showChicken()
     {
-        current.SetActive(false);
-        current = chicken;
+        shownAnimal.SetActive(false);
+        shownAnimal = chicken;
         yield return new WaitForSeconds(1f);
-        current.SetActive(true);
+        shownAnimal.SetActive(true);
+        timer.Start();
     }
 
     IEnumerator showCow()
     {
-        current.SetActive(false);
-        current = cow;
+        shownAnimal.SetActive(false);
+        shownAnimal = cow;
         yield return new WaitForSeconds(1f);
-        current.SetActive(true);
+        shownAnimal.SetActive(true);
+        timer.Start();
     }
 
     IEnumerator showPig()
     {
-        current.SetActive(false);
-        current = pig;
+        shownAnimal.SetActive(false);
+        shownAnimal = pig;
         yield return new WaitForSeconds(1f);
-        current.SetActive(true);
+        shownAnimal.SetActive(true);
+        timer.Start();
     }
 }
