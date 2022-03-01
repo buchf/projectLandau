@@ -49,14 +49,14 @@ public class GoNoGo : MonoBehaviour
     private void Update()
     {
 
-        if (counter == 2 && trial != 5)
+        if (counter == 3 && trial != 5)
         {
             Debug.Log("Finish!!!");
             trial++;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
-        if (counter == 2 && trial == 5)
+        if (counter == 3 && trial == 5)
         {
             Debug.Log("Finish!!!");
             trial++;

@@ -19,6 +19,7 @@ public class SceneSwitch : MonoBehaviour
         DataSaver.z2.Clear();
         DataSaver.z3.Clear();
         DataSaver.z4.Clear();
+        DataSaver.z5.Clear();
         DataSaver.results.Clear();
 
         DataSaver.VPN = inputVPN;

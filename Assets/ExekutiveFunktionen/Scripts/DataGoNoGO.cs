@@ -49,7 +49,7 @@ public class DataGoNoGO : MonoBehaviour
 
     public static void MeasureSequenz(string currentAnimal, string actualAnimal, int clicked, bool CRESP, double reaction)
     {
-        z1.AppendFormat(",{0},{1},{2},{3},{4}ms\n", currentAnimal, actualAnimal, clicked, CRESP, reaction.ToString("0", System.Globalization.CultureInfo.InvariantCulture));
+        z1.AppendFormat(",{0},{1},{2},{3},{4}\n", currentAnimal, actualAnimal, clicked, CRESP, reaction.ToString("0", System.Globalization.CultureInfo.InvariantCulture));
     }
 
     private string ListToString(List<StringBuilder> results)

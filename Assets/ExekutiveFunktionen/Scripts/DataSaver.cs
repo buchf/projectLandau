@@ -33,10 +33,12 @@ public class DataSaver : MonoBehaviour
     public static List<StringBuilder> results = new List<StringBuilder>();
 
     //z2 sind die strings fuer die sequenzen mit 2 erwarteten inputs, z3 mit 3 inputs, z4 mit 4inputs 
+    public static StringBuilder z1 = new StringBuilder();
     public static StringBuilder z2 = new StringBuilder();
     public static StringBuilder z3 = new StringBuilder();
     public static StringBuilder z4 = new StringBuilder();
-    public static StringBuilder z1 = new StringBuilder();
+    public static StringBuilder z5 = new StringBuilder();
+
 
     public static int count = 1;
 
@@ -74,11 +76,12 @@ public class DataSaver : MonoBehaviour
 
         z1.Append("Corsi\n" + ",Sequenzes correct:," + rightTask + " of " + Player.currentSequenzCounter + "\n");
         z1.Append(",Clicks Accuracy:," + accuracyPercentage.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) + "%\n" + ",total Time: ," + totalTime.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) +"ms\n");
-        z1.Append("\n,Trial no., Full Sequenz correct,Reaction Time,First click,Second click,Third click,Fourth click\n");
+        z1.Append("\n,Trial no., Full Sequenz correct,Reaction Time,First click,Second click,Third click,Fourth click,Fifth click\n");
         results.Add(z1);
         results.Add(z2);
         results.Add(z3);
         results.Add(z4);
+        results.Add(z5);
         File.WriteAllText(filePath, ListToString(results));
 
     }
@@ -112,22 +115,36 @@ public class DataSaver : MonoBehaviour
      */
     public static void MeasureSequenzOne(bool fullSequenz, double reaction, int click1, int click2)
     {
-        z2.AppendFormat(",sequenz{0}_2,{1},{2}ms,{3},{4}\n", count, fullSequenz, reaction.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture), click1 ,click2 );
+        z2.AppendFormat(",sequenz{0}_2,{1},{2},{3},{4}\n", count, fullSequenz, reaction.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture), click1 ,click2 );
+        CSVCounter();
     }
     public static void MeasureSequenzTwo(bool fullSequenz, double reaction, int click1, int click2, int click3)
     {
-        z3.AppendFormat(",sequenz{0}_3,{1},{2}ms,{3},{4},{5}\n", count, fullSequenz, reaction.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture), click1, click2, click3);
+        z3.AppendFormat(",sequenz{0}_3,{1},{2},{3},{4},{5}\n", count, fullSequenz, reaction.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture), click1, click2, click3);
+        CSVCounter();
     }
     public static void MeasureSequenzThree(bool fullSequenz, double reaction, int click1, int click2, int click3, int click4)
     {
-        z4.AppendFormat(",sequenz{0}_4,{1},{2}ms,{3},{4},{5},{6}\n", count, fullSequenz, reaction.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture), click1, click2, click3, click4);
-        //count++;
+        z4.AppendFormat(",sequenz{0}_4,{1},{2},{3},{4},{5},{6}\n", count, fullSequenz, reaction.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture), click1, click2, click3, click4);
+        CSVCounter();
+    }
+
+    public static void MeasureSequenzFour(bool fullSequenz, double reaction, int click1, int click2, int click3, int click4, int click5)
+    {
+        z5.AppendFormat(",sequenz{0}_5,{1},{2},{3},{4},{5},{6},{7}\n", count, fullSequenz, reaction.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture), click1, click2, click3, click4, click5);
+        CSVCounter();
+    }
+
+    public static void CSVCounter()
+    {
         if (Randomizer.reverse)
         {
+            if (count == 1) count = 9;
             count--;
         }
         else
         {
+            if (count == 8) count = 0;
             count++;
         }
     }

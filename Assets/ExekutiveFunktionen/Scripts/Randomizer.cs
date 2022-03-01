@@ -11,7 +11,7 @@ public class Randomizer : MonoBehaviour
     public GameObject fairy;
     private Player player;
     float speed = 1f;
-    int count1, count2 = 0;
+    public int count1, count2 = 0;
 
     public static bool reverse;
 
@@ -44,14 +44,14 @@ public class Randomizer : MonoBehaviour
         fairy.transform.position = new Vector3(-7f, 3f, -1);
 
         
-        if (count1 == 8 && count2 != 2)
+        if (count1 == 8 && count2 != 3)
         {
             count1 = 0;
             count2++;
         } 
 
         // 3 7 richtig
-        if(count1 == 8 && count2 == 2)
+        if(count1 == 8 && count2 == 3)
         {
             //Finish the whole Sequenz so the OutroScene is loaded
             Debug.Log("FINISH");
@@ -95,6 +95,16 @@ public class Randomizer : MonoBehaviour
             if (count1 == 6 && count2 == 2) StartCoroutine(SequenzThree(9, 7, 3, 8));
             if (count1 == 7 && count2 == 2) StartCoroutine(SequenzThree(9, 2, 6, 8));
 
+            //Trial 4
+            if (count1 == 0 && count2 == 3) StartCoroutine(SequenzFour(1, 3, 6, 4, 9));
+            if (count1 == 1 && count2 == 3) StartCoroutine(SequenzFour(5, 3, 7, 2, 8));
+            if (count1 == 2 && count2 == 3) StartCoroutine(SequenzFour(2, 1, 9, 5, 6));
+            if (count1 == 3 && count2 == 3) StartCoroutine(SequenzFour(4, 5, 6, 7 ,8));
+            if (count1 == 4 && count2 == 3) StartCoroutine(SequenzFour(1, 2, 7, 5 ,3));
+            if (count1 == 5 && count2 == 3) StartCoroutine(SequenzFour(1, 2 ,4 ,7, 5));
+            if (count1 == 6 && count2 == 3) StartCoroutine(SequenzFour(9, 7, 1 ,8 ,2));
+            if (count1 == 7 && count2 == 3) StartCoroutine(SequenzFour(3, 2, 7, 1 ,8));
+
             count1++;
         }
         else
@@ -129,11 +139,19 @@ public class Randomizer : MonoBehaviour
             if (count1 == 6 && count2 == 2) StartCoroutine(SequenzThree(5, 6, 9, 2));
             if (count1 == 7 && count2 == 2) StartCoroutine(SequenzThree(8, 4, 9, 6));
 
+            //Trial 4 - reverse
+            if (count1 == 0 && count2 == 3) StartCoroutine(SequenzFour(3, 2, 7, 1, 8));
+            if (count1 == 1 && count2 == 3) StartCoroutine(SequenzFour(9, 7, 1, 8, 2));
+            if (count1 == 2 && count2 == 3) StartCoroutine(SequenzFour(1, 2, 4, 7, 5));
+            if (count1 == 3 && count2 == 3) StartCoroutine(SequenzFour(1, 2, 7, 5, 3));
+            if (count1 == 4 && count2 == 3) StartCoroutine(SequenzFour(4, 5, 6, 7, 8));
+            if (count1 == 5 && count2 == 3) StartCoroutine(SequenzFour(2, 1, 9, 5, 6));
+            if (count1 == 6 && count2 == 3) StartCoroutine(SequenzFour(5, 3, 7, 2, 8));
+            if (count1 == 7 && count2 == 3) StartCoroutine(SequenzFour(1, 3, 6, 4, 9));
+            
             count1++;
             Debug.Log("test");
         }
-        
-
     }
 
     /*
@@ -310,6 +328,25 @@ public class Randomizer : MonoBehaviour
         SpawnFairyInBlock(c);
         yield return new WaitForSeconds(speed);
         SpawnFairyInBlock(d);
+        yield return new WaitForSeconds(speed);
+        fairy.SetActive(false);
+        enableField();
+        Player.timer.Start();
+    }
+
+    IEnumerator SequenzFour(int a, int b, int c, int d, int e)
+    {
+        disableField();
+        yield return new WaitForSeconds(speed);
+        SpawnFairyInBlock(a);
+        yield return new WaitForSeconds(speed);
+        SpawnFairyInBlock(b);
+        yield return new WaitForSeconds(speed);
+        SpawnFairyInBlock(c);
+        yield return new WaitForSeconds(speed);
+        SpawnFairyInBlock(d);
+        yield return new WaitForSeconds(speed);
+        SpawnFairyInBlock(e);
         yield return new WaitForSeconds(speed);
         fairy.SetActive(false);
         enableField();
