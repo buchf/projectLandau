@@ -11,7 +11,10 @@ public class AnimalSelector : MonoBehaviour
     public TextMesh pig;
     public TextMesh Outro;
 
-    
+    public GameObject cowImage;
+    public GameObject chickenImage;
+    public GameObject pigImage;
+
     void Start()
     {
         //GoNoGo.trial++;
@@ -32,24 +35,36 @@ public class AnimalSelector : MonoBehaviour
                 cow.gameObject.SetActive(true);
                 chicken.gameObject.SetActive(false);
                 pig.gameObject.SetActive(false);
+                cowImage.gameObject.SetActive(true);
+                chickenImage.gameObject.SetActive(false);
+                pigImage.gameObject.SetActive(false);
                 Outro.gameObject.SetActive(false);
                 break;
             case 3:
                 cow.gameObject.SetActive(false);
                 chicken.gameObject.SetActive(true);
                 pig.gameObject.SetActive(false);
+                cowImage.gameObject.SetActive(false);
+                chickenImage.gameObject.SetActive(true);
+                pigImage.gameObject.SetActive(false);
                 Outro.gameObject.SetActive(false);
                 break;
             case 4:
                 cow.gameObject.SetActive(false);
                 chicken.gameObject.SetActive(false);
                 pig.gameObject.SetActive(true);
+                cowImage.gameObject.SetActive(false);
+                chickenImage.gameObject.SetActive(false);
+                pigImage.gameObject.SetActive(true);
                 Outro.gameObject.SetActive(false);
                 break;
             case 5:
                 cow.gameObject.SetActive(false);
                 chicken.gameObject.SetActive(false);
                 pig.gameObject.SetActive(false);
+                cowImage.gameObject.SetActive(false);
+                chickenImage.gameObject.SetActive(false);
+                pigImage.gameObject.SetActive(false);
                 Outro.gameObject.SetActive(true);
                 break;
         }

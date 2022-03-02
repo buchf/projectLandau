@@ -757,6 +757,7 @@ MonoBehaviour:
   chicken: {fileID: 1003042384}
   cow: {fileID: 2005212117}
   donkey: {fileID: 312357001}
+  button: {fileID: 28897909}
   counter: 0
   sequenz: 0
   checkAnimal: 0

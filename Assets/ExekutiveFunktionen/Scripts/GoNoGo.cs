@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Diagnostics;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 using Debug = UnityEngine.Debug;
@@ -12,6 +13,8 @@ public class GoNoGo : MonoBehaviour
     public GameObject chicken;
     public GameObject cow;
     public GameObject donkey;
+
+    [SerializeField] Button button;
 
     GameObject shownAnimal;
     GameObject currentAnimal;
@@ -87,8 +90,9 @@ public class GoNoGo : MonoBehaviour
     private void SelectNextAnimal()
     {
         selectAnimal(counter);
+        button.interactable = false;
         counter++;
-        
+ 
     }
 
     public void StartSequenz()
@@ -103,10 +107,7 @@ public class GoNoGo : MonoBehaviour
         if (trial == 3) currentAnimal = chicken;
         if (trial == 4) currentAnimal = pig;
     }
-    public void compareObject()
-    {
 
-    }
 
     void selectAnimal(int counter)
     {
@@ -158,6 +159,7 @@ public class GoNoGo : MonoBehaviour
         shownAnimal = donkey;
         yield return new WaitForSeconds(1f);
         shownAnimal.SetActive(true);
+        button.interactable = true;
         timer.Start();
     }
 
@@ -167,6 +169,7 @@ public class GoNoGo : MonoBehaviour
         shownAnimal = chicken;
         yield return new WaitForSeconds(1f);
         shownAnimal.SetActive(true);
+        button.interactable = true;
         timer.Start();
     }
 
@@ -176,6 +179,7 @@ public class GoNoGo : MonoBehaviour
         shownAnimal = cow;
         yield return new WaitForSeconds(1f);
         shownAnimal.SetActive(true);
+        button.interactable = true;
         timer.Start();
     }
 
@@ -185,6 +189,7 @@ public class GoNoGo : MonoBehaviour
         shownAnimal = pig;
         yield return new WaitForSeconds(1f);
         shownAnimal.SetActive(true);
+        button.interactable = true;
         timer.Start();
     }
 }
