@@ -23,17 +23,9 @@ public class Randomizer : MonoBehaviour
         Debug.Log(reverse);
         player = FindObjectOfType<Player>();
         fairy.transform.position = new Vector3(-7f, 3f, -1);
-
-        if (reverse)
-        {
-            StartCoroutine(SequenzOne(7,9));
-            count1++;
-        }
-        else
-        {
-            StartCoroutine(SequenzOne(5, 1));
-            count1++;
-        }
+        StartCoroutine(SequenzOne(5, 1));
+        count1++;
+        
         
     }
   
@@ -62,9 +54,7 @@ public class Randomizer : MonoBehaviour
         
 
         //Zahlen fuer die verschiedenen Trials wurden mithilfe der GetRandom Funktion erstellt
-        
-        if(reverse == false)
-        {
+    
             //Trial 1 
             if (count1 == 0 && count2 == 0) StartCoroutine(SequenzOne(5, 1));
             if (count1 == 1 && count2 == 0) StartCoroutine(SequenzOne(8, 1));
@@ -106,8 +96,7 @@ public class Randomizer : MonoBehaviour
             if (count1 == 7 && count2 == 3) StartCoroutine(SequenzFour(3, 2, 7, 1 ,8));
 
             count1++;
-        }
-        else
+        /* else
         {
             //Trial 1 - reverse
             if (count1 == 0 && count2 == 0) StartCoroutine(SequenzOne(7, 9));
@@ -149,9 +138,9 @@ public class Randomizer : MonoBehaviour
             if (count1 == 6 && count2 == 3) StartCoroutine(SequenzFour(5, 3, 7, 2, 8));
             if (count1 == 7 && count2 == 3) StartCoroutine(SequenzFour(1, 3, 6, 4, 9));
             
-            count1++;
-            Debug.Log("test");
+            count1++; 
         }
+        */
     }
 
     /*

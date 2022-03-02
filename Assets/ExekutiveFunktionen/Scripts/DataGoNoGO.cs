@@ -47,7 +47,7 @@ public class DataGoNoGO : MonoBehaviour
         File.WriteAllText(filePath, ListToString(results));
     }
 
-    public static void MeasureSequenz(string currentAnimal, string actualAnimal, int clicked, bool CRESP, double reaction)
+    public static void MeasureSequenz(string currentAnimal, string actualAnimal, int clicked, int CRESP, double reaction)
     {
         z1.AppendFormat(",{0},{1},{2},{3},{4}\n", currentAnimal, actualAnimal, clicked, CRESP, reaction.ToString("0", System.Globalization.CultureInfo.InvariantCulture));
     }

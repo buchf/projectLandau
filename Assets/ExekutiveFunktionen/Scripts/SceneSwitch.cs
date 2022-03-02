@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class SceneSwitch : MonoBehaviour
@@ -14,7 +15,7 @@ public class SceneSwitch : MonoBehaviour
     private string inputVPN = "";
     public static bool reverse = false;
     public void StartGame()
-    {
+    { 
         DataSaver.z1.Clear();
         DataSaver.z2.Clear();
         DataSaver.z3.Clear();
@@ -24,11 +25,7 @@ public class SceneSwitch : MonoBehaviour
 
         DataSaver.VPN = inputVPN;
         Randomizer.reverse = reverse;
-        if (reverse)
-        {
-
-            DataSaver.count = 8;
-        }
+        
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 123);
     }
 
@@ -43,6 +40,8 @@ public class SceneSwitch : MonoBehaviour
     }
     public void GoNoGoBackStart()
     {
+        //GoNoGo.counter = 0;
+        //GoNoGo.trial = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 129);
     }
 
@@ -58,7 +57,13 @@ public class SceneSwitch : MonoBehaviour
 
     public void StartGoNoGO()
     {
+        
+        DataGoNoGO.overall.Clear();
+        DataGoNoGO.results.Clear();
+        DataGoNoGO.header.Clear();
+        DataGoNoGO.z1.Clear();
         DataGoNoGO.VPN = inputVPN;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 126);
+        
+         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 126);
     }
 }

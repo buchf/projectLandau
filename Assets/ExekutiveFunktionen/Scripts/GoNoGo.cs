@@ -33,7 +33,7 @@ public class GoNoGo : MonoBehaviour
     //wird angepasst wenn das targettier geaendert werden soll
     public int sequenz = 0;
 
-    public bool checkAnimal;
+    public int checkAnimal;
 
     // Start is called before the first frame update
     void Start()
@@ -49,18 +49,20 @@ public class GoNoGo : MonoBehaviour
     private void Update()
     {
 
-        if (counter == 3 && trial != 5)
+        if (counter == 20 && trial != 5)
         {
             Debug.Log("Finish!!!");
             trial++;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
-        if (counter == 3 && trial == 5)
+        if (counter == 20 && trial == 5)
         {
             Debug.Log("Finish!!!");
             trial++;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+            counter = 0;
+            trial = 1;
         }
 
         //falls timer > 2 sekunden dann naechstes tier
@@ -68,12 +70,12 @@ public class GoNoGo : MonoBehaviour
         {
             if (shownAnimal == currentAnimal)
             {
-                checkAnimal = true;
+                checkAnimal = 1;
                 correctNoClick++;
             }
             else
             {
-                checkAnimal = false;
+                checkAnimal = 0;
                 incorrectNoClick++;
             }
             WriteInDatasaver(currentAnimal.name, shownAnimal.name, 0, checkAnimal , timer.Elapsed.TotalMilliseconds);
@@ -130,12 +132,12 @@ public class GoNoGo : MonoBehaviour
     {
         if (shownAnimal == currentAnimal)
         {
-            checkAnimal = false;
+            checkAnimal = 0;
             incorrectClick++;
         }
         else
         {
-            checkAnimal = true;
+            checkAnimal = 1;
             correctClick++;
         }
         WriteInDatasaver(currentAnimal.name, shownAnimal.name, 1, checkAnimal, timer.Elapsed.TotalMilliseconds);
@@ -143,7 +145,7 @@ public class GoNoGo : MonoBehaviour
         SelectNextAnimal();
     }
 
-    private void WriteInDatasaver(string current, string shown, int click, bool CRESP, double reaction)
+    private void WriteInDatasaver(string current, string shown, int click, int CRESP, double reaction)
     {
         DataGoNoGO.MeasureSequenz(current,shown,click,CRESP,reaction);
         timer.Reset();

@@ -113,39 +113,31 @@ public class DataSaver : MonoBehaviour
      * Die Daten weden im Stringbuilder z2 abgespeichert und anschliessend
      * in der obigen Start() Funktion in die Liste results hinzugefuegt
      */
-    public static void MeasureSequenzOne(bool fullSequenz, double reaction, int click1, int click2)
+    public static void MeasureSequenzOne(int fullSequenz, double reaction, int click1, int click2)
     {
-        z2.AppendFormat(",sequenz{0}_2,{1},{2},{3},{4}\n", count, fullSequenz, reaction.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture), click1 ,click2 );
+        z2.AppendFormat(",sequenz{0}_2,{1},{2},{3},{4}\n", count, fullSequenz, reaction.ToString("0", System.Globalization.CultureInfo.InvariantCulture), click1 ,click2 );
         CSVCounter();
     }
-    public static void MeasureSequenzTwo(bool fullSequenz, double reaction, int click1, int click2, int click3)
+    public static void MeasureSequenzTwo(int fullSequenz, double reaction, int click1, int click2, int click3)
     {
-        z3.AppendFormat(",sequenz{0}_3,{1},{2},{3},{4},{5}\n", count, fullSequenz, reaction.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture), click1, click2, click3);
+        z3.AppendFormat(",sequenz{0}_3,{1},{2},{3},{4},{5}\n", count, fullSequenz, reaction.ToString("0", System.Globalization.CultureInfo.InvariantCulture), click1, click2, click3);
         CSVCounter();
     }
-    public static void MeasureSequenzThree(bool fullSequenz, double reaction, int click1, int click2, int click3, int click4)
+    public static void MeasureSequenzThree(int fullSequenz, double reaction, int click1, int click2, int click3, int click4)
     {
-        z4.AppendFormat(",sequenz{0}_4,{1},{2},{3},{4},{5},{6}\n", count, fullSequenz, reaction.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture), click1, click2, click3, click4);
+        z4.AppendFormat(",sequenz{0}_4,{1},{2},{3},{4},{5},{6}\n", count, fullSequenz, reaction.ToString("0", System.Globalization.CultureInfo.InvariantCulture), click1, click2, click3, click4);
         CSVCounter();
     }
 
-    public static void MeasureSequenzFour(bool fullSequenz, double reaction, int click1, int click2, int click3, int click4, int click5)
+    public static void MeasureSequenzFour(int fullSequenz, double reaction, int click1, int click2, int click3, int click4, int click5)
     {
-        z5.AppendFormat(",sequenz{0}_5,{1},{2},{3},{4},{5},{6},{7}\n", count, fullSequenz, reaction.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture), click1, click2, click3, click4, click5);
+        z5.AppendFormat(",sequenz{0}_5,{1},{2},{3},{4},{5},{6},{7}\n", count, fullSequenz, reaction.ToString("0", System.Globalization.CultureInfo.InvariantCulture), click1, click2, click3, click4, click5);
         CSVCounter();
     }
 
     public static void CSVCounter()
     {
-        if (Randomizer.reverse)
-        {
-            if (count == 1) count = 9;
-            count--;
-        }
-        else
-        {
             if (count == 8) count = 0;
             count++;
-        }
     }
 }
