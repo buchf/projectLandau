@@ -41,7 +41,7 @@ public class DataSaver : MonoBehaviour
 
 
     public static int count = 1;
-
+    int i = 1;
    
 
 
@@ -51,15 +51,15 @@ public class DataSaver : MonoBehaviour
         if(SceneSwitch.reverse == true)
         {
             fileName = "VPN" + VPN + "_corsi_reverse.csv";
+            fileName = checkFilenameReverse(fileName);
         }
         else
         {
             fileName = "VPN" + VPN + "_corsi.csv";
+            fileName = checkFilename(fileName);
         }
         
         filePath = Path.Combine(Application.persistentDataPath, fileName);
-
-
 
         accuracyPercentage = float.Parse(accuracy) / amountOfFullCorsiTaskClicks * 100;
        
@@ -84,6 +84,25 @@ public class DataSaver : MonoBehaviour
         results.Add(z5);
         File.WriteAllText(filePath, ListToString(results));
 
+    }
+
+    public string checkFilename(string fileName)
+    {
+        while (File.Exists(Path.Combine(Application.persistentDataPath, fileName)))
+        {
+            fileName = "VPN" + VPN + "(" + i + ")" + "_corsi.csv";
+            i++;
+        }
+        return fileName;
+    }
+    public string checkFilenameReverse(string fileName)
+    {
+        while (File.Exists(Path.Combine(Application.persistentDataPath, fileName)))
+        {
+            fileName = "VPN" + VPN + "(" + i + ")" + "_corsi_reverse.csv";
+            i++;
+        }
+        return fileName;
     }
 
 

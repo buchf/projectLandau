@@ -16,7 +16,7 @@ public class DataGoNoGO : MonoBehaviour
     static string fileName;
     public static string filePath;
 
-    
+    int i = 1;
 
     public static StringBuilder overall = new StringBuilder();
     public static StringBuilder header = new StringBuilder();
@@ -33,6 +33,7 @@ public class DataGoNoGO : MonoBehaviour
 
         gesamtPunktzahl = GoNoGo.correctNoClick + GoNoGo.correctClick;
         fileName = "VPN" + VPN + "_goNoGo.csv";
+        fileName = checkFilename(fileName);
         filePath = Path.Combine(Application.persistentDataPath, fileName);
         overall.Append("Go-Nogo Task,Gesamtpunktzahl,"+ gesamtPunktzahl +"\n");
         overall.Append(",Hits," + GoNoGo.correctClick + "\n");
@@ -47,6 +48,15 @@ public class DataGoNoGO : MonoBehaviour
         File.WriteAllText(filePath, ListToString(results));
     }
 
+    public string checkFilename(string fileName)
+    {    
+        while(File.Exists(Path.Combine(Application.persistentDataPath, fileName)))
+        {
+            fileName = "VPN" + VPN + "(" + i + ")" + "_goNoGo.csv";
+            i++;
+        }
+        return fileName;
+    }
     public static void MeasureSequenz(string currentAnimal, string actualAnimal, int clicked, int CRESP, double reaction)
     {
         z1.AppendFormat(",{0},{1},{2},{3},{4}\n", currentAnimal, actualAnimal, clicked, CRESP, reaction.ToString("0", System.Globalization.CultureInfo.InvariantCulture));
