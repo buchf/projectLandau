@@ -20,8 +20,8 @@ public class DataSaver : MonoBehaviour
     public static double totalTime;
     public float accuracyPercentage = 0.0f;
 
-    //Number for full programm for e.g.  (2 + 3 + 4) * 8 Trials = 72
-    int amountOfFullCorsiTaskClicks =  72;
+    //Number for full programm
+    int amountOfFullCorsiTaskClicks =  114;
 
 
     //VPN nummer soll im gesamten project den Input vom Textfeld VPN bekommen sodass die datei auf diejenige Versuchsperson sich bezieht
@@ -74,7 +74,7 @@ public class DataSaver : MonoBehaviour
          * 
          */
 
-        z1.Append("Corsi\n" + ",Sequenzes correct:," + rightTask + " of " + Player.currentSequenzCounter + "\n");
+        z1.Append("Corsi\n" + ",Sequenzes correct:," + rightTask + " of " + 32 + "\n");
         z1.Append(",Clicks Accuracy:," + accuracyPercentage.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) + "%\n" + ",total Time: ," + totalTime.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) +"ms\n");
         z1.Append("\n,Trial no., Full Sequenz correct,Reaction Time,First click,Second click,Third click,Fourth click,Fifth click\n");
         results.Add(z1);

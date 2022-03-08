@@ -14,7 +14,7 @@ public class Randomizer : MonoBehaviour
     public int count1, count2 = 0;
 
     public static bool reverse;
-
+    public TextMesh increaseText;
     [SerializeField] Button button;
    
     private void Start()
@@ -36,7 +36,7 @@ public class Randomizer : MonoBehaviour
         fairy.transform.position = new Vector3(-7f, 3f, -1);
 
         
-        if (count1 == 8 && count2 != 3)
+        if (count1 == 9 && count2 != 3)
         {
             count1 = 0;
             count2++;
@@ -55,47 +55,63 @@ public class Randomizer : MonoBehaviour
 
         //Zahlen fuer die verschiedenen Trials wurden mithilfe der GetRandom Funktion erstellt
     
-            //Trial 1 
-            if (count1 == 0 && count2 == 0) StartCoroutine(SequenzOne(5, 1));
-            if (count1 == 1 && count2 == 0) StartCoroutine(SequenzOne(8, 1));
-            if (count1 == 2 && count2 == 0) StartCoroutine(SequenzOne(5, 3));
-            if (count1 == 3 && count2 == 0) StartCoroutine(SequenzOne(9, 8));
-            if (count1 == 4 && count2 == 0) StartCoroutine(SequenzOne(7, 2));
-            if (count1 == 5 && count2 == 0) StartCoroutine(SequenzOne(7, 8));
-            if (count1 == 6 && count2 == 0) StartCoroutine(SequenzOne(7, 6));
-            if (count1 == 7 && count2 == 0) StartCoroutine(SequenzOne(7, 9));
+        //Trial 1 
+        if (count1 == 0 && count2 == 0) StartCoroutine(SequenzOne(5, 1));
+        if (count1 == 1 && count2 == 0) StartCoroutine(SequenzOne(8, 1));
+        if (count1 == 2 && count2 == 0) StartCoroutine(SequenzOne(5, 3));
+        if (count1 == 3 && count2 == 0) StartCoroutine(SequenzOne(9, 8));
+        if (count1 == 4 && count2 == 0) StartCoroutine(SequenzOne(7, 2));
+        if (count1 == 5 && count2 == 0) StartCoroutine(SequenzOne(7, 8));
+        if (count1 == 6 && count2 == 0) StartCoroutine(SequenzOne(7, 6));
+        if (count1 == 7 && count2 == 0) StartCoroutine(SequenzOne(7, 9));
+        if (count1 == 8 && count2 == 0) increaseWarning();
+        //Trial 2
+        if (count1 == 0 && count2 == 1) 
+        {
+            showField();
+            StartCoroutine(SequenzTwo(1, 5, 9));
+        }         
+        if (count1 == 1 && count2 == 1) StartCoroutine(SequenzTwo(1, 4, 9));
+        if (count1 == 2 && count2 == 1) StartCoroutine(SequenzTwo(2, 8, 6));
+        if (count1 == 3 && count2 == 1) StartCoroutine(SequenzTwo(5, 2, 9));
+        if (count1 == 4 && count2 == 1) StartCoroutine(SequenzTwo(7, 8, 2));
+        if (count1 == 5 && count2 == 1) StartCoroutine(SequenzTwo(5, 2, 8));
+        if (count1 == 6 && count2 == 1) StartCoroutine(SequenzTwo(9, 4, 3));
+        if (count1 == 7 && count2 == 1) StartCoroutine(SequenzTwo(9, 2, 7));
+        if (count1 == 8 && count2 == 1) increaseWarning();
 
-            //Trial 2
-            if (count1 == 0 && count2 == 1) StartCoroutine(SequenzTwo(1, 5, 9));
-            if (count1 == 1 && count2 == 1) StartCoroutine(SequenzTwo(1, 4, 9));
-            if (count1 == 2 && count2 == 1) StartCoroutine(SequenzTwo(2, 8, 6));
-            if (count1 == 3 && count2 == 1) StartCoroutine(SequenzTwo(5, 2, 9));
-            if (count1 == 4 && count2 == 1) StartCoroutine(SequenzTwo(7, 8, 2));
-            if (count1 == 5 && count2 == 1) StartCoroutine(SequenzTwo(5, 2, 8));
-            if (count1 == 6 && count2 == 1) StartCoroutine(SequenzTwo(9, 4, 3));
-            if (count1 == 7 && count2 == 1) StartCoroutine(SequenzTwo(9, 2, 7));
+        //Trial 3
+        if (count1 == 0 && count2 == 2)
+        {
+            showField();
+            StartCoroutine(SequenzThree(8, 4, 9, 6));
+        }
+        
+        if (count1 == 1 && count2 == 2) StartCoroutine(SequenzThree(5, 6, 9, 2));
+        if (count1 == 2 && count2 == 2) StartCoroutine(SequenzThree(1, 9, 3, 6));         
+        if (count1 == 3 && count2 == 2) StartCoroutine(SequenzThree(9, 1, 7, 6));
+        if (count1 == 4 && count2 == 2) StartCoroutine(SequenzThree(1, 2, 7, 5));
+        if (count1 == 5 && count2 == 2) StartCoroutine(SequenzThree(1, 9, 3, 8));
+        if (count1 == 6 && count2 == 2) StartCoroutine(SequenzThree(9, 7, 3, 8));
+        if (count1 == 7 && count2 == 2) StartCoroutine(SequenzThree(9, 2, 6, 8));
+        if (count1 == 8 && count2 == 2) increaseWarning();
 
-            //Trial 3
-            if (count1 == 0 && count2 == 2) StartCoroutine(SequenzThree(8, 4, 9, 6));
-            if (count1 == 1 && count2 == 2) StartCoroutine(SequenzThree(5, 6, 9, 2));
-            if (count1 == 2 && count2 == 2) StartCoroutine(SequenzThree(1, 9, 3, 6));         
-            if (count1 == 3 && count2 == 2) StartCoroutine(SequenzThree(9, 1, 7, 6));
-            if (count1 == 4 && count2 == 2) StartCoroutine(SequenzThree(1, 2, 7, 5));
-            if (count1 == 5 && count2 == 2) StartCoroutine(SequenzThree(1, 9, 3, 8));
-            if (count1 == 6 && count2 == 2) StartCoroutine(SequenzThree(9, 7, 3, 8));
-            if (count1 == 7 && count2 == 2) StartCoroutine(SequenzThree(9, 2, 6, 8));
+        //Trial 4
+        if (count1 == 0 && count2 == 3) 
+        {
+            showField();
+            StartCoroutine(SequenzFour(1, 3, 6, 4, 9));
+        }
+        
+        if (count1 == 1 && count2 == 3) StartCoroutine(SequenzFour(5, 3, 7, 2, 8));
+        if (count1 == 2 && count2 == 3) StartCoroutine(SequenzFour(2, 1, 9, 5, 6));
+        if (count1 == 3 && count2 == 3) StartCoroutine(SequenzFour(4, 5, 6, 7 ,8));
+        if (count1 == 4 && count2 == 3) StartCoroutine(SequenzFour(1, 2, 7, 5 ,3));
+        if (count1 == 5 && count2 == 3) StartCoroutine(SequenzFour(1, 2 ,4 ,7, 5));
+        if (count1 == 6 && count2 == 3) StartCoroutine(SequenzFour(9, 7, 1 ,8 ,2));
+        if (count1 == 7 && count2 == 3) StartCoroutine(SequenzFour(3, 2, 7, 1 ,8));
 
-            //Trial 4
-            if (count1 == 0 && count2 == 3) StartCoroutine(SequenzFour(1, 3, 6, 4, 9));
-            if (count1 == 1 && count2 == 3) StartCoroutine(SequenzFour(5, 3, 7, 2, 8));
-            if (count1 == 2 && count2 == 3) StartCoroutine(SequenzFour(2, 1, 9, 5, 6));
-            if (count1 == 3 && count2 == 3) StartCoroutine(SequenzFour(4, 5, 6, 7 ,8));
-            if (count1 == 4 && count2 == 3) StartCoroutine(SequenzFour(1, 2, 7, 5 ,3));
-            if (count1 == 5 && count2 == 3) StartCoroutine(SequenzFour(1, 2 ,4 ,7, 5));
-            if (count1 == 6 && count2 == 3) StartCoroutine(SequenzFour(9, 7, 1 ,8 ,2));
-            if (count1 == 7 && count2 == 3) StartCoroutine(SequenzFour(3, 2, 7, 1 ,8));
-
-            count1++;
+        count1++;
         /* else
         {
             //Trial 1 - reverse
@@ -368,6 +384,23 @@ public class Randomizer : MonoBehaviour
             blocks[i].GetComponent<Collider2D>().enabled = false;
         }
         button.interactable = false;
+    }
+
+    void increaseWarning()
+    {
+        for (int i = 0; i < blocks.Count; i++)
+        {
+            blocks[i].gameObject.SetActive(false);
+        }
+        increaseText.gameObject.SetActive(true);
+    }
+    void showField()
+    {
+        for (int i = 0; i < blocks.Count; i++)
+        {
+            blocks[i].gameObject.SetActive(true);
+        }
+        increaseText.gameObject.SetActive(false);
     }
 }
 

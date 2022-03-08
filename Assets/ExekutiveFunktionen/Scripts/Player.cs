@@ -171,13 +171,11 @@ public class Player : MonoBehaviour
 
         if (listCompareVar == 1)
         {
-            Debug.Log("True");
             rightTaskCounter++;
             WriteInDatasaver(listCompareVar, clicks[0], clicks[1], clicks[2], clicks[3], clicks[4], y);
             timer.Reset();
             return true;
         }
-        Debug.Log("false");
         WriteInDatasaver(listCompareVar, clicks[0], clicks[1], clicks[2], clicks[3], clicks[4], y);
         timer.Reset();
         return false;
