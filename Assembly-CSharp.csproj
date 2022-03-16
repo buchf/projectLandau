@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <LangVersion>8.0</LangVersion>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -53,15 +53,12 @@
     <UnityVersion>2020.3.17f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Assets\Backend\UI\PauseButton.cs" />
     <Compile Include="Assets\Backend\IO\ExperimentConfig.cs" />
     <Compile Include="Assets\Backend\ControlFlow\Trial.cs" />
     <Compile Include="Assets\Backend\UI\Richtungssticker.cs" />
     <Compile Include="Assets\Backend\UI\Zahnrad.cs" />
-    <Compile Include="Assets\ExekutiveFunktionen\Scripts\BlockClick.cs" />
+    <Compile Include="Assets\ExekutiveFunktionen\Scripts\Corsi\BlockClick.cs" />
     <Compile Include="Assets\Backend\Helper\DragNDrop.cs" />
     <Compile Include="Assets\Backend\UI\Auswahlzahnrad.cs" />
     <Compile Include="Assets\Backend\Helper\MultiSelector.cs" />
@@ -76,8 +73,8 @@
     <Compile Include="Assets\Backend\ControlFlow\Implementations\CogTrials.cs" />
     <Compile Include="Assets\Backend\ControlFlow\Experiment.cs" />
     <Compile Include="Assets\Backend\UI\PlayButton.cs" />
-    <Compile Include="Assets\ExekutiveFunktionen\Scripts\DataSaver.cs" />
-    <Compile Include="Assets\ExekutiveFunktionen\Scripts\Player.cs" />
+    <Compile Include="Assets\ExekutiveFunktionen\Scripts\Corsi\DataSaver.cs" />
+    <Compile Include="Assets\ExekutiveFunktionen\Scripts\Corsi\Player.cs" />
     <Compile Include="Assets\Backend\UI\Bauklotz.cs" />
     <Compile Include="Assets\Backend\UI\UnpauseButton.cs" />
     <Compile Include="Assets\Backend\UI\Auswahlsymbol.cs" />
@@ -87,8 +84,9 @@
     <Compile Include="Assets\ExekutiveFunktionen\Scripts\AnimalSelector.cs" />
     <Compile Include="Assets\Backend\UI\Spielbrett.cs" />
     <Compile Include="Assets\Backend\ControlFlow\Implementations\StabilityTrials.cs" />
-    <Compile Include="Assets\ExekutiveFunktionen\Scripts\Randomizer.cs" />
+    <Compile Include="Assets\ExekutiveFunktionen\Scripts\Corsi\Randomizer.cs" />
     <Compile Include="Assets\corsiTextSelect.cs" />
+    <Compile Include="Assets\ExekutiveFunktionen\Scripts\GoNoGoPractice.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\ExekutiveFunktionen\TextMesh Pro\Shaders\TMPro.cginc" />

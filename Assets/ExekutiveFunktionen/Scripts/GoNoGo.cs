@@ -90,9 +90,8 @@ public class GoNoGo : MonoBehaviour
     private void SelectNextAnimal()
     {
         selectAnimal(counter);
-        button.interactable = false;
+        button.enabled = false;
         counter++;
- 
     }
 
     public void StartSequenz()
@@ -159,7 +158,7 @@ public class GoNoGo : MonoBehaviour
         shownAnimal = donkey;
         yield return new WaitForSeconds(1f);
         shownAnimal.SetActive(true);
-        button.interactable = true;
+        button.enabled = true;
         timer.Start();
     }
 
@@ -169,7 +168,7 @@ public class GoNoGo : MonoBehaviour
         shownAnimal = chicken;
         yield return new WaitForSeconds(1f);
         shownAnimal.SetActive(true);
-        button.interactable = true;
+        button.enabled = true;
         timer.Start();
     }
 
@@ -179,7 +178,7 @@ public class GoNoGo : MonoBehaviour
         shownAnimal = cow;
         yield return new WaitForSeconds(1f);
         shownAnimal.SetActive(true);
-        button.interactable = true;
+        button.enabled = true;
         timer.Start();
     }
 
@@ -189,7 +188,7 @@ public class GoNoGo : MonoBehaviour
         shownAnimal = pig;
         yield return new WaitForSeconds(1f);
         shownAnimal.SetActive(true);
-        button.interactable = true;
+        button.enabled = true;
         timer.Start();
     }
 }

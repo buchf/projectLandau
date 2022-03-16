@@ -42,7 +42,7 @@ public class SceneSwitch : MonoBehaviour
     {
         //GoNoGo.counter = 0;
         //GoNoGo.trial = 1;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 129);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 130);
     }
 
     public void ReadInput(string s)
