@@ -81,7 +81,9 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 303862391086869206}
-  m_Text: --- Hier Text eingeben ---
+  m_Text: "Dir werden nacheinander mehrere Tiere gezeigt.\n Immer wenn ein Esel erscheint
+    sollst du nicht dr\xFCcken. \nBei allen anderen Tieren sollst du auf den \nblauen
+    Knopf dr\xFCcken."
   m_OffsetZ: 0
   m_CharacterSize: 0.05
   m_LineSpacing: 1

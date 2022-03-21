@@ -69,12 +69,6 @@ public class GoNoGoPractice : MonoBehaviour
 
     private void Update()
     {
-        if (counter == 10 && trial != 2)
-        {
-
-            timer.Stop();
-            enableIntro();
-        }
         if (counter == 10 && trial == 2)
         {
             timer.Stop();
@@ -85,6 +79,13 @@ public class GoNoGoPractice : MonoBehaviour
             redoButton.gameObject.SetActive(true);
 
         }
+        if (counter == 10 && trial != 2)
+        {
+
+            timer.Stop();
+            enableIntro();
+        }
+        
    
         if (timer.Elapsed.TotalSeconds >= 2.0)
         {
@@ -131,10 +132,11 @@ public class GoNoGoPractice : MonoBehaviour
 
     private void SelectNextAnimal()
     {
-        counter++;
-        selectAnimal(counter);
         
+        selectAnimal(counter);
         button.enabled = false;
+        counter++;
+        
         
 
     }
