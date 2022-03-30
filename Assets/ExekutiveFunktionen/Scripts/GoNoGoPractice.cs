@@ -136,9 +136,6 @@ public class GoNoGoPractice : MonoBehaviour
         selectAnimal(counter);
         button.enabled = false;
         counter++;
-        
-        
-
     }
 
     IEnumerator showDonkey()

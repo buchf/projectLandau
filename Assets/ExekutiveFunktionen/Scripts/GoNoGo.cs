@@ -41,34 +41,18 @@ public class GoNoGo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //counter = 0;
         SelectCurrentAnimal(trial);
         Debug.Log("trial: " + trial + "animal: " + currentAnimal.name.ToString());
         shownAnimal = donkey;
-        donkey.SetActive(true);
+        // donkey.SetActive(true);
+        //timer.Start();
+        //button.enabled = true;
         StartSequenz();
     }
 
     private void Update()
     {
-
-        if (counter == 20 && trial != 5)
-        {
-            Debug.Log("Finish!!!");
-            trial++;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
-
-        if (counter == 20 && trial == 5)
-        {
-            Debug.Log("Finish!!!");
-            trial++;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
-            counter = 0;
-            trial = 1;
-        }
-
-        //falls timer > 2 sekunden dann naechstes tier
         if (timer.Elapsed.TotalSeconds >= 2.0)
         {
             if (shownAnimal == currentAnimal)
@@ -81,35 +65,79 @@ public class GoNoGo : MonoBehaviour
                 checkAnimal = 0;
                 incorrectNoClick++;
             }
-            WriteInDatasaver(currentAnimal.name, shownAnimal.name, 0, checkAnimal , timer.Elapsed.TotalMilliseconds);
+            WriteInDatasaver(currentAnimal.name, shownAnimal.name, 0, checkAnimal, timer.Elapsed.TotalMilliseconds);
             SelectNextAnimal();
         }
+
+        if (counter == 21 && trial != 5)
+        {
+            Debug.Log("Finish!!!");
+            trial++;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+
+        if (counter == 21 && trial == 5)
+        {
+            Debug.Log("Finish!!!");
+            trial++;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+            counter = 1;
+            trial = 1;
+        }
+
+        //falls timer > 2 sekunden dann naechstes tier
+        
     }
 
     //wird benoetigt zur automatischen abfolge oder beim klicken des buttons
     private void SelectNextAnimal()
     {
+        counter++;
         selectAnimal(counter);
         button.enabled = false;
-        counter++;
+        
     }
 
     public void StartSequenz()
     {
         timer.Start();
+        SelectNextAnimal();
     }
 
     void SelectCurrentAnimal(int trial)
     {
-        if (trial == 1) currentAnimal = donkey;
+        if (trial == 1) currentAnimal = cow;
         if (trial == 2) currentAnimal = cow;
-        if (trial == 3) currentAnimal = chicken;
-        if (trial == 4) currentAnimal = pig;
+        if (trial == 3) currentAnimal = cow;
+        if (trial == 4) currentAnimal = cow;
     }
 
 
     void selectAnimal(int counter)
     {
+       // if (counter == 0) StartCoroutine(showPig());
+        if (counter == 1) StartCoroutine(showDonkey());
+        if (counter == 2) StartCoroutine(showChicken());
+        if (counter == 3) StartCoroutine(showPig());
+        if (counter == 4) StartCoroutine(showChicken());
+        if (counter == 5) StartCoroutine(showCow());
+        if (counter == 6) StartCoroutine(showPig());
+        if (counter == 7) StartCoroutine(showChicken());
+        if (counter == 8) StartCoroutine(showCow());
+        if (counter == 9) StartCoroutine(showPig());
+        if (counter == 10) StartCoroutine(showDonkey());
+        if (counter == 11) StartCoroutine(showChicken());
+        if (counter == 12) StartCoroutine(showCow());
+        if (counter == 13) StartCoroutine(showPig());
+        if (counter == 14) StartCoroutine(showCow());
+        if (counter == 15) StartCoroutine(showPig());
+        if (counter == 16) StartCoroutine(showDonkey());
+        if (counter == 17) StartCoroutine(showChicken());
+        if (counter == 18) StartCoroutine(showDonkey());
+        if (counter == 19) StartCoroutine(showCow());
+        if (counter == 20) StartCoroutine(showDonkey());
+
+        /*
         switch (counter)
         {
             case int n when ((counter % 4) == 0):
@@ -124,7 +152,7 @@ public class GoNoGo : MonoBehaviour
             case int n when ((counter % 1) == 0):
                 StartCoroutine(showDonkey());
                 break;
-        }
+        } */
     }
 
     //wird aufgerufen wenn der Button betaetigt wird
@@ -135,7 +163,7 @@ public class GoNoGo : MonoBehaviour
             checkAnimal = 0;
             incorrectClick++;
         }
-        else
+        if(shownAnimal != currentAnimal)
         {
             checkAnimal = 1;
             correctClick++;

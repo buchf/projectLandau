@@ -41,31 +41,31 @@ public class AnimalSelector : MonoBehaviour
                 Outro.gameObject.SetActive(false);
                 break;
             case 3:
-                cow.gameObject.SetActive(false);
-                chicken.gameObject.SetActive(true);
+                cow.gameObject.SetActive(true);
+                chicken.gameObject.SetActive(false);
                 pig.gameObject.SetActive(false);
-                cowImage.gameObject.SetActive(false);
-                chickenImage.gameObject.SetActive(true);
+                cowImage.gameObject.SetActive(true);
+                chickenImage.gameObject.SetActive(false);
                 pigImage.gameObject.SetActive(false);
                 Outro.gameObject.SetActive(false);
                 break;
             case 4:
-                cow.gameObject.SetActive(false);
+                cow.gameObject.SetActive(true);
                 chicken.gameObject.SetActive(false);
-                pig.gameObject.SetActive(true);
-                cowImage.gameObject.SetActive(false);
+                pig.gameObject.SetActive(false);
+                cowImage.gameObject.SetActive(true);
                 chickenImage.gameObject.SetActive(false);
-                pigImage.gameObject.SetActive(true);
+                pigImage.gameObject.SetActive(false);
                 Outro.gameObject.SetActive(false);
                 break;
             case 5:
-                cow.gameObject.SetActive(false);
+                cow.gameObject.SetActive(true);
                 chicken.gameObject.SetActive(false);
                 pig.gameObject.SetActive(false);
-                cowImage.gameObject.SetActive(false);
+                cowImage.gameObject.SetActive(true);
                 chickenImage.gameObject.SetActive(false);
                 pigImage.gameObject.SetActive(false);
-                Outro.gameObject.SetActive(true);
+                Outro.gameObject.SetActive(false);
                 break;
         }
     }
