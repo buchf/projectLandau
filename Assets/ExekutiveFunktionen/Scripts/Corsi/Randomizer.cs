@@ -15,6 +15,7 @@ public class Randomizer : MonoBehaviour
 
     public static bool reverse;
     public TextMesh increaseText;
+    [SerializeField] Button increaseButton;
     [SerializeField] Button button;
    
     private void Start()
@@ -392,7 +393,9 @@ public class Randomizer : MonoBehaviour
         {
             blocks[i].gameObject.SetActive(false);
         }
+        button.gameObject.SetActive(false);
         increaseText.gameObject.SetActive(true);
+        increaseButton.gameObject.SetActive(true);
     }
     void showField()
     {
@@ -400,7 +403,9 @@ public class Randomizer : MonoBehaviour
         {
             blocks[i].gameObject.SetActive(true);
         }
+        button.gameObject.SetActive(true);
         increaseText.gameObject.SetActive(false);
+        increaseButton.gameObject.SetActive(false);
     }
 }
 
