@@ -34,11 +34,12 @@ public class DataSaver : MonoBehaviour
 
     //z2 sind die strings fuer die sequenzen mit 2 erwarteten inputs, z3 mit 3 inputs, z4 mit 4inputs 
     public static StringBuilder z1 = new StringBuilder();
+    public static StringBuilder z0 = new StringBuilder();
     public static StringBuilder z2 = new StringBuilder();
     public static StringBuilder z3 = new StringBuilder();
     public static StringBuilder z4 = new StringBuilder();
     public static StringBuilder z5 = new StringBuilder();
-
+    public static StringBuilder z6 = new StringBuilder();
 
     public static int count = 1;
     int i = 1;
@@ -78,10 +79,12 @@ public class DataSaver : MonoBehaviour
         z1.Append(",Clicks Accuracy:," + accuracyPercentage.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) + "%\n" + ",total Time: ," + totalTime.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) +"ms\n");
         z1.Append("\n,Trial no., Full Sequenz correct,Reaction Time,First click,Second click,Third click,Fourth click,Fifth click\n");
         results.Add(z1);
+        results.Add(z0);
         results.Add(z2);
         results.Add(z3);
         results.Add(z4);
         results.Add(z5);
+        results.Add(z6);
         File.WriteAllText(filePath, ListToString(results));
 
     }
@@ -132,6 +135,12 @@ public class DataSaver : MonoBehaviour
      * Die Daten weden im Stringbuilder z2 abgespeichert und anschliessend
      * in der obigen Start() Funktion in die Liste results hinzugefuegt
      */
+
+    public static void MeasureSequenzZero(int fullSequenz, double reaction, int click1)
+    {
+        z0.AppendFormat(",sequenz{0}_1,{1},{2},{3}\n", count, fullSequenz, reaction.ToString("0", System.Globalization.CultureInfo.InvariantCulture), click1);
+        CSVCounter();
+    }
     public static void MeasureSequenzOne(int fullSequenz, double reaction, int click1, int click2)
     {
         z2.AppendFormat(",sequenz{0}_2,{1},{2},{3},{4}\n", count, fullSequenz, reaction.ToString("0", System.Globalization.CultureInfo.InvariantCulture), click1 ,click2 );
@@ -153,7 +162,11 @@ public class DataSaver : MonoBehaviour
         z5.AppendFormat(",sequenz{0}_5,{1},{2},{3},{4},{5},{6},{7}\n", count, fullSequenz, reaction.ToString("0", System.Globalization.CultureInfo.InvariantCulture), click1, click2, click3, click4, click5);
         CSVCounter();
     }
-
+    public static void MeasureSequenzFive(int fullSequenz, double reaction, int click1, int click2, int click3, int click4, int click5, int click6)
+    {
+        z6.AppendFormat(",sequenz{0}_6,{1},{2},{3},{4},{5},{6},{7},{8}\n", count, fullSequenz, reaction.ToString("0", System.Globalization.CultureInfo.InvariantCulture), click1, click2, click3, click4, click5, click6);
+        CSVCounter();
+    }
     public static void CSVCounter()
     {
             if (count == 8) count = 0;
