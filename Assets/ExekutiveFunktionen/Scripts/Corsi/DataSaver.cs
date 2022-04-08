@@ -21,7 +21,7 @@ public class DataSaver : MonoBehaviour
     public float accuracyPercentage = 0.0f;
 
     //Number for full programm
-    int amountOfFullCorsiTaskClicks =  114;
+    int amountOfFullCorsiTaskClicks = 126;
 
 
     //VPN nummer soll im gesamten project den Input vom Textfeld VPN bekommen sodass die datei auf diejenige Versuchsperson sich bezieht
@@ -75,7 +75,7 @@ public class DataSaver : MonoBehaviour
          * 
          */
 
-        z1.Append("Corsi\n" + ",Sequenzes correct:," + rightTask + " of " + 36 + "\n");
+        z1.Append("Corsi\n" + ",Sequenzes correct:," + rightTask + " of " + Randomizer.totalTasks + "\n");
         z1.Append(",Clicks Accuracy:," + accuracyPercentage.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) + "%\n" + ",total Time: ," + totalTime.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) +"ms\n");
         z1.Append("\n,Trial no., Full Sequenz correct,Reaction Time,First click,Second click,Third click,Fourth click,Fifth click, Sixth click\n");
         results.Add(z1);
@@ -169,7 +169,7 @@ public class DataSaver : MonoBehaviour
     }
     public static void CSVCounter()
     {
-            if (count == 8) count = 0;
+            if (count == 6) count = 0;
             count++;
     }
 }

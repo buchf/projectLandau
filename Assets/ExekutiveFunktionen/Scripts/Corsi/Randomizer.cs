@@ -1,23 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Randomizer : MonoBehaviour
 {
 
     [SerializeField] List<Transform> blocks = new List<Transform>();
     public GameObject fairy;
-    private Player player;
+    public Player player;
     float speed = 1f;
     public int count1, count2 = 0;
-
+    public static int totalTasks = 0;
     public static bool reverse;
     public TextMesh increaseText;
     [SerializeField] Button increaseButton;
     [SerializeField] Button button;
-   
+
+
+    public static int countFalseTask = 0;
+
     private void Start()
     {
         
@@ -25,11 +28,20 @@ public class Randomizer : MonoBehaviour
         player = FindObjectOfType<Player>();
         fairy.transform.position = new Vector3(-7f, 3f, -1);
         StartCoroutine(SequenzZero(3));
-        count1++;
-        
-        
+        count1++; 
     }
-  
+
+    private void Update()
+    {
+        if (count1 == 6 && count2 != 5 && countFalseTask < 3)
+        {
+            increaseWarning();
+        } else if( count1 == 7 && countFalseTask>=3)
+        {
+            SkipToFinish();
+        }
+    }
+
     public void StartSequenz()
     {
         //Debug.Log(DataSaver.filePath.ToString());
@@ -37,11 +49,14 @@ public class Randomizer : MonoBehaviour
         fairy.transform.position = new Vector3(-7f, 3f, -1);
 
         
+
         if (count1 == 7 && count2 != 5)
         {
             count1 = 0;
             count2++;
+            countFalseTask = 0;
         } 
+
 
         // 3 7 richtig
         if(count1 == 6 && count2 == 5)
@@ -62,7 +77,7 @@ public class Randomizer : MonoBehaviour
         if (count1 == 3 && count2 == 0) StartCoroutine(SequenzZero(5));
         if (count1 == 4 && count2 == 0) StartCoroutine(SequenzZero(6));
         if (count1 == 5 && count2 == 0) StartCoroutine(SequenzZero(7));
-        if (count1 == 6 && count2 == 0) increaseWarning();
+        //if (count1 == 6 && count2 == 0) increaseWarning();
 
 
         //Trial 1 
@@ -76,7 +91,7 @@ public class Randomizer : MonoBehaviour
         if (count1 == 3 && count2 == 1) StartCoroutine(SequenzOne(9, 8));
         if (count1 == 4 && count2 == 1) StartCoroutine(SequenzOne(7, 2));
         if (count1 == 5 && count2 == 1) StartCoroutine(SequenzOne(7, 8));
-        if (count1 == 6 && count2 == 1) increaseWarning();
+        //if (count1 == 6 && count2 == 1) increaseWarning();
 
         //Trial 2
         if (count1 == 0 && count2 == 2) 
@@ -89,7 +104,7 @@ public class Randomizer : MonoBehaviour
         if (count1 == 3 && count2 == 2) StartCoroutine(SequenzTwo(5, 2, 9));
         if (count1 == 4 && count2 == 2) StartCoroutine(SequenzTwo(7, 8, 2));
         if (count1 == 5 && count2 == 2) StartCoroutine(SequenzTwo(5, 2, 8));
-        if (count1 == 6 && count2 == 2) increaseWarning();
+        //if (count1 == 6 && count2 == 2) increaseWarning();
 
         //Trial 3
         if (count1 == 0 && count2 == 3)
@@ -103,7 +118,7 @@ public class Randomizer : MonoBehaviour
         if (count1 == 3 && count2 == 3) StartCoroutine(SequenzThree(9, 1, 7, 6));
         if (count1 == 4 && count2 == 3) StartCoroutine(SequenzThree(1, 2, 7, 5));
         if (count1 == 5 && count2 == 3) StartCoroutine(SequenzThree(1, 9, 3, 8));
-        if (count1 == 6 && count2 == 3) increaseWarning();
+       // if (count1 == 6 && count2 == 3) increaseWarning();
 
         //Trial 4
         if (count1 == 0 && count2 == 4) 
@@ -116,7 +131,7 @@ public class Randomizer : MonoBehaviour
         if (count1 == 3 && count2 == 4) StartCoroutine(SequenzFour(4, 5, 6, 7 ,8));
         if (count1 == 4 && count2 == 4) StartCoroutine(SequenzFour(1, 2, 7, 5 ,3));
         if (count1 == 5 && count2 == 4) StartCoroutine(SequenzFour(1, 2 ,4 ,7, 5));
-        if (count1 == 6 && count2 == 4) increaseWarning();
+        //if (count1 == 6 && count2 == 4) increaseWarning();
 
         //Trial5
         if(count1 == 0 && count2 == 5)
@@ -307,6 +322,8 @@ public class Randomizer : MonoBehaviour
             blocks[i].GetComponent<Collider2D>().enabled = false;
         }
         button.interactable = false;
+        totalTasks++;
+        
     }
 
     void increaseWarning()
@@ -328,6 +345,13 @@ public class Randomizer : MonoBehaviour
         button.gameObject.SetActive(true);
         increaseText.gameObject.SetActive(false);
         increaseButton.gameObject.SetActive(false);
+    }
+    
+    public  void SkipToFinish()
+    {
+        DataSaver.rightTask = player.rightTaskCounter.ToString();
+        DataSaver.accuracy = player.accuracyCounter.ToString();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
 

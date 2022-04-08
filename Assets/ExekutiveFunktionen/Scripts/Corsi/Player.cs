@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Diagnostics;
+using UnityEngine.SceneManagement;
 using UnityEngine.Diagnostics;
 using Debug = UnityEngine.Debug;
 
@@ -20,6 +21,7 @@ public class Player : MonoBehaviour
     public static Stopwatch timer = new Stopwatch();
 
     int listCompareVar;
+
 
     /*
      * Start() Funktion wird beim Programmstart aufgerufen um die Variablen zu bereinigen und alles auf default 0 zu setzten
@@ -41,6 +43,8 @@ public class Player : MonoBehaviour
      */
     private void Update()
     {
+   
+
         if(clickedBlocks.Count > sequenzBlocks.Count)
         {
             clickedBlocks.RemoveAt(clickedBlocks.Count - 1);
@@ -135,6 +139,7 @@ public class Player : MonoBehaviour
         }
         WriteInDatasaver(listCompareVar, clicks[0], clicks[1], clicks[2], clicks[3], clicks[4], clicks[5], y);
         timer.Reset();
+        Randomizer.countFalseTask++;
         return false;  
     }
 
@@ -179,6 +184,7 @@ public class Player : MonoBehaviour
         }
         WriteInDatasaver(listCompareVar, clicks[0], clicks[1], clicks[2], clicks[3], clicks[4], clicks[5], y);
         timer.Reset();
+        Randomizer.countFalseTask++;
         return false;
     }
 
