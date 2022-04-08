@@ -13,6 +13,7 @@ public class Randomizer : MonoBehaviour
     float speed = 1f;
     public int count1, count2 = 0;
     public static int totalTasks = 0;
+    public static int totlalAccuracyClicks = 0;
     public static bool reverse;
     public TextMesh increaseText;
     [SerializeField] Button increaseButton;
@@ -31,7 +32,7 @@ public class Randomizer : MonoBehaviour
         count1++; 
     }
 
-    private void Update()
+  /*  private void Update()
     {
         if (count1 == 6 && count2 != 5 && countFalseTask < 3)
         {
@@ -40,7 +41,7 @@ public class Randomizer : MonoBehaviour
         {
             SkipToFinish();
         }
-    }
+    } */
 
     public void StartSequenz()
     {
@@ -77,7 +78,7 @@ public class Randomizer : MonoBehaviour
         if (count1 == 3 && count2 == 0) StartCoroutine(SequenzZero(5));
         if (count1 == 4 && count2 == 0) StartCoroutine(SequenzZero(6));
         if (count1 == 5 && count2 == 0) StartCoroutine(SequenzZero(7));
-        //if (count1 == 6 && count2 == 0) increaseWarning();
+        if (count1 == 6 && count2 == 0) increaseWarning();
 
 
         //Trial 1 
@@ -91,7 +92,7 @@ public class Randomizer : MonoBehaviour
         if (count1 == 3 && count2 == 1) StartCoroutine(SequenzOne(9, 8));
         if (count1 == 4 && count2 == 1) StartCoroutine(SequenzOne(7, 2));
         if (count1 == 5 && count2 == 1) StartCoroutine(SequenzOne(7, 8));
-        //if (count1 == 6 && count2 == 1) increaseWarning();
+        if (count1 == 6 && count2 == 1) increaseWarning();
 
         //Trial 2
         if (count1 == 0 && count2 == 2) 
@@ -104,7 +105,7 @@ public class Randomizer : MonoBehaviour
         if (count1 == 3 && count2 == 2) StartCoroutine(SequenzTwo(5, 2, 9));
         if (count1 == 4 && count2 == 2) StartCoroutine(SequenzTwo(7, 8, 2));
         if (count1 == 5 && count2 == 2) StartCoroutine(SequenzTwo(5, 2, 8));
-        //if (count1 == 6 && count2 == 2) increaseWarning();
+        if (count1 == 6 && count2 == 2) increaseWarning();
 
         //Trial 3
         if (count1 == 0 && count2 == 3)
@@ -118,7 +119,7 @@ public class Randomizer : MonoBehaviour
         if (count1 == 3 && count2 == 3) StartCoroutine(SequenzThree(9, 1, 7, 6));
         if (count1 == 4 && count2 == 3) StartCoroutine(SequenzThree(1, 2, 7, 5));
         if (count1 == 5 && count2 == 3) StartCoroutine(SequenzThree(1, 9, 3, 8));
-       // if (count1 == 6 && count2 == 3) increaseWarning();
+        if (count1 == 6 && count2 == 3) increaseWarning();
 
         //Trial 4
         if (count1 == 0 && count2 == 4) 
@@ -131,7 +132,7 @@ public class Randomizer : MonoBehaviour
         if (count1 == 3 && count2 == 4) StartCoroutine(SequenzFour(4, 5, 6, 7 ,8));
         if (count1 == 4 && count2 == 4) StartCoroutine(SequenzFour(1, 2, 7, 5 ,3));
         if (count1 == 5 && count2 == 4) StartCoroutine(SequenzFour(1, 2 ,4 ,7, 5));
-        //if (count1 == 6 && count2 == 4) increaseWarning();
+        if (count1 == 6 && count2 == 4) increaseWarning();
 
         //Trial5
         if(count1 == 0 && count2 == 5)
@@ -139,11 +140,11 @@ public class Randomizer : MonoBehaviour
             showField();
             StartCoroutine(SequenzFive(1, 4, 5, 2, 9, 3));
         }
-        if (count1 == 1 && count2 == 5) StartCoroutine(SequenzFive(1, 4, 5, 2, 9, 3));
-        if (count1 == 2 && count2 == 5) StartCoroutine(SequenzFive(1, 4, 5, 2, 9, 3));
-        if (count1 == 3 && count2 == 5) StartCoroutine(SequenzFive(1, 4, 5, 2, 9, 3));
-        if (count1 == 4 && count2 == 5) StartCoroutine(SequenzFive(1, 4, 5, 2, 9, 3));
-        if (count1 == 5 && count2 == 5) StartCoroutine(SequenzFive(1, 4, 5, 2, 9, 3));
+        if (count1 == 1 && count2 == 5) StartCoroutine(SequenzFive(2, 4, 8, 7, 9, 3));
+        if (count1 == 2 && count2 == 5) StartCoroutine(SequenzFive(1, 5, 6, 2, 3, 8));
+        if (count1 == 3 && count2 == 5) StartCoroutine(SequenzFive(3, 6, 9, 8, 1, 7));
+        if (count1 == 4 && count2 == 5) StartCoroutine(SequenzFive(8, 7, 1, 4, 9, 3));
+        if (count1 == 5 && count2 == 5) StartCoroutine(SequenzFive(2, 7, 8, 4, 3, 1));
        // if (count1 == 6 && count2 == 5) StartCoroutine(SequenzFive(1, 4, 5, 2, 9, 3));
 
         count1++;
@@ -208,6 +209,7 @@ public class Randomizer : MonoBehaviour
         SpawnFairyInBlock(a);
         yield return new WaitForSeconds(speed);
         fairy.SetActive(false);
+        totlalAccuracyClicks++;
         enableField();
         Player.timer.Start();
     }
@@ -221,6 +223,7 @@ public class Randomizer : MonoBehaviour
         SpawnFairyInBlock(b);
         yield return new WaitForSeconds(speed);
         fairy.SetActive(false);
+        totlalAccuracyClicks+=2;
         enableField();
         Player.timer.Start();
     }
@@ -236,6 +239,7 @@ public class Randomizer : MonoBehaviour
         SpawnFairyInBlock(c);
         yield return new WaitForSeconds(speed);
         fairy.SetActive(false);
+        totlalAccuracyClicks += 3;
         Player.timer.Start();
         enableField();
     }
@@ -253,6 +257,7 @@ public class Randomizer : MonoBehaviour
         SpawnFairyInBlock(d);
         yield return new WaitForSeconds(speed);
         fairy.SetActive(false);
+        totlalAccuracyClicks += 4;
         enableField();
         Player.timer.Start();
     }
@@ -272,6 +277,7 @@ public class Randomizer : MonoBehaviour
         SpawnFairyInBlock(e);
         yield return new WaitForSeconds(speed);
         fairy.SetActive(false);
+        totlalAccuracyClicks += 5;
         enableField();
         Player.timer.Start();
     }
@@ -292,6 +298,7 @@ public class Randomizer : MonoBehaviour
         SpawnFairyInBlock(f);
         yield return new WaitForSeconds(speed);
         fairy.SetActive(false);
+        totlalAccuracyClicks += 6;
         enableField();
         Player.timer.Start();
     }
@@ -328,13 +335,22 @@ public class Randomizer : MonoBehaviour
 
     void increaseWarning()
     {
-        for (int i = 0; i < blocks.Count; i++)
+        if(countFalseTask >= 3)
         {
-            blocks[i].gameObject.SetActive(false);
+            SkipToFinish();
         }
-        button.gameObject.SetActive(false);
-        increaseText.gameObject.SetActive(true);
-        increaseButton.gameObject.SetActive(true);
+        else
+        {
+            for (int i = 0; i < blocks.Count; i++)
+            {
+                blocks[i].gameObject.SetActive(false);
+            }
+            button.gameObject.SetActive(false);
+            increaseText.gameObject.SetActive(true);
+            increaseButton.gameObject.SetActive(true);
+        }
+
+        
     }
     void showField()
     {

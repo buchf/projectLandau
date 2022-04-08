@@ -21,7 +21,7 @@ public class DataSaver : MonoBehaviour
     public float accuracyPercentage = 0.0f;
 
     //Number for full programm
-    int amountOfFullCorsiTaskClicks = 126;
+    
 
 
     //VPN nummer soll im gesamten project den Input vom Textfeld VPN bekommen sodass die datei auf diejenige Versuchsperson sich bezieht
@@ -62,7 +62,7 @@ public class DataSaver : MonoBehaviour
         
         filePath = Path.Combine(Application.persistentDataPath, fileName);
 
-        accuracyPercentage = float.Parse(accuracy) / amountOfFullCorsiTaskClicks * 100;
+        accuracyPercentage = float.Parse(accuracy) / Randomizer.totlalAccuracyClicks * 100;
        
         /*
          * z1 ist die Struktur fuer die "overall" - Results
