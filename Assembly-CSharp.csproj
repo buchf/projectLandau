@@ -57,6 +57,7 @@
     <Compile Include="Assets\Backend\IO\ExperimentConfig.cs" />
     <Compile Include="Assets\Backend\ControlFlow\Trial.cs" />
     <Compile Include="Assets\Backend\UI\Richtungssticker.cs" />
+    <Compile Include="Assets\ExekutiveFunktionen\Scripts\GoNoGoPractice.cs" />
     <Compile Include="Assets\Backend\UI\Zahnrad.cs" />
     <Compile Include="Assets\ExekutiveFunktionen\Scripts\Corsi\BlockClick.cs" />
     <Compile Include="Assets\Backend\Helper\DragNDrop.cs" />
@@ -85,8 +86,9 @@
     <Compile Include="Assets\Backend\UI\Spielbrett.cs" />
     <Compile Include="Assets\Backend\ControlFlow\Implementations\StabilityTrials.cs" />
     <Compile Include="Assets\ExekutiveFunktionen\Scripts\Corsi\Randomizer.cs" />
-    <Compile Include="Assets\corsiTextSelect.cs" />
-    <Compile Include="Assets\ExekutiveFunktionen\Scripts\GoNoGoPractice.cs" />
+    <Compile Include="Assets\ExekutiveFunktionen\Scripts\Corsi\corsiTextSelect.cs" />
+    <Compile Include="Assets\ExekutiveFunktionen\Scripts\Corsi\CorsiPractice.cs" />
+    <Compile Include="Assets\ExekutiveFunktionen\Scripts\Corsi\PracticeBlock.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\ExekutiveFunktionen\TextMesh Pro\Shaders\TMPro.cginc" />

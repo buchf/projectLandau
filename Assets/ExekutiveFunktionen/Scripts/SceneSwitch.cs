@@ -36,13 +36,13 @@ public class SceneSwitch : MonoBehaviour
 
     public void BackStart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 125);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 126);
     }
     public void GoNoGoBackStart()
     {
         //GoNoGo.counter = 0;
         //GoNoGo.trial = 1;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 130);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 131);
     }
 
     public void ReadInput(string s)
@@ -64,6 +64,6 @@ public class SceneSwitch : MonoBehaviour
         DataGoNoGO.z1.Clear();
         DataGoNoGO.VPN = inputVPN;
         
-         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 126);
+         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 127);
     }
 }

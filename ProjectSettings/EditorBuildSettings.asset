@@ -387,6 +387,9 @@ EditorBuildSettings:
     path: Assets/Scenes/stabilityRed/stabilityRed17.unity
     guid: 01b73a2a6d5e3b345b5df4f0258c6c7b
   - enabled: 1
+    path: Assets/ExekutiveFunktionen/Scenes/Corsi/CorsiPractice.unity
+    guid: 5f7c7f7d9c4ec4d4cb1ab76b2d696bb7
+  - enabled: 1
     path: Assets/ExekutiveFunktionen/Scenes/Corsi/CorsiIntroduction.unity
     guid: 8489822ef200ca94e8a70af0b3955870
   - enabled: 1
