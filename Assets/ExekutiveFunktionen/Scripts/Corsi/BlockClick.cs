@@ -12,17 +12,22 @@ public class BlockClick : MonoBehaviour
      */
 
     private Player player;
+
+    
+
     private void Start()
     {
         player = FindObjectOfType<Player>();
     }
+
     public void OnMouseDown()
     {
+        
         player.increaseClick();
         if ( gameObject.CompareTag("Block"))
         {
             player.clickedBlocks.Add(gameObject);
-            StartCoroutine(ClickTimeAnimation());         
+            StartCoroutine(ClickTimeAnimation());
         }
     }
 
@@ -30,10 +35,10 @@ public class BlockClick : MonoBehaviour
     //Block der geklickt wird, ist fuer 0.2 sekunden grau und wird anschliessend wieder weiss
     IEnumerator ClickTimeAnimation()
     {
-
         gameObject.GetComponent<SpriteRenderer>().color = Color.grey;
         yield return new WaitForSeconds(.2f);
         gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
-
+        Player.clicks++;
+        Debug.Log(Player.length.ToString());
     }
 }

@@ -1,15 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using System.Diagnostics;
-using UnityEngine.SceneManagement;
-using UnityEngine.Diagnostics;
+using UnityEngine;
 using Debug = UnityEngine.Debug;
 
 public class Player : MonoBehaviour
 {
-
-
     public List<GameObject> clickedBlocks = new List<GameObject>();
     public List<GameObject> sequenzBlocks = new List<GameObject>();
 
@@ -22,6 +17,8 @@ public class Player : MonoBehaviour
 
     int listCompareVar;
 
+    public static int clicks;
+    public static int length =1;
 
     /*
      * Start() Funktion wird beim Programmstart aufgerufen um die Variablen zu bereinigen und alles auf default 0 zu setzten
@@ -43,7 +40,6 @@ public class Player : MonoBehaviour
      */
     private void Update()
     {
-   
 
         if(clickedBlocks.Count > sequenzBlocks.Count)
         {

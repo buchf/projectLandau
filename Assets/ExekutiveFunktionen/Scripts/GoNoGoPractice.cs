@@ -69,7 +69,8 @@ public class GoNoGoPractice : MonoBehaviour
 
     private void Update()
     {
-        if (counter == 10 && trial == 2)
+
+        if (counter == 11 && trial == 2)
         {
             timer.Stop();
             shownAnimal.gameObject.SetActive(false);
@@ -79,7 +80,7 @@ public class GoNoGoPractice : MonoBehaviour
             redoButton.gameObject.SetActive(true);
 
         }
-        if (counter == 10 && trial != 2)
+        if (counter == 11 && trial != 2)
         {
 
             timer.Stop();

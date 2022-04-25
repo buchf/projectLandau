@@ -22,9 +22,9 @@ public class Randomizer : MonoBehaviour
 
     public static int countFalseTask = 0;
 
+
     private void Start()
-    {
-        
+    {  
         Debug.Log(reverse);
         player = FindObjectOfType<Player>();
         fairy.transform.position = new Vector3(-7f, 3f, -1);
@@ -32,16 +32,10 @@ public class Randomizer : MonoBehaviour
         count1++; 
     }
 
-  /*  private void Update()
+    private void Update()
     {
-        if (count1 == 6 && count2 != 5 && countFalseTask < 3)
-        {
-            increaseWarning();
-        } else if( count1 == 7 && countFalseTask>=3)
-        {
-            SkipToFinish();
-        }
-    } */
+        Debug.Log("test");
+    }
 
     public void StartSequenz()
     {
@@ -56,6 +50,7 @@ public class Randomizer : MonoBehaviour
             count1 = 0;
             count2++;
             countFalseTask = 0;
+            Player.length++;
         } 
 
 

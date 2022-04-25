@@ -22,20 +22,36 @@ public class CorsiPractice : MonoBehaviour
     [SerializeField] List<Transform> blocks = new List<Transform>();
     [SerializeField] Button button;
     [SerializeField] Button button2;
-    
+
+    public static int clickedBlocks = 0;
+    int sequenzBlocks = 1;
+
+
+
+
     // Start is called before the first frame update
     void Start()
     {
-
-        fairy.transform.position = new Vector3(-7f, 3f, -1);
-        StartCoroutine(SequenzZero(3));
-        count1++;
+      
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        //wenn clickedblocks length = sequenztlengt -> startsequenz
+       if(clickedBlocks == sequenzBlocks)
+       {
+           clickedBlocks = 0;
+           StartSequenz();
+       }
+    }
+
+    public void StartFirstSequenz()
+    {
+        fairy.transform.position = new Vector3(-7f, 3f, -1);
+        showField();
+        StartCoroutine(SequenzZero(3));
+        count1++;
     }
 
     public void StartSequenz()
@@ -48,6 +64,7 @@ public class CorsiPractice : MonoBehaviour
         if (count1 == 3 && count2 != 2)
         {
             count1 = 0;
+            sequenzBlocks = 2;
             count2++;
         }
 
@@ -93,7 +110,7 @@ public class CorsiPractice : MonoBehaviour
             blocks[i].gameObject.SetActive(false);
         }
         button.gameObject.SetActive(false);
-        
+        button2.gameObject.SetActive(true);
     }
 
 
@@ -108,7 +125,7 @@ public class CorsiPractice : MonoBehaviour
         introTextReverse.gameObject.SetActive(false);
         lessaImage.SetActive(false);
         button.gameObject.SetActive(false);
-        button2.gameObject.SetActive(true);
+        button2.gameObject.SetActive(false);
         increaseText.gameObject.SetActive(false);
 
     }

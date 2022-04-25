@@ -17,6 +17,6 @@ public class PracticeBlock : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().color = Color.grey;
         yield return new WaitForSeconds(.2f);
         gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
-
+        CorsiPractice.clickedBlocks++;
     }
 }
