@@ -11,7 +11,7 @@ public class BlockClick : MonoBehaviour
      * its needed for the compareLists function in the Player Script
      */
 
-    private Player player;
+    public Player player;
 
     
 
@@ -28,7 +28,7 @@ public class BlockClick : MonoBehaviour
         {
             player.clickedBlocks.Add(gameObject);
             StartCoroutine(ClickTimeAnimation());
-        }
+        }       
     }
 
 
@@ -38,7 +38,6 @@ public class BlockClick : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().color = Color.grey;
         yield return new WaitForSeconds(.2f);
         gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
-        Player.clicks++;
-        Debug.Log(Player.length.ToString());
+        Randomizer.clickedBlocks++;
     }
 }

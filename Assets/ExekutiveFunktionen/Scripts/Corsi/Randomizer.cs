@@ -17,10 +17,14 @@ public class Randomizer : MonoBehaviour
     public static bool reverse;
     public TextMesh increaseText;
     [SerializeField] Button increaseButton;
-    [SerializeField] Button button;
 
 
     public static int countFalseTask = 0;
+
+
+    public static int clickedBlocks = 0;
+    int sequenzBlocks = 1;
+
 
 
     private void Start()
@@ -32,9 +36,16 @@ public class Randomizer : MonoBehaviour
         count1++; 
     }
 
-    private void Update()
+    public void Update()
     {
-        Debug.Log("test");
+        
+        if(clickedBlocks == sequenzBlocks)
+        {
+            Debug.Log("LETS GO");
+            player.CleanLists();
+            clickedBlocks = 0;
+            StartSequenz();
+        }
     }
 
     public void StartSequenz()
@@ -50,7 +61,7 @@ public class Randomizer : MonoBehaviour
             count1 = 0;
             count2++;
             countFalseTask = 0;
-            Player.length++;
+            sequenzBlocks++;
         } 
 
 
@@ -313,7 +324,7 @@ public class Randomizer : MonoBehaviour
         {
             blocks[i].GetComponent<Collider2D>().enabled = true;
         }
-        button.interactable = true;
+
         
     }
     public void disableField()
@@ -323,7 +334,7 @@ public class Randomizer : MonoBehaviour
         {
             blocks[i].GetComponent<Collider2D>().enabled = false;
         }
-        button.interactable = false;
+
         totalTasks++;
         
     }
@@ -340,20 +351,18 @@ public class Randomizer : MonoBehaviour
             {
                 blocks[i].gameObject.SetActive(false);
             }
-            button.gameObject.SetActive(false);
             increaseText.gameObject.SetActive(true);
             increaseButton.gameObject.SetActive(true);
         }
 
         
     }
-    void showField()
+    public void showField()
     {
         for (int i = 0; i < blocks.Count; i++)
         {
             blocks[i].gameObject.SetActive(true);
         }
-        button.gameObject.SetActive(true);
         increaseText.gameObject.SetActive(false);
         increaseButton.gameObject.SetActive(false);
     }

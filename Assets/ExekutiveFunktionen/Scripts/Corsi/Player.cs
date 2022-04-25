@@ -17,9 +17,6 @@ public class Player : MonoBehaviour
 
     int listCompareVar;
 
-    public static int clicks;
-    public static int length =1;
-
     /*
      * Start() Funktion wird beim Programmstart aufgerufen um die Variablen zu bereinigen und alles auf default 0 zu setzten
      */
