@@ -106,7 +106,7 @@ public abstract class Block
                 b = new CogBlock<CarouselTrial>(); // orientiert an Standard carousel
                 break;
             case "prt":
-                b = new RedStabilityBlock(2); // orientiert an RedStab
+                b = new RedStabilityBlock(0); // orientiert an RedStab
                 break;
             default:
                 throw new System.ArgumentException("Tried to instantiate a block with an unknown type: '" + name + "'");
