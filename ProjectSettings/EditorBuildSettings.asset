@@ -413,4 +413,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/ExekutiveFunktionen/Scenes/GoNoGoOutro.unity
     guid: 26483ac93fc3a1943bac1b9d46f4a0c0
+  - enabled: 1
+    path: Assets/Scenes/stabilityGreen/stabilityGreen3.unity
+    guid: 383fefff9f6dcb64db95655ba60721a1
   m_configObjects: {}
