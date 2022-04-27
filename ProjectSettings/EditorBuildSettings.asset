@@ -416,4 +416,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/stabilityGreen/stabilityGreen3.unity
     guid: 383fefff9f6dcb64db95655ba60721a1
+  - enabled: 1
+    path: Assets/Scenes/carouselTransfer/carouselTransfer1.unity
+    guid: f1be6f024fc4e0a45a7a884bf6397f5e
+  - enabled: 1
+    path: Assets/Scenes/carouselTransfer/carouselTransfer_instructions.unity
+    guid: 1e717ca0013b1ba44b1080f323355140
   m_configObjects: {}
