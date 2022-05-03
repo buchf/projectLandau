@@ -130,11 +130,6 @@ public class CorsiPractice : MonoBehaviour
 
     }
 
-    public void StartCorsi()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
-
     public void RepeatPractice()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 0);

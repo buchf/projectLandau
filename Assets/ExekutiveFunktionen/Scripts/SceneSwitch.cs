@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class SceneSwitch : MonoBehaviour
@@ -15,14 +14,17 @@ public class SceneSwitch : MonoBehaviour
     private string inputVPN = "";
     public static bool reverse = false;
     public void StartGame()
-    { 
+    {
+        DataSaver.z0.Clear();
         DataSaver.z1.Clear();
         DataSaver.z2.Clear();
         DataSaver.z3.Clear();
         DataSaver.z4.Clear();
         DataSaver.z5.Clear();
+        DataSaver.z6.Clear();
         DataSaver.results.Clear();
-
+        Randomizer.countFalseTask = 0;
+        Randomizer.totalTasks = 0;
         DataSaver.VPN = inputVPN;
         Randomizer.reverse = reverse;
         

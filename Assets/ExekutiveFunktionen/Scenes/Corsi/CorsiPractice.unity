@@ -1138,9 +1138,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1760446550}
-        m_TargetAssemblyTypeName: CorsiPractice, Assembly-CSharp
-        m_MethodName: StartCorsi
+      - m_Target: {fileID: 1760446552}
+        m_TargetAssemblyTypeName: SceneSwitch, Assembly-CSharp
+        m_MethodName: PlayGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1968,6 +1968,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1760446551}
   - component: {fileID: 1760446550}
+  - component: {fileID: 1760446552}
   m_Layer: 0
   m_Name: GameHandler
   m_TagString: Untagged
@@ -2023,6 +2024,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1760446552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760446549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27ef4999f5222194da16d289f4062872, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1835253051
 GameObject:
   m_ObjectHideFlags: 0

@@ -41,7 +41,6 @@ public class Randomizer : MonoBehaviour
         
         if(clickedBlocks == sequenzBlocks)
         {
-            Debug.Log("LETS GO");
             player.CleanLists();
             clickedBlocks = 0;
             StartSequenz();
