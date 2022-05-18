@@ -321,6 +321,7 @@ public class Randomizer : MonoBehaviour
     {
         for(int i = 0; i< blocks.Count;i++)
         {
+            blocks[i].GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
             blocks[i].GetComponent<Collider2D>().enabled = true;
         }
 
@@ -331,6 +332,7 @@ public class Randomizer : MonoBehaviour
         
         for (int i = 0; i < blocks.Count; i++)
         {
+            blocks[i].GetComponent<SpriteRenderer>().color = Color.grey;
             blocks[i].GetComponent<Collider2D>().enabled = false;
         }
 

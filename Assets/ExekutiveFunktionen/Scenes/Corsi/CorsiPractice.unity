@@ -846,9 +846,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 303862391086869193, guid: 13d879c6b1ab47a438575ad0c4adf9f8, type: 3}
       propertyPath: m_Text
-      value: "Diese Fee fliegt gerne von einem Feld \nauf das n\xE4chste. Du sollst
-        helfen, \nherauszufinden welchen Weg sie \ngenommen hat. Tippe daf\xFCr nacheinander
-        \ndie Felder an, auf die die Fee geflogen ist."
+      value: "Diese Fee fliegt gerne von einem grauen \nFeld auf das n\xE4chste.
+        Wenn die Fee weg ist,\nwerden die Felder wei\xDF und du sollst helfen, \nherauszufinden
+        welchen Weg sie genommen \nhat. Tippe daf\xFCr nacheinander die Felder an,
+        \nauf die die Fee geflogen ist."
       objectReference: {fileID: 0}
     - target: {fileID: 303862391086869195, guid: 13d879c6b1ab47a438575ad0c4adf9f8, type: 3}
       propertyPath: m_RootOrder
