@@ -68,4 +68,9 @@ public class SceneSwitch : MonoBehaviour
         
          SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 127);
     }
+    public void StartCardSorting()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 154);
+    }
+
 }

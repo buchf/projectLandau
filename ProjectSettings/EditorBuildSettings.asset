@@ -399,19 +399,19 @@ EditorBuildSettings:
     path: Assets/ExekutiveFunktionen/Scenes/Corsi/Outro.unity
     guid: 7eeb90e42a610db4193dba18dda75e2b
   - enabled: 1
-    path: Assets/ExekutiveFunktionen/Scenes/GoNoGoPractice.unity
+    path: Assets/ExekutiveFunktionen/Scenes/GoNoGo/GoNoGoPractice.unity
     guid: c2aee0eef3685bf46af8d5bb51a45a58
   - enabled: 1
-    path: Assets/ExekutiveFunktionen/Scenes/GoNoGoIntro.unity
+    path: Assets/ExekutiveFunktionen/Scenes/GoNoGo/GoNoGoIntro.unity
     guid: a59aa638f5bc4ae40aff9cdd4e57db9b
   - enabled: 1
-    path: Assets/ExekutiveFunktionen/Scenes/GoNoGoPlay.unity
+    path: Assets/ExekutiveFunktionen/Scenes/GoNoGo/GoNoGoPlay.unity
     guid: d64a985872964c84681c8a57e4efbe0e
   - enabled: 1
-    path: Assets/ExekutiveFunktionen/Scenes/GoNoGoAnimal.unity
+    path: Assets/ExekutiveFunktionen/Scenes/GoNoGo/GoNoGoAnimal.unity
     guid: e97980f3ccee9db4493d40d2898b1c2d
   - enabled: 1
-    path: Assets/ExekutiveFunktionen/Scenes/GoNoGoOutro.unity
+    path: Assets/ExekutiveFunktionen/Scenes/GoNoGo/GoNoGoOutro.unity
     guid: 26483ac93fc3a1943bac1b9d46f4a0c0
   - enabled: 1
     path: Assets/Scenes/stabilityGreen/stabilityGreen3.unity
@@ -479,4 +479,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/stabilityRed/stabilityRed15.unity
     guid: b69b20b0380f88b499e6703bea1dd6f5
+  - enabled: 1
+    path: Assets/ExekutiveFunktionen/Scenes/CSIntro.unity
+    guid: 3a002aa31a9f8b84490196eea3776c2b
+  - enabled: 1
+    path: Assets/ExekutiveFunktionen/Scenes/CSPractice.unity
+    guid: 58e9c9dc37175a343a87eff2d9266588
   m_configObjects: {}
