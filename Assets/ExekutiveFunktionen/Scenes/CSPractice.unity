@@ -567,7 +567,7 @@ GameObject:
   - component: {fileID: 573492229}
   - component: {fileID: 573492228}
   m_Layer: 5
-  m_Name: FeeNormal
+  m_Name: 1_Fairy_White
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -668,7 +668,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 364b47caafe872246a2623e02e0ae3fc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 88dc4fa6ec816ae4d92e049e2ca552b5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -817,12 +817,12 @@ MonoBehaviour:
   einFee: {fileID: 1159799677}
   zweiFee: {fileID: 667374125}
   dreiFee: {fileID: 564595419}
-  gelbFee: {fileID: 2140016641}
-  rotFee: {fileID: 2012501166}
-  blauFee: {fileID: 1112374944}
-  fee: {fileID: 573492226}
-  stern: {fileID: 664955115}
-  hut: {fileID: 1540801854}
+  one_fairy_yellow: {fileID: 2140016641}
+  one_fairy_red: {fileID: 2012501166}
+  one_fairy_blue: {fileID: 1112374944}
+  one_fairy_white: {fileID: 573492226}
+  one_flower_white: {fileID: 664955115}
+  one_hat_white: {fileID: 1540801854}
   feeEinzel: {fileID: 2098184761}
   feeDoppelt: {fileID: 1843666011}
   feeDreifach: {fileID: 988534963}
@@ -842,7 +842,7 @@ GameObject:
   - component: {fileID: 664955118}
   - component: {fileID: 664955117}
   m_Layer: 5
-  m_Name: Stern
+  m_Name: 1_Flower_White
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -943,7 +943,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d6cfc125a47aa894eba7610d855b1d80, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7a283983f43ed264393754553d88c6f9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1109,7 +1109,7 @@ GameObject:
   - component: {fileID: 988534966}
   - component: {fileID: 988534965}
   m_Layer: 5
-  m_Name: FeeDreifach
+  m_Name: 3_Flower_White
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1210,7 +1210,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a1ad250816a3566449c538a3ae6b8f63, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6ed5bdeeb3a6c0745a113bbe0dcf36e8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1241,7 +1241,7 @@ GameObject:
   - component: {fileID: 1112374947}
   - component: {fileID: 1112374946}
   m_Layer: 5
-  m_Name: FeeBlau
+  m_Name: 1_Fairy_Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1342,7 +1342,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 905c13f85d9173f409ad7ea95bac2347, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d79d6ba16557b8645b70b4b5bc38f98a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1583,7 +1583,7 @@ GameObject:
   - component: {fileID: 1540801857}
   - component: {fileID: 1540801856}
   m_Layer: 5
-  m_Name: Hut
+  m_Name: 1_Hat_White
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1684,7 +1684,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0e5c844db50611745a7be27fecf3e2ba, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fa11255b3211ee44eaa43b124b41e637, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1851,7 +1851,7 @@ GameObject:
   - component: {fileID: 1843666014}
   - component: {fileID: 1843666013}
   m_Layer: 5
-  m_Name: FeeDoppelt
+  m_Name: 2_Flower_White
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1952,7 +1952,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c0d578ada5435a244b4cb2d7e05ec3c2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a19b6fc09ca89604c9c920acd0cbd097, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2048,7 +2048,7 @@ GameObject:
   - component: {fileID: 2012501169}
   - component: {fileID: 2012501168}
   m_Layer: 5
-  m_Name: FeeRot
+  m_Name: 1_Fairy_Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2149,7 +2149,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 06a225f2b68aaa64fb7b6240db9253ea, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5a6857a42a45ba64d926320eff735059, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2250,7 +2250,7 @@ GameObject:
   - component: {fileID: 2098184764}
   - component: {fileID: 2098184763}
   m_Layer: 5
-  m_Name: FeeEinzel
+  m_Name: 1_Flower_White
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2351,7 +2351,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: bb7e11560f580f148b35eb92439adfb6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7a283983f43ed264393754553d88c6f9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2382,7 +2382,7 @@ GameObject:
   - component: {fileID: 2140016644}
   - component: {fileID: 2140016643}
   m_Layer: 5
-  m_Name: FeeGelb
+  m_Name: 1_Fairy_Yellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2483,7 +2483,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: bb7e11560f580f148b35eb92439adfb6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e5fe4f647fe4c7349a2518902fe74345, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

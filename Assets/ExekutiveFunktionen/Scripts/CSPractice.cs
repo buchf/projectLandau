@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CSPractice : MonoBehaviour
 {
@@ -18,13 +19,13 @@ public class CSPractice : MonoBehaviour
     public TextMesh dreiFee;
 
 
-    public GameObject gelbFee;
-    public GameObject rotFee;
-    public GameObject blauFee;
+    public GameObject one_fairy_yellow;
+    public GameObject one_fairy_red;
+    public GameObject one_fairy_blue;
 
-    public GameObject fee;
-    public GameObject stern;
-    public GameObject hut;
+    public GameObject one_fairy_white;
+    public GameObject one_flower_white;
+    public GameObject one_hat_white;
 
     public GameObject feeEinzel;
     public GameObject feeDoppelt;
@@ -45,23 +46,26 @@ public class CSPractice : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if(zaehler == 1)
         {
             rot.gameObject.SetActive(false);
+            StartCoroutine(Wait());
             blau.gameObject.SetActive(true);
 
         }
         if (zaehler == 2)
         {
             blau.gameObject.SetActive(false);
+            StartCoroutine(Wait());
             gelb.gameObject.SetActive(true);
         }
         if (zaehler == 3)
         {
             gelb.gameObject.SetActive(false);
-            gelbFee.SetActive(false);
-            rotFee.SetActive(false);
-            blauFee.SetActive(false);
+            one_fairy_yellow.SetActive(false);
+            one_fairy_red.SetActive(false);
+            one_fairy_blue.SetActive(false);
             inhaltText.gameObject.SetActive(true);
             button.SetActive(true);
         }
@@ -70,9 +74,9 @@ public class CSPractice : MonoBehaviour
         {
             button.SetActive(false);
             inhaltText.gameObject.SetActive(false);
-            fee.SetActive(true);
-            stern.SetActive(true);
-            hut.SetActive(true);
+            one_fairy_white.SetActive(true);
+            one_flower_white.SetActive(true);
+            one_hat_white.SetActive(true);
             feeText.gameObject.SetActive(true);
         }
         if(zaehler == 5)
@@ -88,9 +92,9 @@ public class CSPractice : MonoBehaviour
         if(zaehler == 7)
         {
             hutText.gameObject.SetActive(false);
-            fee.SetActive(false);
-            stern.SetActive(false);
-            hut.SetActive(false);
+            one_fairy_white.SetActive(false);
+            one_flower_white.SetActive(false);
+            one_hat_white.SetActive(false);
             button.SetActive(true);
             anzahlText.gameObject.SetActive(true);
         }
@@ -124,4 +128,10 @@ public class CSPractice : MonoBehaviour
         zaehler++;
     }
 
+    IEnumerator Wait()
+    {
+        yield return new WaitForSecondsRealtime(2f);
+        Debug.Log("test");
+        
+    }
 }
