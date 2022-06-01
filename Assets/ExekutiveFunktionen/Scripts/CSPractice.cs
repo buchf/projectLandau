@@ -10,9 +10,9 @@ public class CSPractice : MonoBehaviour
     public TextMesh rot;
     public TextMesh blau;
 
-    public TextMesh feeText;
-    public TextMesh sternText;
-    public TextMesh hutText;
+    public TextMesh one_flower_text;
+    public TextMesh two_flower_text;
+    public TextMesh three_flower_text;
 
     public TextMesh einFee;
     public TextMesh zweiFee;
@@ -27,9 +27,9 @@ public class CSPractice : MonoBehaviour
     public GameObject one_flower_white;
     public GameObject one_hat_white;
 
-    public GameObject feeEinzel;
-    public GameObject feeDoppelt;
-    public GameObject feeDreifach;
+    public GameObject one_flower;
+    public GameObject two_flower;
+    public GameObject three_flower;
 
     public TextMesh inhaltText;
     public TextMesh anzahlText;
@@ -47,18 +47,25 @@ public class CSPractice : MonoBehaviour
     void Update()
     {
         
-        if(zaehler == 1)
+        
+    }
+
+    public void IncreaseCounter()
+    {
+        zaehler++;
+
+        if (zaehler == 1)
         {
-            rot.gameObject.SetActive(false);
-            StartCoroutine(Wait());
-            blau.gameObject.SetActive(true);
+           // rot.gameObject.SetActive(false);
+            StartCoroutine(Wait(rot.gameObject, blau.gameObject));
+           // blau.gameObject.SetActive(true);
 
         }
         if (zaehler == 2)
         {
-            blau.gameObject.SetActive(false);
-            StartCoroutine(Wait());
-            gelb.gameObject.SetActive(true);
+            //blau.gameObject.SetActive(false);
+            StartCoroutine(Wait(blau.gameObject, gelb.gameObject));
+            //gelb.gameObject.SetActive(true);
         }
         if (zaehler == 3)
         {
@@ -66,50 +73,50 @@ public class CSPractice : MonoBehaviour
             one_fairy_yellow.SetActive(false);
             one_fairy_red.SetActive(false);
             one_fairy_blue.SetActive(false);
-            inhaltText.gameObject.SetActive(true);
+            anzahlText.gameObject.SetActive(true);
             button.SetActive(true);
         }
 
         if (zaehler == 4)
         {
             button.SetActive(false);
-            inhaltText.gameObject.SetActive(false);
-            one_fairy_white.SetActive(true);
-            one_flower_white.SetActive(true);
-            one_hat_white.SetActive(true);
-            feeText.gameObject.SetActive(true);
+            anzahlText.gameObject.SetActive(false);
+            one_flower.SetActive(true);
+            two_flower.SetActive(true);
+            three_flower.SetActive(true);
+            three_flower_text.gameObject.SetActive(true);
         }
-        if(zaehler == 5)
+        if (zaehler == 5)
         {
-            feeText.gameObject.SetActive(false);
-            sternText.gameObject.SetActive(true);
+            //feeText.gameObject.SetActive(false);
+            StartCoroutine(Wait(three_flower_text.gameObject, one_flower_text.gameObject));
+            //sternText.gameObject.SetActive(true);
         }
-        if(zaehler == 6)
+        if (zaehler == 6)
         {
-            sternText.gameObject.SetActive(false);
-            hutText.gameObject.SetActive(true);
+            StartCoroutine(Wait(one_flower_text.gameObject, two_flower_text.gameObject));
         }
-        if(zaehler == 7)
+        if (zaehler == 7)
         {
-            hutText.gameObject.SetActive(false);
-            one_fairy_white.SetActive(false);
-            one_flower_white.SetActive(false);
-            one_hat_white.SetActive(false);
+            two_flower_text.gameObject.SetActive(false);
+            one_flower.SetActive(false);
+            two_flower.SetActive(false);
+            three_flower.SetActive(false);
             button.SetActive(true);
-            anzahlText.gameObject.SetActive(true);
+            inhaltText.gameObject.SetActive(true);
         }
 
-        if(zaehler == 8)
+        if (zaehler == 8)
         {
-            feeEinzel.SetActive(true);
-            feeDoppelt.SetActive(true);
-            feeDreifach.SetActive(true);
+            one_hat_white.SetActive(true);
+            one_fairy_white.SetActive(true);
+            one_flower_white.SetActive(true);
             button.SetActive(false);
-            anzahlText.gameObject.SetActive(false);
+            inhaltText.gameObject.SetActive(false);
             einFee.gameObject.SetActive(true);
         }
 
-        if(zaehler == 9)
+        if (zaehler == 9)
         {
             einFee.gameObject.SetActive(false);
             zweiFee.gameObject.SetActive(true);
@@ -123,14 +130,11 @@ public class CSPractice : MonoBehaviour
 
     }
 
-    public void IncreaseCounter()
+    IEnumerator Wait(GameObject a, GameObject b)
     {
-        zaehler++;
-    }
-
-    IEnumerator Wait()
-    {
-        yield return new WaitForSecondsRealtime(2f);
+        a.gameObject.SetActive(false);
+        yield return new WaitForSecondsRealtime(1f);
+        b.gameObject.SetActive(true);
         Debug.Log("test");
         
     }
