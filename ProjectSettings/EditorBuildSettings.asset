@@ -483,6 +483,9 @@ EditorBuildSettings:
     path: Assets/ExekutiveFunktionen/Scenes/CSIntro.unity
     guid: 3a002aa31a9f8b84490196eea3776c2b
   - enabled: 1
-    path: Assets/ExekutiveFunktionen/Scenes/CSPractice.unity
+    path: Assets/ExekutiveFunktionen/Scenes/CSIntroduction.unity
     guid: 58e9c9dc37175a343a87eff2d9266588
+  - enabled: 1
+    path: Assets/ExekutiveFunktionen/Scenes/CSPractice.unity
+    guid: da8f81f5e1f2ed04dbcf2bef74a1b3d2
   m_configObjects: {}
