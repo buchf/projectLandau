@@ -6,6 +6,10 @@ using UnityEngine.UI;
 
 public class CSPractice : MonoBehaviour
 {
+
+    public GameObject correct;
+    public GameObject incorrect;
+
     //Practice Trial 1
     public GameObject one_Fairy_Red;
     public GameObject two_Fairy_Yellow;
@@ -21,6 +25,8 @@ public class CSPractice : MonoBehaviour
     public GameObject one_Hat_Yellow;
     public GameObject two_Hat_Blue;
 
+    private GameObject targetItem;
+    private GameObject clickedItem;
     
 
     void Start()
@@ -28,6 +34,7 @@ public class CSPractice : MonoBehaviour
         SpawnLeft(one_Fairy_Red);
         SpawnMiddle(two_Fairy_Yellow);
         StartCoroutine(Wait(three_Flower_Yellow));
+        targetItem = two_Fairy_Yellow;
         
     }
 
@@ -61,5 +68,21 @@ public class CSPractice : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(1f);
         SpawnRight(right);
+    }
+
+    public void Compare(GameObject clicked)
+    {
+        Debug.Log(targetItem.name);
+        Debug.Log(clicked.name);
+
+        if(targetItem == clicked)
+        {
+            Debug.Log("true");
+            correct.SetActive(true);
+        }
+        else
+        {
+            incorrect.SetActive(true);
+        }
     }
 }
