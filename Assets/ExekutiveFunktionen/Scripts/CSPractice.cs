@@ -7,6 +7,10 @@ using UnityEngine.UI;
 public class CSPractice : MonoBehaviour
 {
 
+    public Button continueButton;
+    public Button redoButton;
+    public TextMesh continueText;
+
     public GameObject correct;
     public GameObject incorrect;
 
@@ -25,22 +29,69 @@ public class CSPractice : MonoBehaviour
     public GameObject one_Hat_Yellow;
     public GameObject two_Hat_Blue;
 
+
+    private GameObject left;
+    private GameObject right;
+    private GameObject middle;
+
     private GameObject targetItem;
     private GameObject clickedItem;
-    
+
+    int currentTrial = 0;
 
     void Start()
     {
-        SpawnLeft(one_Fairy_Red);
-        SpawnMiddle(two_Fairy_Yellow);
-        StartCoroutine(Wait(three_Flower_Yellow));
-        targetItem = two_Fairy_Yellow;
+        currentTrial = 0;
+        currentTask(currentTrial);
+        
         
     }
 
     void Update()
     {
         
+    }
+
+    void currentTask(int currentTrial)
+    {
+        if(currentTrial == 0)
+        {
+            left = one_Fairy_Red;
+            middle = two_Fairy_Yellow;
+            right = three_Flower_Yellow;
+            targetItem = middle;
+            SpawnFunction(left, middle, right);
+        }
+
+        if (currentTrial == 1)
+        {
+            left = two_Flower_Blue;
+            middle = three_Hat_Blue;
+            right = two_Fairy_Red;
+            targetItem = left;
+            SpawnFunction(left, middle, right);
+        }
+        if (currentTrial == 2)
+        {
+            left = one_Flower_Red;
+            middle = one_Hat_Yellow;
+            right = two_Hat_Blue;
+            targetItem = middle;
+            SpawnFunction(left, middle, right);
+        }
+
+        if(currentTrial == 3)
+        {
+            continueButton.gameObject.SetActive(true);
+            continueText.gameObject.SetActive(true);
+            redoButton.gameObject.SetActive(true);
+        }
+    }
+    void SpawnFunction(GameObject left, GameObject middle, GameObject right)
+    {
+        SpawnLeft(left);
+        SpawnMiddle(middle);
+        StartCoroutine(Wait(right));
     }
 
     void SpawnLeft(GameObject item)
@@ -84,5 +135,27 @@ public class CSPractice : MonoBehaviour
         {
             incorrect.SetActive(true);
         }
+        currentTrial++;
+        StartCoroutine(DespawnObject()); 
+    }
+
+    IEnumerator DespawnObject()
+    {
+        yield return new WaitForSeconds(1f);
+        right.SetActive(false);
+        middle.SetActive(false);
+        left.SetActive(false);
+        correct.SetActive(false);
+        incorrect.SetActive(false);
+        currentTask(currentTrial);
+    }
+
+    public void repeatPractice()
+    {
+        redoButton.gameObject.SetActive(false);
+        continueButton.gameObject.SetActive(false);
+        continueText.gameObject.SetActive(false);
+        currentTrial = 0;
+        currentTask(currentTrial);
     }
 }
