@@ -723,7 +723,7 @@ MonoBehaviour:
   two_Hat_Blue: {fileID: 756885692}
   two_Hat_Red: {fileID: 482019123}
   two_Hat_Yellow: {fileID: 1994428960}
-  three_Hat_Blue: {fileID: 1994428960}
+  three_Hat_Blue: {fileID: 1421169189}
   three_Hat_Red: {fileID: 137831888}
   three_Hat_Yellow: {fileID: 1007354198}
 --- !u!1 &482019123
