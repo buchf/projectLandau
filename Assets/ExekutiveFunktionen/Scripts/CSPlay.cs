@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Diagnostics;
+using Debug = UnityEngine.Debug;
 
 public class CSPlay : MonoBehaviour
 {
@@ -56,6 +58,8 @@ public class CSPlay : MonoBehaviour
     private GameObject clickedItem;
 
     int currentTrial = 0;
+
+    public static Stopwatch timer = new Stopwatch();
 
     // Start is called before the first frame update
     void Start()
@@ -222,7 +226,10 @@ public class CSPlay : MonoBehaviour
             SpawnFunction(three_Flower_Red, two_Hat_Red, one_Hat_Yellow);
             targetItem = two_Hat_Red;
         }
-
+        if(currentTrial == 31)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
     void SpawnFunction(GameObject leftCard, GameObject middleCard, GameObject rightCard)
     {
@@ -261,6 +268,9 @@ public class CSPlay : MonoBehaviour
         yield return new WaitForSecondsRealtime(1f);
         SpawnRight(right);
         EnableField();
+        Debug.Log("timer Start");
+        timer.Start();
+        
     }
 
     void activateObject(GameObject item)
@@ -271,17 +281,22 @@ public class CSPlay : MonoBehaviour
     }
     public void Compare(GameObject clicked)
     {
-        Debug.Log(targetItem.name);
-        Debug.Log(clicked.name);
+        int cresp = 0;
+        timer.Stop();
+        Debug.Log(timer.ElapsedMilliseconds.ToString());
+      //  Debug.Log(targetItem.name);
+       // Debug.Log(clicked.name);
 
         if (targetItem == clicked)
         {
-            Debug.Log("true");
+            cresp = 1;
         }
         else
         {
-            Debug.Log("false");
+            cresp = 0;
         }
+        WriteInDataSaver(currentTrial, left.name.ToString(), middle.name.ToString(), right.name.ToString(), targetItem.name.ToString(), timer.ElapsedMilliseconds, cresp);
+        
         activateObject(right);
         currentTrial++;
         StartCoroutine(DespawnObject());
@@ -307,5 +322,11 @@ public class CSPlay : MonoBehaviour
     {
         left.GetComponent<Button>().enabled = true;
         middle.GetComponent<Button>().enabled = true;
+    }
+
+    void WriteInDataSaver(int currentTrial, string left, string middle, string right, string targetItem, double reaction, int CRESP )
+    {
+        CSDataSaver.MeasureTest(currentTrial, left, middle, right, targetItem, reaction, CRESP);
+        timer.Reset();
     }
 }

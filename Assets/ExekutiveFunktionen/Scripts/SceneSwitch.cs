@@ -70,7 +70,20 @@ public class SceneSwitch : MonoBehaviour
     }
     public void StartCardSorting()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 154);
+        CSDataSaver.header.Clear();
+        CSDataSaver.overall.Clear();
+        CSDataSaver.results.Clear();
+        CSDataSaver.practice.Clear();
+        CSDataSaver.test.Clear();
+        CSDataSaver.VPN = inputVPN;
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 157);
+        //Debug.Log(CSDataSaver.fileName.ToString());
+    }
+
+    public void BackCardSorting()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 158);
     }
 
 }
