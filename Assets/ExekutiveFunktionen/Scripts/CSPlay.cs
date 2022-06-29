@@ -231,7 +231,9 @@ public class CSPlay : MonoBehaviour
         right = rightCard;
         SpawnLeft(left);
         SpawnMiddle(middle);
+        DisableField();
         StartCoroutine(Wait(right));
+        
     }
 
     void SpawnLeft(GameObject item)
@@ -258,6 +260,7 @@ public class CSPlay : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(1f);
         SpawnRight(right);
+        EnableField();
     }
 
     void activateObject(GameObject item)
@@ -294,4 +297,15 @@ public class CSPlay : MonoBehaviour
         currentTask(currentTrial);
     }
 
+    void DisableField()
+    {
+        left.GetComponent<Button>().enabled = false;
+        middle.GetComponent<Button>().enabled = false;   
+    }
+
+    void EnableField()
+    {
+        left.GetComponent<Button>().enabled = true;
+        middle.GetComponent<Button>().enabled = true;
+    }
 }
