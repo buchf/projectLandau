@@ -62,6 +62,11 @@ public class CSDataSaver : MonoBehaviour
         return x;
     }
 
+
+    public static void MeasurePractice(int trial, string itemLeft, string itemMid, string itemRight, string targetItem, double reaction, int CRESP)
+    {
+        practice.AppendFormat("Practice,1,1,U{0},{1},{2},{3},{4},{5},{6}\n", trial, itemLeft, itemMid, itemRight, targetItem, reaction, CRESP);
+    }
     public static void MeasureTest(int trial, string itemLeft, string itemMid, string itemRight, string targetItem, double reaction, int CRESP)
     {
         test.AppendFormat("Test,2,1,{0},{1},{2},{3},{4},{5},{6}\n", trial, itemLeft,itemMid, itemRight, targetItem, reaction, CRESP);

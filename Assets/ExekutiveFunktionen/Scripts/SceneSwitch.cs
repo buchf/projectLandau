@@ -77,7 +77,7 @@ public class SceneSwitch : MonoBehaviour
         CSDataSaver.test.Clear();
         CSDataSaver.VPN = inputVPN;
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 157);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 156);
         //Debug.Log(CSDataSaver.fileName.ToString());
     }
 

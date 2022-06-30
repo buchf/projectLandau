@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Diagnostics;
+using Debug = UnityEngine.Debug;
 using UnityEngine.UI;
 
 public class CSPractice : MonoBehaviour
@@ -37,11 +39,12 @@ public class CSPractice : MonoBehaviour
     private GameObject targetItem;
     private GameObject clickedItem;
 
+    public static Stopwatch timer = new Stopwatch();
     int currentTrial = 0;
 
     void Start()
     {
-        currentTrial = 0;
+        currentTrial = 1;
         currentTask(currentTrial);
         
         
@@ -54,7 +57,7 @@ public class CSPractice : MonoBehaviour
 
     void currentTask(int currentTrial)
     {
-        if(currentTrial == 0)
+        if(currentTrial == 1)
         {
             left = one_Fairy_Red;
             middle = two_Fairy_Yellow;
@@ -63,7 +66,7 @@ public class CSPractice : MonoBehaviour
             SpawnFunction(left, middle, right);
         }
 
-        if (currentTrial == 1)
+        if (currentTrial == 2)
         {
             left = two_Flower_Blue;
             middle = three_Hat_Blue;
@@ -71,7 +74,7 @@ public class CSPractice : MonoBehaviour
             targetItem = left;
             SpawnFunction(left, middle, right);
         }
-        if (currentTrial == 2)
+        if (currentTrial == 3)
         {
             left = one_Flower_Red;
             middle = one_Hat_Yellow;
@@ -80,7 +83,7 @@ public class CSPractice : MonoBehaviour
             SpawnFunction(left, middle, right);
         }
 
-        if(currentTrial == 3)
+        if(currentTrial == 4)
         {
             continueButton.gameObject.SetActive(true);
             continueText.gameObject.SetActive(true);
@@ -91,6 +94,7 @@ public class CSPractice : MonoBehaviour
     {
         SpawnLeft(left);
         SpawnMiddle(middle);
+        DisableField();
         StartCoroutine(Wait(right));
     }
 
@@ -119,22 +123,25 @@ public class CSPractice : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(1f);
         SpawnRight(right);
+        EnableField();
+        timer.Start();
     }
 
     public void Compare(GameObject clicked)
     {
         Debug.Log(targetItem.name);
         Debug.Log(clicked.name);
-
+        int cresp = 0;
         if(targetItem == clicked)
         {
-            Debug.Log("true");
+            cresp = 1;
             correct.SetActive(true);
         }
         else
         {
             incorrect.SetActive(true);
         }
+        WriteInDataSaver(currentTrial,left.name.ToString(),middle.name.ToString(), right.name.ToString(), targetItem.name.ToString(), timer.ElapsedMilliseconds, cresp);
         currentTrial++;
         StartCoroutine(DespawnObject()); 
     }
@@ -155,7 +162,25 @@ public class CSPractice : MonoBehaviour
         redoButton.gameObject.SetActive(false);
         continueButton.gameObject.SetActive(false);
         continueText.gameObject.SetActive(false);
-        currentTrial = 0;
+        currentTrial = 1;
         currentTask(currentTrial);
+    }
+
+    void DisableField()
+    {
+        left.GetComponent<Button>().enabled = false;
+        middle.GetComponent<Button>().enabled = false;
+    }
+
+    void EnableField()
+    {
+        left.GetComponent<Button>().enabled = true;
+        middle.GetComponent<Button>().enabled = true;
+    }
+
+    void WriteInDataSaver(int currentTrial, string left, string middle, string right, string targetItem, double reaction, int CRESP)
+    {
+        CSDataSaver.MeasurePractice(currentTrial, left, middle, right, targetItem, reaction, CRESP);
+        timer.Reset();
     }
 }
