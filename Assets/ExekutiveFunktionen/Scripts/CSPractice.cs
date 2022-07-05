@@ -40,10 +40,13 @@ public class CSPractice : MonoBehaviour
     private GameObject clickedItem;
 
     public static Stopwatch timer = new Stopwatch();
+
     int currentTrial = 0;
+    int test = 0;
 
     void Start()
     {
+        test = 0;
         currentTrial = 1;
         currentTask(currentTrial);
         
@@ -132,18 +135,45 @@ public class CSPractice : MonoBehaviour
         Debug.Log(targetItem.name);
         Debug.Log(clicked.name);
         int cresp = 0;
-        if(targetItem == clicked)
+        incorrect.SetActive(false);
+        correct.SetActive(false);
+        if (targetItem == clicked)
         {
+            
             cresp = 1;
+            
             correct.SetActive(true);
+            
         }
         else
+            
         {
+            test++;
             incorrect.SetActive(true);
         }
-        WriteInDataSaver(currentTrial,left.name.ToString(),middle.name.ToString(), right.name.ToString(), targetItem.name.ToString(), timer.ElapsedMilliseconds, cresp);
-        currentTrial++;
-        StartCoroutine(DespawnObject()); 
+
+        if(cresp == 0 && test ==1)
+        {
+            WriteInDataSaver(currentTrial, left.name.ToString(), middle.name.ToString(), right.name.ToString(), targetItem.name.ToString(), timer.ElapsedMilliseconds, cresp);
+        }
+
+        if (cresp == 1 && test == 0)
+        {
+            test = 0;
+            WriteInDataSaver(currentTrial, left.name.ToString(), middle.name.ToString(), right.name.ToString(), targetItem.name.ToString(), timer.ElapsedMilliseconds, cresp);
+            currentTrial++;
+            StartCoroutine(DespawnObject());
+        }
+
+        if (cresp == 1 && test >= 1)
+        {
+            test = 0;
+            currentTrial++;
+            StartCoroutine(DespawnObject());
+        }
+        
+
+
     }
 
     IEnumerator DespawnObject()
@@ -159,6 +189,7 @@ public class CSPractice : MonoBehaviour
 
     public void repeatPractice()
     {
+        CSDataSaver.practice.Clear();
         redoButton.gameObject.SetActive(false);
         continueButton.gameObject.SetActive(false);
         continueText.gameObject.SetActive(false);
