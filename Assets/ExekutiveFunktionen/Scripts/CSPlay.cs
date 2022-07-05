@@ -57,21 +57,19 @@ public class CSPlay : MonoBehaviour
     private GameObject targetItem;
     private GameObject clickedItem;
 
-    int currentTrial = 0;
+    public static int currentTrial = 1;
+    public static int blockNummer = 3;
+
+    public TextMesh practiceText;
+    public Button button;
+    
 
     public static Stopwatch timer = new Stopwatch();
 
     // Start is called before the first frame update
     void Start()
     {
-        currentTrial = 1;
         currentTask(currentTrial);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     void currentTask(int currentTrial)
@@ -166,69 +164,64 @@ public class CSPlay : MonoBehaviour
             SpawnFunction(three_Flower_Blue, three_Hat_Yellow, one_Fairy_Yellow);
             targetItem = three_Hat_Yellow;
         }
-        if (currentTrial == 19)
+        if (currentTrial == 19 && blockNummer == 3)
         {
-            SpawnFunction(three_Flower_Yellow, one_Flower_Red, two_Fairy_Red);
-            targetItem = one_Flower_Red;
+            practiceText.gameObject.SetActive(true);
+            button.gameObject.SetActive(true);
+
+           // SpawnFunction(three_Flower_Yellow, one_Flower_Red, two_Fairy_Red);
+            //targetItem = one_Flower_Red;
+        }
+        
+        if (currentTrial == 19 && blockNummer == 4)
+        {
+            SpawnFunctionTwo(two_Fairy_Yellow, one_Fairy_Red, two_Hat_Blue);
+            targetItem = two_Fairy_Yellow;
         }
         if (currentTrial == 20)
         {
-            SpawnFunction(two_Hat_Yellow, two_Flower_Blue, one_Hat_Red);
-            targetItem = two_Hat_Yellow;
+
+            SpawnFunctionTwo(two_Hat_Yellow, three_Fairy_Yellow, one_Fairy_Red);
+            targetItem = three_Fairy_Yellow;
         }
         if (currentTrial == 21)
         {
-            SpawnFunction(three_Fairy_Blue, two_Flower_Yellow, three_Hat_Yellow);
-            targetItem = three_Fairy_Blue;
+            SpawnFunctionTwo(three_Hat_Red, one_Hat_Red, three_Fairy_Yellow);
+            targetItem = three_Hat_Red;
         }
         if (currentTrial == 22)
         {
-            SpawnFunction(two_Fairy_Yellow, one_Fairy_Red, two_Hat_Blue);
-            targetItem = two_Fairy_Yellow;
+            SpawnFunctionTwo(two_Fairy_Blue, two_Flower_Red, one_Hat_Blue);
+            targetItem = two_Fairy_Blue;
         }
         if (currentTrial == 23)
         {
-            SpawnFunction(two_Hat_Yellow, three_Fairy_Yellow, one_Fairy_Red);
-            targetItem = three_Fairy_Yellow;
+            SpawnFunctionTwo(two_Flower_Yellow, two_Fairy_Red, one_Hat_Yellow);
+            targetItem = two_Flower_Yellow;
         }
         if (currentTrial == 24)
         {
-            SpawnFunction(three_Hat_Red, one_Hat_Red, three_Fairy_Yellow);
-            targetItem = three_Hat_Red;
+            SpawnFunctionTwo(one_Flower_Red, two_Flower_Yellow, one_Fairy_Blue);
+            targetItem = one_Flower_Red;
         }
         if (currentTrial == 25)
         {
-            SpawnFunction(two_Fairy_Blue, two_Flower_Red, one_Hat_Blue);
-            targetItem = two_Fairy_Blue;
+            SpawnFunctionTwo(one_Fairy_Red, one_Flower_Yellow, two_Hat_Yellow);
+            targetItem = one_Flower_Yellow;
         }
         if (currentTrial == 26)
         {
-            SpawnFunction(two_Flower_Yellow, two_Fairy_Red, one_Hat_Yellow);
-            targetItem = two_Flower_Yellow;
+            SpawnFunctionTwo(two_Hat_Blue, one_Flower_Blue, three_Hat_Yellow);
+            targetItem = two_Hat_Blue;
         }
         if (currentTrial == 27)
         {
-            SpawnFunction(one_Flower_Red, two_Flower_Yellow, one_Fairy_Blue);
-            targetItem = one_Flower_Red;
-        }
-        if (currentTrial == 28)
-        {
-            SpawnFunction(one_Fairy_Red, one_Flower_Yellow, two_Hat_Yellow);
-            targetItem = one_Flower_Yellow;
-        }
-        if (currentTrial == 29)
-        {
-            SpawnFunction(two_Hat_Blue, one_Flower_Blue, three_Hat_Yellow);
-            targetItem = two_Hat_Blue;
-        }
-        if (currentTrial == 30)
-        {
-            SpawnFunction(three_Flower_Red, two_Hat_Red, one_Hat_Yellow);
+            SpawnFunctionTwo(three_Flower_Red, two_Hat_Red, one_Hat_Yellow);
             targetItem = two_Hat_Red;
         }
-        if(currentTrial == 31)
+        if(currentTrial == 28)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
         }
     }
     void SpawnFunction(GameObject leftCard, GameObject middleCard, GameObject rightCard)
@@ -241,6 +234,18 @@ public class CSPlay : MonoBehaviour
         DisableField();
         StartCoroutine(Wait(right));
         
+    }
+
+    void SpawnFunctionTwo(GameObject leftCard, GameObject middleCard, GameObject rightCard)
+    {
+        left = leftCard;
+        middle = middleCard;
+        right = rightCard;
+        SpawnLeft(left);
+        SpawnMiddle(middle);
+        SpawnRight(right);
+        timer.Start();
+
     }
 
     void SpawnLeft(GameObject item)
@@ -326,7 +331,13 @@ public class CSPlay : MonoBehaviour
 
     void WriteInDataSaver(int currentTrial, string left, string middle, string right, string targetItem, double reaction, int CRESP )
     {
-        CSDataSaver.MeasureTest(currentTrial, left, middle, right, targetItem, reaction, CRESP);
+        if (blockNummer == 3) CSDataSaver.MeasureTest(currentTrial, left, middle, right, targetItem, reaction, CRESP);
+        if (blockNummer == 4) CSDataSaver.MeasureTestTwo(currentTrial, left, middle, right, targetItem, reaction, CRESP);
         timer.Reset();
+    }
+
+    public void PracticePhaseTwo()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

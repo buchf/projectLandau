@@ -22,7 +22,9 @@ public class CSDataSaver : MonoBehaviour
     public static List<StringBuilder> results = new List<StringBuilder>();
 
     public static StringBuilder practice = new StringBuilder();
+    public static StringBuilder practiceTwo = new StringBuilder();
     public static StringBuilder test = new StringBuilder();
+    public static StringBuilder testTwo = new StringBuilder();
 
     void Start()
     {
@@ -36,6 +38,9 @@ public class CSDataSaver : MonoBehaviour
         results.Add(header);
         results.Add(practice);
         results.Add(test);
+        results.Add(practiceTwo);
+        results.Add(testTwo);
+
 
         File.WriteAllText(filePath, ListToString(results));
 
@@ -67,8 +72,16 @@ public class CSDataSaver : MonoBehaviour
     {
         practice.AppendFormat("Practice,1,1,U{0},{1},{2},{3},{4},{5},{6}\n", trial, itemLeft, itemMid, itemRight, targetItem, reaction, CRESP);
     }
+    public static void MeasurePracticeTwo(int trial, string itemLeft, string itemMid, string itemRight, string targetItem, double reaction, int CRESP)
+    {
+        practiceTwo.AppendFormat("Practice,3,2,U{0},{1},{2},{3},{4},{5},{6}\n", trial, itemLeft, itemMid, itemRight, targetItem, reaction, CRESP);
+    }
     public static void MeasureTest(int trial, string itemLeft, string itemMid, string itemRight, string targetItem, double reaction, int CRESP)
     {
         test.AppendFormat("Test,2,1,{0},{1},{2},{3},{4},{5},{6}\n", trial, itemLeft,itemMid, itemRight, targetItem, reaction, CRESP);
+    }
+    public static void MeasureTestTwo(int trial, string itemLeft, string itemMid, string itemRight, string targetItem, double reaction, int CRESP)
+    {
+        testTwo.AppendFormat("Test,4,2,{0},{1},{2},{3},{4},{5},{6}\n", trial, itemLeft, itemMid, itemRight, targetItem, reaction, CRESP);
     }
 }

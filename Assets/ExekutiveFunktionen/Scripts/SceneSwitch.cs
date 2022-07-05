@@ -83,7 +83,7 @@ public class SceneSwitch : MonoBehaviour
 
     public void BackCardSorting()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 158);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 159);
     }
 
 }
