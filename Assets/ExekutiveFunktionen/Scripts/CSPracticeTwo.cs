@@ -69,7 +69,7 @@ public class CSPracticeTwo : MonoBehaviour
             left = three_Fairy_Blue;
             middle = two_Flower_Yellow;
             right = three_Hat_Yellow;
-            targetItem = left;
+            targetItem = right;
             SpawnFunction(left, middle, right);
         }
 
@@ -106,8 +106,6 @@ public class CSPracticeTwo : MonoBehaviour
     {
         item.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(200, 0, 0);
         item.SetActive(true);
-        item.GetComponent<Button>().transition = Selectable.Transition.None;
-        item.GetComponent<Button>().interactable = false;
     }
 
     public void Compare(GameObject clicked)
@@ -139,6 +137,7 @@ public class CSPracticeTwo : MonoBehaviour
 
         if (cresp == 1 && test == 0)
         {
+            CSPlay.correctResponse++;
             test = 0;
             WriteInDataSaver(currentTrial, left.name.ToString(), middle.name.ToString(), right.name.ToString(), targetItem.name.ToString(), timer.ElapsedMilliseconds, cresp);
             currentTrial++;

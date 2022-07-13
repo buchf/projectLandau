@@ -25,6 +25,7 @@ public class CSDataSaver : MonoBehaviour
     public static StringBuilder practiceTwo = new StringBuilder();
     public static StringBuilder test = new StringBuilder();
     public static StringBuilder testTwo = new StringBuilder();
+    public static StringBuilder score = new StringBuilder();
 
     void Start()
     {
@@ -33,13 +34,14 @@ public class CSDataSaver : MonoBehaviour
         filePath = Path.Combine(Application.persistentDataPath, fileName);
 
         header.Append("Experimental Phase,Block number,Trial Type,Trial #,Item left,Item middle,Item right,Target Item,RT (in ms),Correct Response\n");
-
+        score.Append("\nGesamtscore," + CSPlay.correctResponse.ToString());
         
         results.Add(header);
         results.Add(practice);
         results.Add(test);
         results.Add(practiceTwo);
         results.Add(testTwo);
+        results.Add(score);
 
 
         File.WriteAllText(filePath, ListToString(results));

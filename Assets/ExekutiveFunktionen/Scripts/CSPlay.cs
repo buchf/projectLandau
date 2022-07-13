@@ -62,8 +62,8 @@ public class CSPlay : MonoBehaviour
 
     public TextMesh practiceText;
     public Button button;
-    
 
+    public static int correctResponse = 0;
     public static Stopwatch timer = new Stopwatch();
 
     // Start is called before the first frame update
@@ -186,7 +186,7 @@ public class CSPlay : MonoBehaviour
         }
         if (currentTrial == 21)
         {
-            SpawnFunctionTwo(three_Hat_Red, one_Hat_Red, three_Fairy_Yellow);
+            SpawnFunctionTwo(three_Hat_Red, one_Hat_Blue, three_Fairy_Yellow);
             targetItem = three_Hat_Red;
         }
         if (currentTrial == 22)
@@ -212,7 +212,7 @@ public class CSPlay : MonoBehaviour
         if (currentTrial == 26)
         {
             SpawnFunctionTwo(two_Hat_Blue, one_Flower_Blue, three_Hat_Yellow);
-            targetItem = two_Hat_Blue;
+            targetItem = one_Flower_Blue;
         }
         if (currentTrial == 27)
         {
@@ -243,7 +243,7 @@ public class CSPlay : MonoBehaviour
         right = rightCard;
         SpawnLeft(left);
         SpawnMiddle(middle);
-        SpawnRight(right);
+        SpawnRightTwo(right);
         timer.Start();
 
     }
@@ -267,6 +267,11 @@ public class CSPlay : MonoBehaviour
         item.GetComponent<Button>().transition = Selectable.Transition.None;
         item.GetComponent<Button>().interactable = false;
 
+    }
+    void SpawnRightTwo(GameObject item)
+    {
+        item.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(200, 0, 0);
+        item.SetActive(true);
     }
     IEnumerator Wait(GameObject right)
     {
@@ -295,6 +300,7 @@ public class CSPlay : MonoBehaviour
         if (targetItem == clicked)
         {
             cresp = 1;
+            correctResponse++;
         }
         else
         {

@@ -159,6 +159,7 @@ public class CSPractice : MonoBehaviour
 
         if (cresp == 1 && test == 0)
         {
+            CSPlay.correctResponse++;
             test = 0;
             WriteInDataSaver(currentTrial, left.name.ToString(), middle.name.ToString(), right.name.ToString(), targetItem.name.ToString(), timer.ElapsedMilliseconds, cresp);
             currentTrial++;
