@@ -8,6 +8,12 @@ using UnityEngine.UI;
 
 public class CSPracticeTwo : MonoBehaviour
 {
+
+
+    public Button continueButton;
+    public Button redoButton;
+    public TextMesh continueText;
+
     //Practice Trial 4
     public GameObject three_Flower_Yellow;
     public GameObject one_Flower_Red;
@@ -75,11 +81,29 @@ public class CSPracticeTwo : MonoBehaviour
 
         if (currentTrial == 7)
         {
-            //SceneSwitch auf alte scene mit task nummer 19
-            CSPlay.currentTrial = 19;
-            CSPlay.blockNummer = 4;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+
+            continueButton.gameObject.SetActive(true);
+            continueText.gameObject.SetActive(true);
+            redoButton.gameObject.SetActive(true);
         }
+    }
+
+    public void RepeatPractice()
+    {
+        CSDataSaver.practiceTwo.Clear();
+        redoButton.gameObject.SetActive(false);
+        continueButton.gameObject.SetActive(false);
+        continueText.gameObject.SetActive(false);
+        currentTrial = 4;
+        currentTask(currentTrial);
+    }
+
+    public void StartPhaseTwo()
+    {
+        //SceneSwitch auf alte scene mit task nummer 19
+        CSPlay.currentTrial = 19;
+        CSPlay.blockNummer = 4;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 
     void SpawnFunction(GameObject left, GameObject middle, GameObject right)
