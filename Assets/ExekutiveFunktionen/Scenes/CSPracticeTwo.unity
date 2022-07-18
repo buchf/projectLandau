@@ -661,7 +661,9 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 303862391086869193, guid: 13d879c6b1ab47a438575ad0c4adf9f8, type: 3}
       propertyPath: m_Text
-      value: Sollen wir loslegen?
+      value: "Du sollst jetzt das Bild zeigen, das\nmit beiden anderen Bildern eine
+        \n\xC4hnlichkeit hat. Ab jetzt kann auch\ndas rechte Bild ausgew\xE4hlt werden.\nSollen
+        wir loslegen?"
       objectReference: {fileID: 0}
     - target: {fileID: 303862391086869195, guid: 13d879c6b1ab47a438575ad0c4adf9f8, type: 3}
       propertyPath: m_RootOrder
