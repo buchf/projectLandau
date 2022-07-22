@@ -74,7 +74,7 @@ public class DataSaver : MonoBehaviour
          * 
          */
 
-        z1.Append("Corsi\n" + ",Sequenzes correct:," + rightTask + " of " + Randomizer.totalTasks + "\n");
+        z1.Append("Corsi\n" + ",Sequenzes correct:," + rightTask + " ,of, " + Randomizer.totalTasks + "\n");
         z1.Append(",Clicks Accuracy:," + accuracyPercentage.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) + "%\n" + ",total Time: ," + totalTime.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) +"ms\n");
         z1.Append("\n,Trial no., Full Sequenz correct,Reaction Time,First click,Second click,Third click,Fourth click,Fifth click, Sixth click\n");
         results.Add(z1);
