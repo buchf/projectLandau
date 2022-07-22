@@ -86,4 +86,20 @@ public class CSDataSaver : MonoBehaviour
     {
         testTwo.AppendFormat("Test,4,2,{0},{1},{2},{3},{4},{5},{6}\n", trial, itemLeft, itemMid, itemRight, targetItem, reaction, CRESP);
     }
+
+    public static void ClearAllData()
+    {
+        CSPlay.currentTrial = 1;
+        CSPlay.blockNummer = 3;
+        CSPlay.correctResponse = 0;
+        header.Clear();
+        overall.Clear();
+        results.Clear();
+        test.Clear();
+        practice.Clear();
+        practiceTwo.Clear();
+        testTwo.Clear();
+        score.Clear();
+    }
+
 }

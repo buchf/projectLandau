@@ -70,13 +70,11 @@ public class SceneSwitch : MonoBehaviour
     }
     public void StartCardSorting()
     {
-        CSPlay.correctResponse = 0;
-        CSDataSaver.header.Clear();
-        CSDataSaver.overall.Clear();
-        CSDataSaver.results.Clear();
-        CSDataSaver.practice.Clear();
-        CSDataSaver.test.Clear();
+        
+        
         CSDataSaver.VPN = inputVPN;
+
+        CSDataSaver.ClearAllData();
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 154);
         //Debug.Log(CSDataSaver.fileName.ToString());
@@ -87,4 +85,5 @@ public class SceneSwitch : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 159);
     }
 
+    
 }
