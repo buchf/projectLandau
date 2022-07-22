@@ -59,11 +59,8 @@ public class SceneSwitch : MonoBehaviour
 
     public void StartGoNoGO()
     {
-        
-        DataGoNoGO.overall.Clear();
-        DataGoNoGO.results.Clear();
-        DataGoNoGO.header.Clear();
-        DataGoNoGO.z1.Clear();
+
+        DataGoNoGO.ClearAllData();
         DataGoNoGO.VPN = inputVPN;
         
          SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 127);

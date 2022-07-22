@@ -72,4 +72,16 @@ public class DataGoNoGO : MonoBehaviour
 
         return x;
     }
+
+    public static void ClearAllData()
+    {
+        GoNoGo.correctClick = 0;
+        GoNoGo.correctNoClick = 0;
+        GoNoGo.incorrectClick = 0;
+        GoNoGo.incorrectNoClick = 0;
+        DataGoNoGO.overall.Clear();
+        DataGoNoGO.results.Clear();
+        DataGoNoGO.header.Clear();
+        DataGoNoGO.z1.Clear();
+    }
 }
