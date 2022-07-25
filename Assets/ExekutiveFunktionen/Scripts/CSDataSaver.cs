@@ -52,7 +52,7 @@ public class CSDataSaver : MonoBehaviour
     {
         while (File.Exists(Path.Combine(Application.persistentDataPath, fileName)))
         {
-            fileName = "VPN" + VPN + "(" + i + ")" + "_CardSorting.csv";
+            fileName = "VPN" + VPN + "_CardSorting" + "(" + i + ")" + ".csv";
             i++;
         }
         return fileName;

@@ -74,9 +74,9 @@ public class DataSaver : MonoBehaviour
          * 
          */
 
-        z1.Append("Corsi\n" + ",Sequenzes correct:," + rightTask + " ,of, " + Randomizer.totalTasks + "\n");
+        z1.Append("Corsi\n" + ",Sequences correct:," + rightTask + " ,of, " + Randomizer.totalTasks + "\n");
         z1.Append(",Clicks Accuracy:," + accuracyPercentage.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) + "%\n" + ",total Time: ," + totalTime.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) +"ms\n");
-        z1.Append("\n,Trial no., Full Sequenz correct,Reaction Time,First click,Second click,Third click,Fourth click,Fifth click, Sixth click\n");
+        z1.Append("\n,Trial no., Full sequence correct,Reaction Time,First click,Second click,Third click,Fourth click,Fifth click, Sixth click\n");
         results.Add(z1);
         results.Add(z0);
         results.Add(z2);
@@ -92,7 +92,7 @@ public class DataSaver : MonoBehaviour
     {
         while (File.Exists(Path.Combine(Application.persistentDataPath, fileName)))
         {
-            fileName = "VPN" + VPN + "(" + i + ")" + "_corsi.csv";
+            fileName = "VPN" + VPN + "_corsi" + "(" + i + ")" + ".csv";
             i++;
         }
         return fileName;
@@ -101,7 +101,7 @@ public class DataSaver : MonoBehaviour
     {
         while (File.Exists(Path.Combine(Application.persistentDataPath, fileName)))
         {
-            fileName = "VPN" + VPN + "(" + i + ")" + "_corsi_reverse.csv";
+            fileName = "VPN" + VPN + "_corsi_reverse" + "(" + i + ")" + ".csv";
             i++;
         }
         return fileName;

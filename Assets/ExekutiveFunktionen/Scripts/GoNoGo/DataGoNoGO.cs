@@ -52,7 +52,7 @@ public class DataGoNoGO : MonoBehaviour
     {    
         while(File.Exists(Path.Combine(Application.persistentDataPath, fileName)))
         {
-            fileName = "VPN" + VPN + "(" + i + ")" + "_goNoGo.csv";
+            fileName = "VPN" + VPN + "_goNoGo" + "(" + i + ")" + ".csv" ;
             i++;
         }
         return fileName;

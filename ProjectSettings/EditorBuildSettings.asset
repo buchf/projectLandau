@@ -497,4 +497,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/ExekutiveFunktionen/Scenes/CSOutro.unity
     guid: aace6211eee0dfa479515643bc2ec92d
+  - enabled: 1
+    path: Assets/Scenes/direction/direction6.unity
+    guid: 769d0ca6f06e0324aab665e8f5636180
   m_configObjects: {}
