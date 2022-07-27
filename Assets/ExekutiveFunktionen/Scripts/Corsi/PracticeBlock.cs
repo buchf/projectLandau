@@ -4,10 +4,21 @@ using UnityEngine;
 
 public class PracticeBlock : MonoBehaviour
 {
+
+    public Player player;
+
+    private void Start()
+    {
+        player = FindObjectOfType<Player>();
+    }
+
     private void OnMouseDown()
     {
+
+        player.increaseClick();
         if (gameObject.CompareTag("Block"))
         {
+            player.clickedBlocks.Add(gameObject);
             StartCoroutine(ClickTimeAnimation());
         }
     }

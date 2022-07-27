@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
 
     public static Stopwatch timer = new Stopwatch();
 
-    int listCompareVar;
+    public int listCompareVar;
 
     /*
      * Start() Funktion wird beim Programmstart aufgerufen um die Variablen zu bereinigen und alles auf default 0 zu setzten

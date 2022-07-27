@@ -26,13 +26,15 @@ public class CorsiPractice : MonoBehaviour
     public static int clickedBlocks = 0;
     int sequenzBlocks = 1;
 
-
+    public GameObject correcStar;
+    public GameObject incorrectStar;
+    public Player player;
 
 
     // Start is called before the first frame update
     void Start()
     {
-      
+        player = FindObjectOfType<Player>();
     }
 
     // Update is called once per frame
@@ -41,9 +43,19 @@ public class CorsiPractice : MonoBehaviour
         //wenn clickedblocks length = sequenztlengt -> startsequenz
        if(clickedBlocks == sequenzBlocks)
        {
-           clickedBlocks = 0;
-           StartSequenz();
-       }
+            
+            player.CleanLists();
+            clickedBlocks = 0;
+            if (player.listCompareVar == 1)
+            {
+               StartCoroutine(CorrectSequence());
+            }
+            else
+            {
+                StartCoroutine(IncorrectSequence());
+            }
+            
+        }
     }
 
     public void StartFirstSequenz()
@@ -141,30 +153,39 @@ public class CorsiPractice : MonoBehaviour
         {
             case 1:
                 fairy.transform.position = new Vector3(blocks[0].transform.position.x, blocks[0].transform.position.y, -1);
+                player.sequenzBlocks.Add(blocks[0].transform.gameObject);
                 break;
             case 2:
                 fairy.transform.position = new Vector3(blocks[1].transform.position.x, blocks[1].transform.position.y, -1);
+                player.sequenzBlocks.Add(blocks[1].transform.gameObject);
                 break;
             case 3:
                 fairy.transform.position = new Vector3(blocks[2].transform.position.x, blocks[2].transform.position.y, -1);
+                player.sequenzBlocks.Add(blocks[2].transform.gameObject);
                 break;
             case 4:
                 fairy.transform.position = new Vector3(blocks[3].transform.position.x, blocks[3].transform.position.y, -1);
+                player.sequenzBlocks.Add(blocks[3].transform.gameObject);
                 break;
             case 5:
                 fairy.transform.position = new Vector3(blocks[4].transform.position.x, blocks[4].transform.position.y, -1);
+                player.sequenzBlocks.Add(blocks[4].transform.gameObject);
                 break;
             case 6:
                 fairy.transform.position = new Vector3(blocks[5].transform.position.x, blocks[5].transform.position.y, -1);
+                player.sequenzBlocks.Add(blocks[5].transform.gameObject);
                 break;
             case 7:
                 fairy.transform.position = new Vector3(blocks[6].transform.position.x, blocks[6].transform.position.y, -1);
+                player.sequenzBlocks.Add(blocks[6].transform.gameObject);
                 break;
             case 8:
                 fairy.transform.position = new Vector3(blocks[7].transform.position.x, blocks[7].transform.position.y, -1);
+                player.sequenzBlocks.Add(blocks[7].transform.gameObject);
                 break;
             case 9:
                 fairy.transform.position = new Vector3(blocks[8].transform.position.x, blocks[8].transform.position.y, -1);
+                player.sequenzBlocks.Add(blocks[8].transform.gameObject);
                 break;
         }
     }
@@ -205,5 +226,33 @@ public class CorsiPractice : MonoBehaviour
         yield return new WaitForSeconds(speed);
         fairy.SetActive(false);
         enableField();
+    }
+
+    IEnumerator CorrectSequence()
+    {
+        HideFieldForCheck();
+        correcStar.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        correcStar.SetActive(false);
+        showField();
+        StartSequenz();
+    }
+
+    IEnumerator IncorrectSequence()
+    {
+        HideFieldForCheck();
+        incorrectStar.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        incorrectStar.SetActive(false);
+        showField();
+        StartSequenz();
+    }
+
+    public void HideFieldForCheck()
+    {
+        for (int i = 0; i < blocks.Count; i++)
+        {
+            blocks[i].gameObject.SetActive(false);
+        }
     }
 }
