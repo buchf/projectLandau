@@ -48,6 +48,22 @@ public class Player : MonoBehaviour
     /*
      * Ruft CompareLists auf und leert anschliessend die Listen der Sequenz und der geklickten Bloecke
      */
+
+    public void CleanListsPractice()
+    {
+        if (Randomizer.reverse == true)
+        {
+
+            CompareListsReversePractice();
+        }
+        else
+        {
+            CompareListsPractice();
+        }
+
+        clickedBlocks.Clear();
+        sequenzBlocks.Clear();
+    }
     public void CleanLists()
     {
         if(Randomizer.reverse == true)
@@ -181,6 +197,91 @@ public class Player : MonoBehaviour
         return false;
     }
 
+    public bool CompareListsPractice()
+    {
+        timer.Stop();
+        DataSaver.totalTime += timer.Elapsed.TotalMilliseconds;
+        currentSequenzCounter++;
+        int x = clickedBlocks.Count;
+        int y = sequenzBlocks.Count;
+        int[] clicks = { -1, -1, -1, -1, -1, -1 };
+        listCompareVar = 1;
+
+
+        if (x != y)
+        {
+
+            listCompareVar = 0;
+        }
+
+        for (int i = 0; i < x; i++)
+        {
+            if (clickedBlocks[i] == sequenzBlocks[i])
+            {
+                clicks[i] = 1;
+                accuracyCounter++;
+            }
+
+
+            if (clickedBlocks[i] != sequenzBlocks[i])
+            {
+                clicks[i] = 0;
+                listCompareVar = 0;
+            }
+        }
+
+        if (listCompareVar == 1)
+        {
+
+            rightTaskCounter++;
+            timer.Reset();
+            return true;
+        }
+        timer.Reset();
+        return false;
+    }
+
+    public bool CompareListsReversePractice()
+    {
+        timer.Stop();
+        DataSaver.totalTime += timer.Elapsed.TotalMilliseconds;
+        currentSequenzCounter++;
+        int x = clickedBlocks.Count;
+        int y = sequenzBlocks.Count;
+        int[] clicks = { -1, -1, -1, -1, -1, -1 };
+        listCompareVar = 1;
+        int j = sequenzBlocks.Count - 1;
+        if (x != y)
+        {
+            listCompareVar = 0;
+        }
+
+        for (int i = 0; i < x; i++)
+        {
+            if (clickedBlocks[i] == sequenzBlocks[j])
+            {
+                clicks[i] = 1;
+                accuracyCounter++;
+            }
+
+
+            if (clickedBlocks[i] != sequenzBlocks[j])
+            {
+                clicks[i] = 0;
+                listCompareVar = 0;
+            }
+            j--;
+        }
+
+        if (listCompareVar == 1)
+        {
+            rightTaskCounter++;
+            timer.Reset();
+            return true;
+        }
+        timer.Reset();
+        return false;
+    }
 
     private void WriteInDatasaver (int listCompareVar, int click1, int click2, int click3, int click4, int click5, int click6, int sequenzLength)
     {

@@ -44,7 +44,7 @@ public class CorsiPractice : MonoBehaviour
        if(clickedBlocks == sequenzBlocks)
        {
             
-            player.CleanLists();
+            player.CleanListsPractice();
             clickedBlocks = 0;
             if (player.listCompareVar == 1)
             {
