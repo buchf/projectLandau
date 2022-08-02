@@ -39,6 +39,8 @@ public class DataSaver : MonoBehaviour
     public static StringBuilder z4 = new StringBuilder();
     public static StringBuilder z5 = new StringBuilder();
     public static StringBuilder z6 = new StringBuilder();
+    public static StringBuilder z7 = new StringBuilder();
+    public static StringBuilder z8 = new StringBuilder();
 
     public static int count = 1;
     int i = 1;
@@ -75,8 +77,8 @@ public class DataSaver : MonoBehaviour
          */
 
         z1.Append("Corsi" + ",Sequences correct:," + rightTask + " ,of, " + Randomizer.totalTasks + "\n");
-        z1.Append(",Clicks Accuracy:," + accuracyPercentage.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) + "%\n" + ",total Time: ," + totalTime.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) +"ms\n");
-        z1.Append("\n,Trial no., Full sequence correct,Reaction Time,First click,Second click,Third click,Fourth click,Fifth click, Sixth click\n");
+        z1.Append(",Clicks Accuracy:," + accuracyPercentage.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) + "%\n" + ",Total Time: ," + totalTime.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) +"ms\n");
+        z1.Append("\n,Trial no., Full sequence correct,Reaction Time,First click,Second click,Third click,Fourth click,Fifth click,Sixth click,Seventh click,Eighth click\n");
         results.Add(z1);
         results.Add(z0);
         results.Add(z2);
@@ -84,6 +86,8 @@ public class DataSaver : MonoBehaviour
         results.Add(z4);
         results.Add(z5);
         results.Add(z6);
+        results.Add(z7);
+        results.Add(z8);
         File.WriteAllText(filePath, ListToString(results));
 
     }
@@ -125,9 +129,9 @@ public class DataSaver : MonoBehaviour
 
 
     /* 
-     * measuere writing functions and adding to the List results 
+     * measure writing functions and adding to the List results 
      * 
-     * Drei verschieden, da es drei verschieden lange Sequenzen gibt 
+     * Acht verschiedene, da es acht verschieden lange Sequenzen gibt 
      * die Funktionen werden in der Klasse Player aufgerufen mit Hilfe
      * der WriteInDatasaver() Funktion
      * 
@@ -166,7 +170,19 @@ public class DataSaver : MonoBehaviour
         z6.AppendFormat(",sequenz{0}_6,{1},{2},{3},{4},{5},{6},{7},{8}\n", count, fullSequenz, reaction.ToString("0", System.Globalization.CultureInfo.InvariantCulture), click1, click2, click3, click4, click5, click6);
         CSVCounter();
     }
-    public static void CSVCounter()
+    //
+    public static void MeasureSequenzSix(int fullSequenz, double reaction, int click1, int click2, int click3, int click4, int click5, int click6, int click7)
+    {
+        z7.AppendFormat(",sequenz{0}_7,{1},{2},{3},{4},{5},{6},{7},{8},{9}\n", count, fullSequenz, reaction.ToString("0", System.Globalization.CultureInfo.InvariantCulture), click1, click2, click3, click4, click5, click6, click7);
+        CSVCounter();
+    }
+    public static void MeasureSequenzSeven(int fullSequenz, double reaction, int click1, int click2, int click3, int click4, int click5, int click6, int click7, int click8)
+    {
+        z8.AppendFormat(",sequenz{0}_8,{1},{2},{3},{4},{5},{6},{7},{8},{9},{10}\n", count, fullSequenz, reaction.ToString("0", System.Globalization.CultureInfo.InvariantCulture), click1, click2, click3, click4, click5, click6, click7, click8);
+        CSVCounter();
+    }
+    //
+    public static void CSVCounter() // Anzahl absolvierter Trials pro Sequenzlaenge
     {
             if (count == 6) count = 0;
             count++;

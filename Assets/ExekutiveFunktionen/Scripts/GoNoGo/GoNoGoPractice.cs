@@ -88,7 +88,7 @@ public class GoNoGoPractice : MonoBehaviour
         }
         
    
-        if (timer.Elapsed.TotalSeconds >= 2.0)
+        if (timer.Elapsed.TotalSeconds >= 1.0)
         {
             timer.Reset();
             SelectNextAnimal();

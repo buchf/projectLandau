@@ -55,7 +55,7 @@ public class Randomizer : MonoBehaviour
 
         
 
-        if (count1 == 7 && count2 != 5)
+        if (count1 == 7 && count2 != 7) // 7 statt 5
         {
             count1 = 0;
             count2++;
@@ -65,7 +65,7 @@ public class Randomizer : MonoBehaviour
 
 
         // 3 7 richtig
-        if(count1 == 6 && count2 == 5)
+        if(count1 == 6 && count2 == 7) // 7 statt 5
         {
             //Finish the whole Sequenz so the OutroScene is loaded
             Debug.Log("FINISH");
@@ -78,10 +78,10 @@ public class Randomizer : MonoBehaviour
         //Zahlen fuer die verschiedenen Trials wurden mithilfe der GetRandom Funktion erstellt
 
         //Trial 0
-        if (count1 == 1 && count2 == 0) StartCoroutine(SequenzZero(3));
+        if (count1 == 1 && count2 == 0) StartCoroutine(SequenzZero(9));
         if (count1 == 2 && count2 == 0) StartCoroutine(SequenzZero(4));
         if (count1 == 3 && count2 == 0) StartCoroutine(SequenzZero(5));
-        if (count1 == 4 && count2 == 0) StartCoroutine(SequenzZero(6));
+        if (count1 == 4 && count2 == 0) StartCoroutine(SequenzZero(1));
         if (count1 == 5 && count2 == 0) StartCoroutine(SequenzZero(7));
         if (count1 == 6 && count2 == 0) increaseWarning();
 
@@ -122,7 +122,7 @@ public class Randomizer : MonoBehaviour
         if (count1 == 1 && count2 == 3) StartCoroutine(SequenzThree(5, 6, 9, 2));
         if (count1 == 2 && count2 == 3) StartCoroutine(SequenzThree(1, 9, 3, 6));         
         if (count1 == 3 && count2 == 3) StartCoroutine(SequenzThree(9, 1, 7, 6));
-        if (count1 == 4 && count2 == 3) StartCoroutine(SequenzThree(1, 2, 7, 5));
+        if (count1 == 4 && count2 == 3) StartCoroutine(SequenzThree(8, 2, 7, 5));
         if (count1 == 5 && count2 == 3) StartCoroutine(SequenzThree(1, 9, 3, 8));
         if (count1 == 6 && count2 == 3) increaseWarning();
 
@@ -135,7 +135,7 @@ public class Randomizer : MonoBehaviour
         if (count1 == 1 && count2 == 4) StartCoroutine(SequenzFour(5, 3, 7, 2, 8));
         if (count1 == 2 && count2 == 4) StartCoroutine(SequenzFour(2, 1, 9, 5, 6));
         if (count1 == 3 && count2 == 4) StartCoroutine(SequenzFour(4, 5, 6, 7 ,8));
-        if (count1 == 4 && count2 == 4) StartCoroutine(SequenzFour(1, 2, 7, 5 ,3));
+        if (count1 == 4 && count2 == 4) StartCoroutine(SequenzFour(9, 2, 7, 5 ,3));
         if (count1 == 5 && count2 == 4) StartCoroutine(SequenzFour(1, 2 ,4 ,7, 5));
         if (count1 == 6 && count2 == 4) increaseWarning();
 
@@ -150,7 +150,33 @@ public class Randomizer : MonoBehaviour
         if (count1 == 3 && count2 == 5) StartCoroutine(SequenzFive(3, 6, 9, 8, 1, 7));
         if (count1 == 4 && count2 == 5) StartCoroutine(SequenzFive(8, 7, 1, 4, 9, 3));
         if (count1 == 5 && count2 == 5) StartCoroutine(SequenzFive(2, 7, 8, 4, 3, 1));
-       // if (count1 == 6 && count2 == 5) StartCoroutine(SequenzFive(1, 4, 5, 2, 9, 3));
+        if (count1 == 6 && count2 == 5) increaseWarning();
+
+        //Trial6 (i.e. length 7)
+        if (count1 == 0 && count2 == 6)
+        {
+            showField();
+            StartCoroutine(SequenzSix(2, 9, 4, 3, 8, 5, 1));
+        }
+        if (count1 == 1 && count2 == 6) StartCoroutine(SequenzSix(5, 6, 1, 8, 3, 9, 7));
+        if (count1 == 2 && count2 == 6) StartCoroutine(SequenzSix(7, 5, 8, 2, 4, 1, 9));
+        if (count1 == 3 && count2 == 6) StartCoroutine(SequenzSix(7, 9, 1, 2, 6, 4, 8));
+        if (count1 == 4 && count2 == 6) StartCoroutine(SequenzSix(2, 3, 9, 5, 1, 6, 7));
+        if (count1 == 5 && count2 == 6) StartCoroutine(SequenzSix(1, 5, 7, 9, 8, 2, 4));
+        if (count1 == 6 && count2 == 6) increaseWarning();
+
+        //Trial7
+        if (count1 == 0 && count2 == 7)
+        {
+            showField();
+            StartCoroutine(SequenzSeven(2, 4, 1, 8, 9, 3, 6, 7));
+        }
+        if (count1 == 1 && count2 == 7) StartCoroutine(SequenzSeven(2, 1, 8, 3, 4, 7, 9, 5));
+        if (count1 == 2 && count2 == 7) StartCoroutine(SequenzSeven(7, 4, 2, 9, 5, 1, 8, 6));
+        if (count1 == 3 && count2 == 7) StartCoroutine(SequenzSeven(3, 6, 2, 9, 5, 7, 1, 4));
+        if (count1 == 4 && count2 == 7) StartCoroutine(SequenzSeven(9, 8, 1, 3, 5, 7, 2, 6));
+        if (count1 == 5 && count2 == 7) StartCoroutine(SequenzSeven(5, 7, 9, 4, 3, 8, 1, 4));
+        if (count1 == 6 && count2 == 7) increaseWarning();
 
         count1++;
 
@@ -308,6 +334,56 @@ public class Randomizer : MonoBehaviour
         Player.timer.Start();
     }
 
+    //
+    IEnumerator SequenzSix(int a, int b, int c, int d, int e, int f, int g)
+    {
+        disableField();
+        yield return new WaitForSeconds(speed);
+        SpawnFairyInBlock(a);
+        yield return new WaitForSeconds(speed);
+        SpawnFairyInBlock(b);
+        yield return new WaitForSeconds(speed);
+        SpawnFairyInBlock(c);
+        yield return new WaitForSeconds(speed);
+        SpawnFairyInBlock(d);
+        yield return new WaitForSeconds(speed);
+        SpawnFairyInBlock(e);
+        yield return new WaitForSeconds(speed);
+        SpawnFairyInBlock(f);
+        yield return new WaitForSeconds(speed);
+        SpawnFairyInBlock(g);
+        yield return new WaitForSeconds(speed);
+        fairy.SetActive(false);
+        totlalAccuracyClicks += 6;
+        enableField();
+        Player.timer.Start();
+    }
+    IEnumerator SequenzSeven(int a, int b, int c, int d, int e, int f, int g, int h)
+    {
+        disableField();
+        yield return new WaitForSeconds(speed);
+        SpawnFairyInBlock(a);
+        yield return new WaitForSeconds(speed);
+        SpawnFairyInBlock(b);
+        yield return new WaitForSeconds(speed);
+        SpawnFairyInBlock(c);
+        yield return new WaitForSeconds(speed);
+        SpawnFairyInBlock(d);
+        yield return new WaitForSeconds(speed);
+        SpawnFairyInBlock(e);
+        yield return new WaitForSeconds(speed);
+        SpawnFairyInBlock(f);
+        yield return new WaitForSeconds(speed);
+        SpawnFairyInBlock(g);
+        yield return new WaitForSeconds(speed);
+        SpawnFairyInBlock(h);
+        yield return new WaitForSeconds(speed);
+        fairy.SetActive(false);
+        totlalAccuracyClicks += 6;
+        enableField();
+        Player.timer.Start();
+    }
+    //
 
 
     /*
