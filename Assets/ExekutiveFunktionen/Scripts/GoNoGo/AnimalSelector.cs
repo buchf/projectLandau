@@ -23,6 +23,7 @@ public class AnimalSelector : MonoBehaviour
   
     public void NextTrial()
     {
+        GoNoGo.timer.Reset();
         if(GoNoGo.trial == 5) SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 128);
         else SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }

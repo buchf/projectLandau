@@ -41,6 +41,7 @@ public class GoNoGo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        timer.Reset();
         //counter = 0;
         SelectCurrentAnimal(trial);
         Debug.Log("trial: " + trial + "animal: " + currentAnimal.name.ToString());
@@ -100,7 +101,7 @@ public class GoNoGo : MonoBehaviour
 
     public void StartSequenz()
     {
-        timer.Start();
+        //timer.Start();
         SelectNextAnimal();
     }
 
