@@ -354,7 +354,7 @@ public class Randomizer : MonoBehaviour
         SpawnFairyInBlock(g);
         yield return new WaitForSeconds(speed);
         fairy.SetActive(false);
-        totlalAccuracyClicks += 6;
+        totlalAccuracyClicks += 7;
         enableField();
         Player.timer.Start();
     }
@@ -379,7 +379,7 @@ public class Randomizer : MonoBehaviour
         SpawnFairyInBlock(h);
         yield return new WaitForSeconds(speed);
         fairy.SetActive(false);
-        totlalAccuracyClicks += 6;
+        totlalAccuracyClicks += 8;
         enableField();
         Player.timer.Start();
     }
