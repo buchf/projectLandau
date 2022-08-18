@@ -2,22 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using System.Diagnostics;
+using Debug = UnityEngine.Debug;
 
 public class CSIntroduction : MonoBehaviour
 {
 
-    public TextMesh gelb;
-    public TextMesh rot;
-    public TextMesh blau;
-
-    public TextMesh one_flower_text;
-    public TextMesh two_flower_text;
-    public TextMesh three_flower_text;
-
-    public TextMesh einFee;
-    public TextMesh zweiFee;
-    public TextMesh dreiFee;
-
+    [SerializeField] List<AudioSource> audioFiles = new List<AudioSource>();
 
     public GameObject one_fairy_yellow;
     public GameObject one_fairy_red;
@@ -34,20 +26,44 @@ public class CSIntroduction : MonoBehaviour
     public TextMesh inhaltText;
     public TextMesh anzahlText;
     public GameObject button;
-    
-    int zaehler;
+
+    private GameObject left;
+    private GameObject right;
+    private GameObject middle;
+
+    private int zaehler;
 
     // Start is called before the first frame update
     void Start()
     {
+        left = one_fairy_blue;
+        middle = one_fairy_yellow;
+        right = one_fairy_red;
+
         zaehler = 0;
+        audioFiles[zaehler].Play();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        
+        if(!audioFiles[zaehler].isPlaying && zaehler == 9)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        if (audioFiles[zaehler].isPlaying)
+
+        {
+            left.GetComponent<Button>().enabled = false;
+            middle.GetComponent<Button>().enabled = false;
+            right.GetComponent<Button>().enabled = false;
+        }
+        else
+        {
+            left.GetComponent<Button>().enabled = true;
+            middle.GetComponent<Button>().enabled = true;
+            right.GetComponent<Button>().enabled = true;
+        }
     }
 
     public void IncreaseCounter()
@@ -56,82 +72,67 @@ public class CSIntroduction : MonoBehaviour
 
         if (zaehler == 1)
         {
-           // rot.gameObject.SetActive(false);
-            StartCoroutine(Wait(rot.gameObject, blau.gameObject));
+            // rot.gameObject.SetActive(false);
+            audioFiles[zaehler].Play();
            // blau.gameObject.SetActive(true);
 
         }
         if (zaehler == 2)
         {
             //blau.gameObject.SetActive(false);
-            StartCoroutine(Wait(blau.gameObject, gelb.gameObject));
+            audioFiles[zaehler].Play();
             //gelb.gameObject.SetActive(true);
         }
         if (zaehler == 3)
         {
-            gelb.gameObject.SetActive(false);
+            left = three_flower;
+            middle = one_flower;
+            right = two_flower;
+            audioFiles[zaehler].Play();
             one_fairy_yellow.SetActive(false);
             one_fairy_red.SetActive(false);
             one_fairy_blue.SetActive(false);
-            anzahlText.gameObject.SetActive(true);
-            button.SetActive(true);
+            one_flower.SetActive(true);
+            two_flower.SetActive(true);
+            three_flower.SetActive(true);  
         }
 
         if (zaehler == 4)
         {
-            button.SetActive(false);
-            anzahlText.gameObject.SetActive(false);
-            one_flower.SetActive(true);
-            two_flower.SetActive(true);
-            three_flower.SetActive(true);
-            three_flower_text.gameObject.SetActive(true);
+            audioFiles[zaehler].Play();  
         }
         if (zaehler == 5)
         {
-            //feeText.gameObject.SetActive(false);
-            StartCoroutine(Wait(three_flower_text.gameObject, one_flower_text.gameObject));
-            //sternText.gameObject.SetActive(true);
+            audioFiles[zaehler].Play();
         }
         if (zaehler == 6)
         {
-            StartCoroutine(Wait(one_flower_text.gameObject, two_flower_text.gameObject));
-        }
-        if (zaehler == 7)
-        {
-            two_flower_text.gameObject.SetActive(false);
+            left = one_hat_white;
+            middle = one_fairy_white;
+            right = one_flower_white;
+            audioFiles[zaehler].Play();
             one_flower.SetActive(false);
             two_flower.SetActive(false);
             three_flower.SetActive(false);
-            button.SetActive(true);
-            inhaltText.gameObject.SetActive(true);
+            one_hat_white.SetActive(true);
+            one_fairy_white.SetActive(true);
+            one_flower_white.SetActive(true);
+        }
+        if (zaehler == 7)
+        {
+            audioFiles[zaehler].Play();
         }
 
         if (zaehler == 8)
         {
-            one_hat_white.SetActive(true);
-            one_fairy_white.SetActive(true);
-            one_flower_white.SetActive(true);
-            button.SetActive(false);
-            inhaltText.gameObject.SetActive(false);
-            einFee.gameObject.SetActive(true);
+            audioFiles[zaehler].Play();
         }
 
         if (zaehler == 9)
         {
-            einFee.gameObject.SetActive(false);
-            zweiFee.gameObject.SetActive(true);
+            audioFiles[zaehler].Play();
         }
 
-        if (zaehler == 10)
-        {
-            zweiFee.gameObject.SetActive(false);
-            dreiFee.gameObject.SetActive(true);
-        }
-
-        if( zaehler == 11)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
     }
 
     IEnumerator Wait(GameObject a, GameObject b)
