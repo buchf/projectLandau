@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 3602663107697447437}
   - component: {fileID: 5935989233937866275}
   - component: {fileID: 5988900415369456987}
+  - component: {fileID: 4787227410721501258}
   m_Layer: 0
   m_Name: MatrixSelector
   m_TagString: Untagged
@@ -207,8 +208,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IstDieKorrekteLoesung: 0
+  Nummer: -1
   Grundfarbe: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   Auswahlfarbe: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &4787227410721501258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5988900415369456985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 156a561b142ff4a49b582f9f8b7a9a14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Instruct: {fileID: 0}
 --- !u!1 &8119599863968485358
 GameObject:
   m_ObjectHideFlags: 0
