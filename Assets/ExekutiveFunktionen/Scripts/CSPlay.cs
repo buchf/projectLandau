@@ -9,6 +9,8 @@ using Debug = UnityEngine.Debug;
 public class CSPlay : MonoBehaviour
 {
 
+    [SerializeField] List<AudioSource> audioFiles = new List<AudioSource>();
+
     public GameObject one_Fairy_Blue;
     public GameObject one_Fairy_Red;
     public GameObject one_Fairy_White;

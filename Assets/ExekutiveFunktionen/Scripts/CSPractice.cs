@@ -8,6 +8,9 @@ using UnityEngine.UI;
 
 public class CSPractice : MonoBehaviour
 {
+    public AudioSource STS_14;
+    public AudioSource STS_15;
+    public AudioSource STS_16;
 
     public Button continueButton;
     public Button redoButton;
@@ -44,20 +47,51 @@ public class CSPractice : MonoBehaviour
     int currentTrial = 0;
     int test = 0;
 
+    int buff = 0;
+
     void Start()
     {
         test = 0;
         currentTrial = 1;
+        STS_14.Play();
         currentTask(currentTrial);
         
         
     }
 
+    [System.Obsolete]
     void Update()
     {
-        
-    }
+        if (currentTrial == 1)
+        {
+            if (!STS_14.isPlaying && !STS_15.isPlaying && buff == 0)
+            {
+                SpawnRight(right);
+                STS_15.Play();
+                buff = 1;
+            }
+            if (!STS_15.isPlaying && buff == 1)
+            {
+                EnableField();
+                timer.Reset();
+                buff = 2;
+            }
+        }
 
+        if (currentTrial == 4 && !STS_16.isPlaying && buff == 2 && correct.active == false)
+        {
+            STS_16.Play();
+            continueButton.gameObject.SetActive(true);
+            buff = 3;
+            
+        }
+        if (currentTrial == 4 && !STS_16.isPlaying && buff == 3)
+        {
+            continueButton.interactable = true;
+            buff = 4;
+        }
+    }
+    
     public void currentTask(int currentTrial)
     {
         if(currentTrial == 1)
@@ -66,7 +100,7 @@ public class CSPractice : MonoBehaviour
             middle = two_Fairy_Yellow;
             right = three_Flower_Yellow;
             targetItem = middle;
-            SpawnFunction(left, middle, right);
+            SpawnFirst(left, middle);
         }
 
         if (currentTrial == 2)
@@ -86,13 +120,16 @@ public class CSPractice : MonoBehaviour
             SpawnFunction(left, middle, right);
         }
 
-        if(currentTrial == 4)
-        {
-            continueButton.gameObject.SetActive(true);
-            continueText.gameObject.SetActive(true);
-            redoButton.gameObject.SetActive(true);
-        }
+       
     }
+
+    void SpawnFirst(GameObject left, GameObject middle)
+    {
+        SpawnLeft(left);
+        SpawnMiddle(middle);
+        DisableField();
+    }
+
     void SpawnFunction(GameObject left, GameObject middle, GameObject right)
     {
         SpawnLeft(left);
