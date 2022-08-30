@@ -68,10 +68,23 @@ public class CSPlay : MonoBehaviour
     public static int correctResponse = 0;
     public static Stopwatch timer = new Stopwatch();
 
+    private int buff = 0;
+
     // Start is called before the first frame update
     void Start()
     {
+        buff = 0;
+        
         currentTask(currentTrial);
+    }
+
+    private void Update()
+    {
+        if (!audioFiles[currentTrial].isPlaying && buff == 0 && currentTrial < 19)
+        {
+            SpawnRight(right);
+            buff++;
+        }
     }
 
     void currentTask(int currentTrial)
@@ -168,6 +181,7 @@ public class CSPlay : MonoBehaviour
         }
         if (currentTrial == 19 && blockNummer == 3)
         {
+            audioFiles[currentTrial].Play();
             practiceText.gameObject.SetActive(true);
             button.gameObject.SetActive(true);
 
@@ -228,14 +242,14 @@ public class CSPlay : MonoBehaviour
     }
     void SpawnFunction(GameObject leftCard, GameObject middleCard, GameObject rightCard)
     {
+        audioFiles[currentTrial].Play();
         left = leftCard;
         middle = middleCard;
         right = rightCard;
         SpawnLeft(left);
         SpawnMiddle(middle);
         DisableField();
-        StartCoroutine(Wait(right));
-        
+        //StartCoroutine(Wait(right));
     }
 
     void SpawnFunctionTwo(GameObject leftCard, GameObject middleCard, GameObject rightCard)
@@ -247,7 +261,6 @@ public class CSPlay : MonoBehaviour
         SpawnMiddle(middle);
         SpawnRightTwo(right);
         timer.Start();
-
     }
 
     void SpawnLeft(GameObject item)
@@ -268,7 +281,9 @@ public class CSPlay : MonoBehaviour
         item.SetActive(true);
         item.GetComponent<Button>().transition = Selectable.Transition.None;
         item.GetComponent<Button>().interactable = false;
-
+        EnableField();
+        Debug.Log("timer Start");
+        timer.Start();
     }
     void SpawnRightTwo(GameObject item)
     {
@@ -279,10 +294,7 @@ public class CSPlay : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(1f);
         SpawnRight(right);
-        EnableField();
-        Debug.Log("timer Start");
-        timer.Start();
-        
+                
     }
 
     void activateObject(GameObject item)
@@ -293,6 +305,7 @@ public class CSPlay : MonoBehaviour
     }
     public void Compare(GameObject clicked)
     {
+        
         int cresp = 0;
         timer.Stop();
         Debug.Log(timer.ElapsedMilliseconds.ToString());
@@ -312,16 +325,16 @@ public class CSPlay : MonoBehaviour
         
         activateObject(right);
         currentTrial++;
-        StartCoroutine(DespawnObject());
+        DespawnObject();
+        
     }
 
-    IEnumerator DespawnObject()
-    {
-        
+    void DespawnObject()
+    { 
         right.SetActive(false);
         middle.SetActive(false);
         left.SetActive(false);
-        yield return new WaitForSeconds(1f);
+        buff = 0;
         currentTask(currentTrial);
     }
 
