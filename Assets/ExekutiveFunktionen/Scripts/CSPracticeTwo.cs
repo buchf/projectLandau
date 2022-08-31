@@ -9,10 +9,20 @@ using UnityEngine.UI;
 public class CSPracticeTwo : MonoBehaviour
 {
 
+    
+
 
     public Button continueButton;
-    public Button redoButton;
     public TextMesh continueText;
+
+    //Introduction
+    public AudioSource STS_27;
+    public AudioSource STS_28;
+    public AudioSource STS_29;
+    public AudioSource STS_13;
+
+    public GameObject one_Fairy_Blue;
+
 
     //Practice Trial 4
     public GameObject three_Flower_Yellow;
@@ -43,12 +53,68 @@ public class CSPracticeTwo : MonoBehaviour
     public static Stopwatch timer = new Stopwatch();
     int currentTrial = 0;
     int test = 0;
+    int buff = 0;
 
 
     void Start()
     {
+        PhaseTwoIntro();
         currentTrial = 4;
-        currentTask(currentTrial);
+        //currentTask(currentTrial);
+    }
+
+    private void Update()
+    {
+        if(!STS_27.isPlaying && buff == 0)
+        {
+            STS_28.Play();
+            buff++;
+        }
+        if(!STS_28.isPlaying && buff == 1)
+        {
+            left.GetComponent<Button>().interactable = true;
+            left.GetComponent<Button>().transition = Selectable.Transition.ColorTint;
+            middle.GetComponent<Button>().interactable = true;
+            middle.GetComponent<Button>().transition = Selectable.Transition.ColorTint;
+            right.GetComponent<Button>().interactable = true;
+            right.GetComponent<Button>().transition = Selectable.Transition.ColorTint;
+            left.SetActive(false);
+            right.SetActive(false);
+            middle.SetActive(false);
+            currentTask(currentTrial);
+            
+            buff++;
+        }
+        if (!STS_29.isPlaying && buff == 2)
+        {
+            timer.Reset();
+            right.GetComponent<Button>().interactable = true;
+            middle.GetComponent<Button>().interactable = true;
+            left.GetComponent<Button>().interactable = true;
+            timer.Start();
+            buff++;
+        }
+    }
+    void PhaseTwoIntro()
+    {
+        STS_27.Play();
+        left = two_Hat_Yellow;
+        middle = one_Fairy_Blue;
+        right = one_Hat_Red;
+        left.GetComponent<Button>().interactable = false;
+        left.GetComponent<Button>().transition = Selectable.Transition.None;
+        middle.GetComponent<Button>().interactable = false;
+        middle.GetComponent<Button>().transition = Selectable.Transition.None;
+        right.GetComponent<Button>().interactable = false;
+        right.GetComponent<Button>().transition = Selectable.Transition.None;
+        SpawnFunction(left, middle, right);
+        StartCoroutine(Highlight(right));
+    }
+
+    IEnumerator Highlight(GameObject item)
+    {
+        yield return new WaitForSeconds(8f);
+        item.GetComponent<Button>().transition = Selectable.Transition.ColorTint;
     }
 
     public void currentTask(int currentTrial)
@@ -60,6 +126,10 @@ public class CSPracticeTwo : MonoBehaviour
             right = two_Fairy_Red;
             targetItem = middle;
             SpawnFunction(left, middle, right);
+            left.GetComponent<Button>().interactable = false;
+            middle.GetComponent<Button>().interactable = false;
+            right.GetComponent<Button>().interactable = false;
+            STS_29.Play();
         }
 
         if (currentTrial == 5)
@@ -81,22 +151,12 @@ public class CSPracticeTwo : MonoBehaviour
 
         if (currentTrial == 7)
         {
-
+            STS_13.Play();
             continueButton.gameObject.SetActive(true);
             continueText.gameObject.SetActive(true);
-            redoButton.gameObject.SetActive(true);
         }
     }
 
-    public void RepeatPractice()
-    {
-        CSDataSaver.practiceTwo.Clear();
-        redoButton.gameObject.SetActive(false);
-        continueButton.gameObject.SetActive(false);
-        continueText.gameObject.SetActive(false);
-        currentTrial = 4;
-        currentTask(currentTrial);
-    }
 
     public void StartPhaseTwo()
     {

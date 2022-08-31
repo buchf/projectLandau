@@ -80,11 +80,15 @@ public class CSPlay : MonoBehaviour
 
     private void Update()
     {
-        if (!audioFiles[currentTrial].isPlaying && buff == 0 && currentTrial < 19)
+        if (currentTrial < 19 && blockNummer == 3)
         {
-            SpawnRight(right);
-            buff++;
+            if (!audioFiles[currentTrial].isPlaying && buff == 0)
+            {
+                SpawnRight(right);
+                buff++;
+            }
         }
+        
     }
 
     void currentTask(int currentTrial)
