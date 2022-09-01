@@ -8,6 +8,8 @@ using UnityEngine.SceneManagement;
 public class GoNoGoPractice : MonoBehaviour
 {
 
+    public AudioSource GoNoGo_02;
+    private int buff = 0;
     public GameObject pig;
     public GameObject chicken;
     public GameObject cow;
@@ -23,7 +25,7 @@ public class GoNoGoPractice : MonoBehaviour
     public Button introButton;
 
     public Button continueButton;
-    public Button redoButton;
+    //public Button redoButton;
     public TextMesh continueText;
 
     public static Stopwatch timer = new Stopwatch();
@@ -31,8 +33,77 @@ public class GoNoGoPractice : MonoBehaviour
     public int trial;
     // Start is called before the first frame update
     void Start()
-    { 
+    {
+        buff = 0;
+        introButton.interactable = false;
+        GoNoGo_02.Play();
         trial = 0;
+    }
+
+    private void Update()
+    {
+
+        if (counter == 11)
+        {
+            chicken.SetActive(false);
+        }
+        if (!GoNoGo_02.isPlaying && buff == 0)
+        {
+            buff++;
+            introButton.interactable = true;
+        }
+        if (!GoNoGo_02.isPlaying && buff == 2)
+        {
+            buff++;
+            introButton.interactable = true;
+        }
+
+        if (counter == 11 && trial == 2)
+        {
+            timer.Stop();
+            shownAnimal.gameObject.SetActive(false);
+            chicken.gameObject.SetActive(false);
+            button.gameObject.SetActive(false);
+            continueText.gameObject.SetActive(true);
+            continueButton.gameObject.SetActive(true);
+            //redoButton.gameObject.SetActive(true);
+
+        }
+        if (counter == 11 && trial != 2 && !GoNoGo_02.isPlaying && buff == 1)
+        {
+            timer.Stop();
+            enableIntro();
+            buff = 2;
+        }
+        
+
+
+        if (timer.Elapsed.TotalSeconds >= 1.0)
+        {
+            timer.Reset();
+            if(counter == 11)
+            {
+                timer.Stop();
+            }
+            else
+            {
+               SelectNextAnimal();
+            }
+            
+        }
+    }
+    void enableIntro()
+    {
+        timer.Stop();
+        timer.Reset();
+        GoNoGo_02.Play();
+        introAnimal2.SetActive(true);
+        introText2.gameObject.SetActive(true);
+        introButton.gameObject.SetActive(true);
+        introButton.interactable = false;
+        shownAnimal.gameObject.SetActive(false);
+        button.gameObject.SetActive(false);
+
     }
 
     void disableIntro()
@@ -47,14 +118,7 @@ public class GoNoGoPractice : MonoBehaviour
     }
 
    
-    void enableIntro()
-    {
-        introAnimal2.SetActive(true);
-        introText2.gameObject.SetActive(true);
-        introButton.gameObject.SetActive(true);
-        shownAnimal.gameObject.SetActive(false);
-        button.gameObject.SetActive(false);
-    }
+
 
     public void startSequenz()
     {
@@ -67,33 +131,7 @@ public class GoNoGoPractice : MonoBehaviour
         timer.Start();
     }
 
-    private void Update()
-    {
 
-        if (counter == 11 && trial == 2)
-        {
-            timer.Stop();
-            shownAnimal.gameObject.SetActive(false);
-            button.gameObject.SetActive(false);
-            continueText.gameObject.SetActive(true);
-            continueButton.gameObject.SetActive(true);
-            redoButton.gameObject.SetActive(true);
-
-        }
-        if (counter == 11 && trial != 2)
-        {
-
-            timer.Stop();
-            enableIntro();
-        }
-        
-   
-        if (timer.Elapsed.TotalSeconds >= 1.0)
-        {
-            timer.Reset();
-            SelectNextAnimal();
-        }
-    }
 
     public void StartGoNoGo()
     {
@@ -128,15 +166,18 @@ public class GoNoGoPractice : MonoBehaviour
     {
         timer.Reset();
         SelectNextAnimal();
-        
+             
     }
 
     private void SelectNextAnimal()
     {
         
-        selectAnimal(counter);
-        button.enabled = false;
-        counter++;
+        
+            selectAnimal(counter);
+            button.enabled = false;
+            counter++;
+        
+        
     }
 
     IEnumerator showDonkey()

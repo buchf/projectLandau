@@ -15,12 +15,24 @@ public class AnimalSelector : MonoBehaviour
     public GameObject chickenImage;
     public GameObject pigImage;
 
+    public Button button;
+    public AudioSource GoNoGo_02;
+
     void Start()
     {
+        button.interactable = false;
+        GoNoGo_02.Play();
         //GoNoGo.trial++;
         SelectText(GoNoGo.trial);
     }
-  
+
+    private void Update()
+    {
+        if (!GoNoGo_02.isPlaying)
+        {
+            button.interactable = true;
+        }
+    }
     public void NextTrial()
     {
         if(GoNoGo.trial == 5) SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 128);
