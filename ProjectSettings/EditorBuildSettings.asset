@@ -387,11 +387,11 @@ EditorBuildSettings:
     path: Assets/Scenes/stabilityRed/stabilityRed17.unity
     guid: 01b73a2a6d5e3b345b5df4f0258c6c7b
   - enabled: 1
-    path: Assets/ExekutiveFunktionen/Scenes/Corsi/CorsiPractice.unity
-    guid: 5f7c7f7d9c4ec4d4cb1ab76b2d696bb7
-  - enabled: 1
     path: Assets/ExekutiveFunktionen/Scenes/Corsi/CorsiIntroduction.unity
     guid: 8489822ef200ca94e8a70af0b3955870
+  - enabled: 1
+    path: Assets/ExekutiveFunktionen/Scenes/Corsi/CorsiPractice.unity
+    guid: 5f7c7f7d9c4ec4d4cb1ab76b2d696bb7
   - enabled: 1
     path: Assets/ExekutiveFunktionen/Scenes/Corsi/CorsiPlay.unity
     guid: 2cda990e2423bbf4892e6590ba056729
@@ -480,22 +480,22 @@ EditorBuildSettings:
     path: Assets/Scenes/stabilityRed/stabilityRed15.unity
     guid: b69b20b0380f88b499e6703bea1dd6f5
   - enabled: 1
-    path: Assets/ExekutiveFunktionen/Scenes/CSIntro.unity
+    path: Assets/ExekutiveFunktionen/Scenes/CardSorting/CSIntro.unity
     guid: 3a002aa31a9f8b84490196eea3776c2b
   - enabled: 1
-    path: Assets/ExekutiveFunktionen/Scenes/CSIntroduction.unity
+    path: Assets/ExekutiveFunktionen/Scenes/CardSorting/CSIntroduction.unity
     guid: 58e9c9dc37175a343a87eff2d9266588
   - enabled: 1
-    path: Assets/ExekutiveFunktionen/Scenes/CSPractice.unity
+    path: Assets/ExekutiveFunktionen/Scenes/CardSorting/CSPractice.unity
     guid: da8f81f5e1f2ed04dbcf2bef74a1b3d2
   - enabled: 1
-    path: Assets/ExekutiveFunktionen/Scenes/CSPlay.unity
+    path: Assets/ExekutiveFunktionen/Scenes/CardSorting/CSPlay.unity
     guid: c63d46602c669b34e9f1699981ce6f0f
   - enabled: 1
-    path: Assets/ExekutiveFunktionen/Scenes/CSPracticeTwo.unity
+    path: Assets/ExekutiveFunktionen/Scenes/CardSorting/CSPracticeTwo.unity
     guid: 5e34c3d1f8bef2d4e95e663302750e69
   - enabled: 1
-    path: Assets/ExekutiveFunktionen/Scenes/CSOutro.unity
+    path: Assets/ExekutiveFunktionen/Scenes/CardSorting/CSOutro.unity
     guid: aace6211eee0dfa479515643bc2ec92d
   - enabled: 1
     path: Assets/Scenes/direction/direction6.unity

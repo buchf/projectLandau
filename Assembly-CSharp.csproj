@@ -65,12 +65,12 @@
     <Compile Include="Assets\Backend\UI\Auswahlzahnrad.cs" />
     <Compile Include="Assets\Backend\Helper\MultiSelector.cs" />
     <Compile Include="Assets\Backend\UI\BauklotzZielgebiet.cs" />
-    <Compile Include="Assets\ExekutiveFunktionen\Scripts\CSPracticeTwo.cs" />
-    <Compile Include="Assets\ExekutiveFunktionen\Scripts\CSPlay.cs" />
-    <Compile Include="Assets\ExekutiveFunktionen\Scripts\CSPractice.cs" />
-    <Compile Include="Assets\ExekutiveFunktionen\Scripts\CSIntroduction.cs" />
+    <Compile Include="Assets\ExekutiveFunktionen\Scripts\CardSorting\CSPracticeTwo.cs" />
+    <Compile Include="Assets\ExekutiveFunktionen\Scripts\CardSorting\CSPlay.cs" />
+    <Compile Include="Assets\ExekutiveFunktionen\Scripts\CardSorting\CSPractice.cs" />
+    <Compile Include="Assets\ExekutiveFunktionen\Scripts\CardSorting\CSIntroduction.cs" />
     <Compile Include="Assets\ExekutiveFunktionen\Scripts\GoNoGo\GoNoGo.cs" />
-    <Compile Include="Assets\ExekutiveFunktionen\Scripts\CSDataSaver.cs" />
+    <Compile Include="Assets\ExekutiveFunktionen\Scripts\CardSorting\CSDataSaver.cs" />
     <Compile Include="Assets\Backend\Helper\Selector.cs" />
     <Compile Include="Assets\Backend\UI\RichtungsstickerInstancer.cs" />
     <Compile Include="Assets\Backend\ControlFlow\Block.cs" />
@@ -83,6 +83,7 @@
     <Compile Include="Assets\Backend\UI\PlayButton.cs" />
     <Compile Include="Assets\ExekutiveFunktionen\Scripts\Corsi\DataSaver.cs" />
     <Compile Include="Assets\ExekutiveFunktionen\Scripts\Corsi\Player.cs" />
+    <Compile Include="Assets\ExekutiveFunktionen\Scripts\CardSorting\CSOutro.cs" />
     <Compile Include="Assets\ExekutiveFunktionen\Scripts\Corsi\CorsiPractice.cs" />
     <Compile Include="Assets\Backend\UI\Bauklotz.cs" />
     <Compile Include="Assets\Backend\UI\UnpauseButton.cs" />
@@ -96,8 +97,9 @@
     <Compile Include="Assets\Backend\ControlFlow\Implementations\StabilityTrials.cs" />
     <Compile Include="Assets\ExekutiveFunktionen\Scripts\Corsi\Randomizer.cs" />
     <Compile Include="Assets\ExekutiveFunktionen\Scripts\Corsi\corsiTextSelect.cs" />
-    <Compile Include="Assets\ExekutiveFunktionen\Scripts\CSIntro.cs" />
-    <Compile Include="Assets\ExekutiveFunktionen\Scripts\CSOutro.cs" />
+    <Compile Include="Assets\ExekutiveFunktionen\Scripts\CardSorting\CSIntro.cs" />
+    <Compile Include="Assets\ExekutiveFunktionen\Scripts\Corsi\CorsiIntro.cs" />
+    <Compile Include="Assets\ExekutiveFunktionen\Scripts\Corsi\Outro.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\ExekutiveFunktionen\TextMesh Pro\Shaders\TMPro.cginc" />

@@ -12,9 +12,16 @@ public class CorsiPractice : MonoBehaviour
     public TextMesh increaseText;
     float speed = 1f;
 
+    private AudioSource introAudio;
+    public AudioSource corsi_02;
+    public AudioSource corsi_02_back;
+    public AudioSource corsiIncrease;
+    private int buff = 0;
+
     //UI Variable
     public TextMesh introText;
     public TextMesh introTextReverse;
+
     public GameObject lessaImage;
     public Button continueButton;
     public Button redoButton;
@@ -34,12 +41,40 @@ public class CorsiPractice : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        buff = 0;
         player = FindObjectOfType<Player>();
+        if (Randomizer.reverse == true)
+        {
+            introAudio = corsi_02_back;
+        }
+        if (Randomizer.reverse == false)
+        {
+            introAudio = corsi_02;
+        }
+        introAudio.Play();
+
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if(!introAudio.isPlaying && buff == 0)
+        {
+            button.interactable = true;
+            buff = 1;
+        }
+        if(!corsiIncrease.isPlaying && buff == 2)
+        {
+            button2.interactable = true;
+            buff = 3;
+        }
+        if(!introAudio.isPlaying && buff == 4)
+        {
+            continueButton.interactable = true;
+            buff = 5;
+        }
+
         //wenn clickedblocks length = sequenztlengt -> startsequenz
        if(clickedBlocks == sequenzBlocks)
        {
@@ -86,9 +121,13 @@ public class CorsiPractice : MonoBehaviour
             HideField();
             button2.gameObject.SetActive(false);
             fairy.gameObject.SetActive(false);
-            countinueText.gameObject.SetActive(true);
+            //countinueText.gameObject.SetActive(true);
+            continueButton.interactable = false;
             continueButton.gameObject.SetActive(true);
-            redoButton.gameObject.SetActive(true);
+
+            //redoButton.gameObject.SetActive(true);
+            introAudio.Play();
+            buff = 4;
         }
 
         //Zahlen fuer die verschiedenen Trials wurden mithilfe der GetRandom Funktion erstellt
@@ -112,6 +151,8 @@ public class CorsiPractice : MonoBehaviour
     void increaseWarning()
     {
         HideField();
+        corsiIncrease.Play();
+        buff = 2;
         increaseText.gameObject.SetActive(true);
     }
 
@@ -121,8 +162,9 @@ public class CorsiPractice : MonoBehaviour
         {
             blocks[i].gameObject.SetActive(false);
         }
-        button.gameObject.SetActive(false);
+        //button.gameObject.SetActive(false);
         button2.gameObject.SetActive(true);
+        button2.interactable = false;
     }
 
 

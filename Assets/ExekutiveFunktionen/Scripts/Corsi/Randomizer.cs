@@ -20,7 +20,8 @@ public class Randomizer : MonoBehaviour
 
 
     public static int countFalseTask = 0;
-
+    public AudioSource increaseAudio;
+    private int buff = 0;
 
     public static int clickedBlocks = 0;
     int sequenzBlocks = 1;
@@ -28,7 +29,8 @@ public class Randomizer : MonoBehaviour
 
 
     private void Start()
-    {  
+    {
+        buff = 0;
         Debug.Log(reverse);
         player = FindObjectOfType<Player>();
         fairy.transform.position = new Vector3(-7f, 3f, -1);
@@ -38,6 +40,12 @@ public class Randomizer : MonoBehaviour
 
     public void Update()
     {
+
+        if (!increaseAudio.isPlaying && buff == 1)
+        {
+            increaseButton.interactable = true;
+            buff = 0;
+        }
         
         if(clickedBlocks == sequenzBlocks)
         {
@@ -430,6 +438,9 @@ public class Randomizer : MonoBehaviour
             }
             increaseText.gameObject.SetActive(true);
             increaseButton.gameObject.SetActive(true);
+            increaseButton.interactable = false;
+            buff = 1;
+            increaseAudio.Play();
         }
 
         
