@@ -78,7 +78,7 @@ public class GoNoGoPractice : MonoBehaviour
         
 
 
-        if (timer.Elapsed.TotalSeconds >= 1.0)
+        if (timer.Elapsed.TotalSeconds >= 0.5)
         {
             timer.Reset();
             if(counter == 11)
