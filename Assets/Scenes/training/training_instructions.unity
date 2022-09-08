@@ -382,10 +382,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 303862391086869193, guid: 04143813b3d265648a638d9026631d89, type: 3}
       propertyPath: m_Text
-      value: "Ich zeige dir jetzt ein Zahnrad.\nMan kann es bewegen und auf\nein
-        Brett ziehen, indem man es in \nder Mitte ber\xFChrt und verschiebt.\nWenn
-        es sich auf dem Brett \nbefindet kann man es auch drehen, \nindem man es
-        am Rand\nber\xFChrt und im Kreis dreht."
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 303862391086869195, guid: 04143813b3d265648a638d9026631d89, type: 3}
       propertyPath: m_RootOrder

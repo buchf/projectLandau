@@ -1667,9 +1667,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 303862391086869193, guid: 13d879c6b1ab47a438575ad0c4adf9f8, type: 3}
       propertyPath: m_Text
-      value: "Du machst das wirklich super. \nJetzt \xE4ndert sich das Spiel ein
-        bisschen.\n Du siehst 3 Bilder und suchst das Bild \naus, das etwas mit den
-        beiden anderen \nBildern gemeinsam hat. Ich zeige dir, wie das geht."
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 303862391086869195, guid: 13d879c6b1ab47a438575ad0c4adf9f8, type: 3}
       propertyPath: m_RootOrder

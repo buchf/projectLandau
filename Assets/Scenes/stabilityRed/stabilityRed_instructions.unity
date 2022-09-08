@@ -255,9 +255,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 303862391086869193, guid: 04143813b3d265648a638d9026631d89, type: 3}
       propertyPath: m_Text
-      value: "Du siehst gleich ein Video von\n zwei Bauwerken, bei denen ein \nschwarzer
-        Stein weggezogen wird. \nAchte darauf, was mit den roten\nSteinen passiert.\n(Play-Button
-        beim Video erst dr\xFCcken,\nwenn zweimal der schwarze Stein\nentfernt wurde.)"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 303862391086869195, guid: 04143813b3d265648a638d9026631d89, type: 3}
       propertyPath: m_RootOrder

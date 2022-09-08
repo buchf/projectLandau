@@ -815,9 +815,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 303862391086869193, guid: 13d879c6b1ab47a438575ad0c4adf9f8, type: 3}
       propertyPath: m_Text
-      value: "Jetzt sollst du zeigen, welches der beiden\nBilder auf der linken Seite
-        eine \xC4hnlichkeit\nzu dem rechten Bild hat, das etwas sp\xE4ter\nerscheint.\nSollen
-        wir loslegen?"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 303862391086869195, guid: 13d879c6b1ab47a438575ad0c4adf9f8, type: 3}
       propertyPath: m_RootOrder
