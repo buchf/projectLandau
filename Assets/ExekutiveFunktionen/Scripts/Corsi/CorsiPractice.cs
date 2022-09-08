@@ -95,7 +95,7 @@ public class CorsiPractice : MonoBehaviour
 
     public void StartFirstSequenz()
     {
-        fairy.transform.position = new Vector3(-7f, 3f, -1);
+        fairy.transform.position = new Vector3(-6f, 3f, -1);
         showField();
         StartCoroutine(SequenzZero(3));
         count1++;
@@ -106,7 +106,7 @@ public class CorsiPractice : MonoBehaviour
         
         //Debug.Log(DataSaver.filePath.ToString());
         fairy.SetActive(true);
-        fairy.transform.position = new Vector3(-7f, 3f, -1);
+        fairy.transform.position = new Vector3(-6f, 3f, -1);
 
         if (count1 == 3 && count2 != 2)
         {

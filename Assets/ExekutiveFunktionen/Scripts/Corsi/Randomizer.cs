@@ -33,7 +33,7 @@ public class Randomizer : MonoBehaviour
         buff = 0;
         Debug.Log(reverse);
         player = FindObjectOfType<Player>();
-        fairy.transform.position = new Vector3(-7f, 3f, -1);
+        fairy.transform.position = new Vector3(-6f, 3f, -1);
         StartCoroutine(SequenzZero(3));
         count1++; 
     }
@@ -59,7 +59,7 @@ public class Randomizer : MonoBehaviour
     {
         //Debug.Log(DataSaver.filePath.ToString());
         fairy.SetActive(true);
-        fairy.transform.position = new Vector3(-7f, 3f, -1);
+        fairy.transform.position = new Vector3(-6f, 3f, -1);
 
         
 
