@@ -83,6 +83,7 @@
      <Compile Include="Assets\ExekutiveFunktionen\Scripts\CardSorting\CSOutro.cs" />
      <Compile Include="Assets\ExekutiveFunktionen\Scripts\Corsi\CorsiPractice.cs" />
      <Compile Include="Assets\Backend\UI\Bauklotz.cs" />
+     <Compile Include="Assets\TurnAround.cs" />
      <Compile Include="Assets\Backend\UI\UnpauseButton.cs" />
      <Compile Include="Assets\Backend\UI\Auswahlsymbol.cs" />
      <Compile Include="Assets\ExekutiveFunktionen\Scripts\Corsi\PracticeBlock.cs" />
