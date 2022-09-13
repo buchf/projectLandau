@@ -473,6 +473,10 @@ PrefabInstance:
       value: Propeller (2)
       objectReference: {fileID: 0}
     - target: {fileID: 8954547348671741255, guid: 24fecfa9551663d439ec18bac298f479, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: df25c8806727ba3498025519d7041bb7, type: 3}
+    - target: {fileID: 8954547348671741255, guid: 24fecfa9551663d439ec18bac298f479, type: 3}
       propertyPath: m_SortingOrder
       value: 2
       objectReference: {fileID: 0}
