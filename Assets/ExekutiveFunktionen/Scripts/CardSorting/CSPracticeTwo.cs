@@ -85,7 +85,7 @@ public class CSPracticeTwo : MonoBehaviour
             
             buff++;
         }
-        if (!STS_29.isPlaying && buff == 2)
+        if (!STS_29.isPlaying && buff >= 2)
         {
             timer.Reset();
             right.GetComponent<Button>().interactable = true;
@@ -125,11 +125,12 @@ public class CSPracticeTwo : MonoBehaviour
             middle = one_Flower_Red;
             right = two_Fairy_Red;
             targetItem = middle;
+            STS_29.Play();
             SpawnFunction(left, middle, right);
             left.GetComponent<Button>().interactable = false;
             middle.GetComponent<Button>().interactable = false;
             right.GetComponent<Button>().interactable = false;
-            STS_29.Play();
+            
         }
 
         if (currentTrial == 5)
@@ -138,7 +139,11 @@ public class CSPracticeTwo : MonoBehaviour
             middle = two_Flower_Blue;
             right = one_Hat_Red;
             targetItem = left;
+            STS_29.Play();
             SpawnFunction(left, middle, right);
+            left.GetComponent<Button>().interactable = false;
+            middle.GetComponent<Button>().interactable = false;
+            right.GetComponent<Button>().interactable = false;
         }
         if (currentTrial == 6)
         {
@@ -146,12 +151,16 @@ public class CSPracticeTwo : MonoBehaviour
             middle = two_Flower_Yellow;
             right = three_Hat_Yellow;
             targetItem = right;
+            STS_29.Play();
             SpawnFunction(left, middle, right);
+            left.GetComponent<Button>().interactable = false;
+            middle.GetComponent<Button>().interactable = false;
+            right.GetComponent<Button>().interactable = false;
         }
 
         if (currentTrial == 7)
         {
-            STS_13.Play();
+            STS_13.Play(); // STS_16.Play();
             continueButton.gameObject.SetActive(true);
             continueText.gameObject.SetActive(true);
         }

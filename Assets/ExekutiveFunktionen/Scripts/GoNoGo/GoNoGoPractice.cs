@@ -61,39 +61,42 @@ public class GoNoGoPractice : MonoBehaviour
 
         if (counter == 11 && trial == 2)
         {
-            if (practiceerrors >= 2)
-                RepeatPractice();
-            else {
-                timer.Stop();
-                shownAnimal.gameObject.SetActive(false);
-                chicken.gameObject.SetActive(false);
-                button.gameObject.SetActive(false);
-                continueText.gameObject.SetActive(true);
-                continueButton.gameObject.SetActive(true);
-                //redoButton.gameObject.SetActive(true);
+            if (practiceerrors >= 2) {
+                timer.Reset();
+                RepeatPractice(); }
+        else {
+            timer.Stop();
+            shownAnimal.gameObject.SetActive(false);
+            chicken.gameObject.SetActive(false);
+            button.gameObject.SetActive(false);
+            continueText.gameObject.SetActive(true);
+            continueButton.gameObject.SetActive(true);
+            //redoButton.gameObject.SetActive(true);
             }
         }
         if (counter == 11 && trial != 2 && !GoNoGo_02.isPlaying && buff == 1)
-        {
-            timer.Stop();
-            enableIntro();
-            buff = 2;
-        }
-        
+           {
+            counter = 1; 
+            trial++; 
+        //       timer.Stop();
+        //       enableIntro();
+        //       buff = 2;
+           }
+
 
 
         if (timer.Elapsed.TotalSeconds >= 0.5)
         {
             timer.Reset();
-            if(counter == 11)
-            {
-                timer.Stop();
-            }
-            else
-            {
-               SelectNextAnimal();
-            }
-            
+            //if(counter == 11)
+            // {
+            //  timer.Stop();
+            //  }
+            //  else
+            // {
+            SelectNextAnimal();
+            // }
+
         }
     }
     void enableIntro()

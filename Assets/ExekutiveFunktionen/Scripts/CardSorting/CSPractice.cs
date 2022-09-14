@@ -160,7 +160,7 @@ public class CSPractice : MonoBehaviour
     }
 
     IEnumerator Wait(GameObject right)
-    {
+    { 
         yield return new WaitForSecondsRealtime(1f);
         SpawnRight(right);
         EnableField();
