@@ -159,7 +159,7 @@ public class Player : MonoBehaviour
         currentSequenzCounter++;
         int x = clickedBlocks.Count;
         int y = sequenzBlocks.Count;
-        int[] clicks = { -1, -1, -1, -1, -1 , -1};
+        int[] clicks = { -1, -1, -1, -1, -1 , -1, -1, -1};
         listCompareVar = 1;
         int j = sequenzBlocks.Count - 1;
         if (x != y)

@@ -124,6 +124,8 @@ public class CorsiPractice : MonoBehaviour
 
             //redoButton.gameObject.SetActive(true);
             introAudio.Play();
+            showField();
+            disableField();
             buff = 4;
         }
 
@@ -163,6 +165,7 @@ public class CorsiPractice : MonoBehaviour
     void increaseWarning()
     {
         //HideField();
+        disableField();
         button2.gameObject.SetActive(true);
         button2.interactable = false;
         corsiIncrease.Play();

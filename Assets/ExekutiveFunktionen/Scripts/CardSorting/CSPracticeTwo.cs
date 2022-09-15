@@ -19,7 +19,7 @@ public class CSPracticeTwo : MonoBehaviour
     public AudioSource STS_27;
     public AudioSource STS_28;
     public AudioSource STS_29;
-    public AudioSource STS_13;
+    public AudioSource STS_16;
 
     public GameObject one_Fairy_Blue;
 
@@ -160,7 +160,7 @@ public class CSPracticeTwo : MonoBehaviour
 
         if (currentTrial == 7)
         {
-            STS_13.Play(); // STS_16.Play();
+            STS_16.Play(); // STS_16.Play();
             continueButton.gameObject.SetActive(true);
             continueText.gameObject.SetActive(true);
         }

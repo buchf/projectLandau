@@ -2477,7 +2477,7 @@ GameObject:
   - component: {fileID: 1738734179}
   - component: {fileID: 1738734178}
   m_Layer: 0
-  m_Name: STS_13
+  m_Name: STS_16
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2493,7 +2493,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 94e4a90db53df0247a5245865d47b6d4, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e39075cc2f734c747b597ff0d8a69f3b, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -2790,7 +2790,7 @@ MonoBehaviour:
   STS_27: {fileID: 1298089083}
   STS_28: {fileID: 1020383263}
   STS_29: {fileID: 316517995}
-  STS_13: {fileID: 1738734178}
+  STS_16: {fileID: 1738734178}
   one_Fairy_Blue: {fileID: 489537959}
   three_Flower_Yellow: {fileID: 1294773740}
   one_Flower_Red: {fileID: 1387599565}
