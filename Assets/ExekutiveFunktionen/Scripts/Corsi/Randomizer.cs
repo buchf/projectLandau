@@ -432,10 +432,12 @@ public class Randomizer : MonoBehaviour
         }
         else
         {
+            disableField();
+            /*
             for (int i = 0; i < blocks.Count; i++)
             {
                 blocks[i].gameObject.SetActive(false);
-            }
+            } */
             increaseText.gameObject.SetActive(true);
             increaseButton.gameObject.SetActive(true);
             increaseButton.interactable = false;

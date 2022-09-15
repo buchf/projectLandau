@@ -133,6 +133,8 @@ public class GoNoGoPractice : MonoBehaviour
         disableIntro();
         shownAnimal = donkey;
         donkey.SetActive(true);
+        button.interactable = true;
+        button.transition = Selectable.Transition.ColorTint;
         //selectAnimal(counter);
         
         timer.Start();

@@ -41,6 +41,9 @@ public class CorsiPractice : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //showField();
+        //button.gameObject.SetActive(true);
+        disableField();
         buff = 0;
         player = FindObjectOfType<Player>();
         if (Randomizer.reverse == true)
@@ -95,10 +98,9 @@ public class CorsiPractice : MonoBehaviour
 
     public void StartFirstSequenz()
     {
-        fairy.transform.position = new Vector3(-6f, 3f, -1);
-        showField();
-        StartCoroutine(SequenzZero(3));
-        count1++;
+        
+        //count1++;
+        StartSequenz();
     }
 
     public void StartSequenz()
@@ -108,12 +110,7 @@ public class CorsiPractice : MonoBehaviour
         fairy.SetActive(true);
         fairy.transform.position = new Vector3(-6f, 3f, -1);
 
-        if (count1 == 3 && count2 != 2)
-        {
-            count1 = 0;
-            sequenzBlocks = 2;
-            count2++;
-        }
+        
 
         
         if (count1 == 2 && count2 == 1)
@@ -133,6 +130,15 @@ public class CorsiPractice : MonoBehaviour
         //Zahlen fuer die verschiedenen Trials wurden mithilfe der GetRandom Funktion erstellt
 
         //Trial 0
+        //first sequenz
+        if (count1 == 0 && count2 == 0)
+        {
+            fairy.transform.position = new Vector3(-6f, 3f, -1);
+            showField();
+            StartCoroutine(SequenzZero(3));
+        }
+
+
         if (count1 == 1 && count2 == 0) StartCoroutine(SequenzZero(6));
         if (count1 == 2 && count2 == 0) increaseWarning();
 
@@ -143,14 +149,22 @@ public class CorsiPractice : MonoBehaviour
             StartCoroutine(SequenzOne(5, 1));
         }
         if (count1 == 1 && count2 == 1) StartCoroutine(SequenzOne(8, 1));
-       // if (count1 == 2 && count2 == 1) increaseWarning();
+        // if (count1 == 2 && count2 == 1) increaseWarning();
 
-        count1++;
+        if (count1 == 2 && count2 != 2)
+        {
+            count1 = 0;
+            sequenzBlocks = 2;
+            count2++;
+        }
+        //count1++;
 
     }
     void increaseWarning()
     {
-        HideField();
+        //HideField();
+        button2.gameObject.SetActive(true);
+        button2.interactable = false;
         corsiIncrease.Play();
         buff = 2;
         increaseText.gameObject.SetActive(true);
@@ -279,6 +293,7 @@ public class CorsiPractice : MonoBehaviour
         yield return new WaitForSeconds(1f);
         correcStar.SetActive(false);
         showField();
+        count1++;
         StartSequenz();
     }
 
