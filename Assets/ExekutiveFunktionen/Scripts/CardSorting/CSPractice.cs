@@ -187,6 +187,7 @@ public class CSPractice : MonoBehaviour
         {
             test++;
             incorrect.SetActive(true);
+            StartCoroutine(incorrectDisappear());
         }
 
         if(cresp == 0 && test ==1)
@@ -241,6 +242,12 @@ public class CSPractice : MonoBehaviour
     {
         left.GetComponent<Button>().enabled = true;
         middle.GetComponent<Button>().enabled = true;
+    }
+
+    IEnumerator incorrectDisappear()
+    {
+        yield return new WaitForSeconds(1f);
+        incorrect.SetActive(false);
     }
 
     void WriteInDataSaver(int currentTrial, string left, string middle, string right, string targetItem, double reaction, int CRESP)

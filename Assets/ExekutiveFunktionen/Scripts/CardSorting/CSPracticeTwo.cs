@@ -221,6 +221,7 @@ public class CSPracticeTwo : MonoBehaviour
         {
             test++;
             incorrect.SetActive(true);
+            StartCoroutine(incorrectDisappear());
         }
 
         if (cresp == 0 && test == 1)
@@ -253,6 +254,12 @@ public class CSPracticeTwo : MonoBehaviour
         correct.SetActive(false);
         incorrect.SetActive(false);
         currentTask(currentTrial);
+    }
+
+    IEnumerator incorrectDisappear()
+    {
+        yield return new WaitForSeconds(1f);
+        incorrect.SetActive(false);
     }
 
     void WriteInDataSaver(int currentTrial, string left, string middle, string right, string targetItem, double reaction, int CRESP)
