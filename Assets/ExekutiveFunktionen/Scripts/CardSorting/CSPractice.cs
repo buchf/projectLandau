@@ -268,7 +268,6 @@ public class CSPractice : MonoBehaviour
 
     void EnableField()
     {
-        timer.Reset();
         left.GetComponent<Button>().enabled = true;
         middle.GetComponent<Button>().enabled = true;
         timer.Start();
