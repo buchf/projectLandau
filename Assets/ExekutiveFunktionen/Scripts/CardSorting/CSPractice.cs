@@ -11,6 +11,8 @@ public class CSPractice : MonoBehaviour
     public AudioSource STS_14;
     public AudioSource STS_15;
     public AudioSource STS_16;
+    public AudioSource STS_18;
+    public AudioSource STS_20;
 
     public Button continueButton;
     public Button redoButton;
@@ -53,10 +55,7 @@ public class CSPractice : MonoBehaviour
     {
         test = 0;
         currentTrial = 1;
-        STS_14.Play();
         currentTask(currentTrial);
-        
-        
     }
 
     [System.Obsolete]
@@ -73,12 +72,38 @@ public class CSPractice : MonoBehaviour
             if (!STS_15.isPlaying && buff == 1)
             {
                 EnableField();
-                timer.Reset();
-                buff = 2;
+            }
+        }
+        if (currentTrial == 2)
+        {
+            if (!STS_20.isPlaying && !STS_15.isPlaying && buff == 2)
+            {
+                SpawnRight(right);
+                STS_15.Play();
+                buff = 3;
+            }
+            if (!STS_15.isPlaying && buff == 3)
+            {
+                EnableField();
+                //buff = 4;
+            }
+        }
+        if (currentTrial == 3)
+        {
+            if (!STS_18.isPlaying && !STS_15.isPlaying && buff == 4)
+            {
+                SpawnRight(right);
+                STS_15.Play();
+                buff = 5;
+            }
+            if (!STS_15.isPlaying && buff == 5)
+            {
+                EnableField();
+                buff = 6;
             }
         }
 
-        if (currentTrial == 4 && !STS_16.isPlaying && buff == 2 && correct.active == false)
+        if (currentTrial == 4 && !STS_16.isPlaying && buff == 6 && correct.active == false)
         {
             STS_16.Play();
             continueButton.gameObject.SetActive(true);
@@ -96,6 +121,7 @@ public class CSPractice : MonoBehaviour
     {
         if(currentTrial == 1)
         {
+            STS_14.Play();
             left = one_Fairy_Red;
             middle = two_Fairy_Yellow;
             right = three_Flower_Yellow;
@@ -105,22 +131,24 @@ public class CSPractice : MonoBehaviour
 
         if (currentTrial == 2)
         {
+            STS_20.Play();
+            buff = 2;
             left = two_Flower_Blue;
             middle = three_Hat_Blue;
             right = two_Fairy_Red;
             targetItem = left;
-            SpawnFunction(left, middle, right);
+            SpawnFirst(left, middle);
         }
         if (currentTrial == 3)
         {
+            STS_18.Play();
+            buff = 4;
             left = one_Flower_Red;
             middle = one_Hat_Yellow;
             right = two_Hat_Blue;
             targetItem = middle;
-            SpawnFunction(left, middle, right);
+            SpawnFirst(left, middle);
         }
-
-       
     }
 
     void SpawnFirst(GameObject left, GameObject middle)
@@ -156,7 +184,6 @@ public class CSPractice : MonoBehaviour
         item.SetActive(true);
         item.GetComponent<Button>().transition = Selectable.Transition.None;
         item.GetComponent<Button>().interactable = false;
-        
     }
 
     IEnumerator Wait(GameObject right)
@@ -209,6 +236,7 @@ public class CSPractice : MonoBehaviour
             currentTrial++;
             StartCoroutine(DespawnObject());
         }
+        timer.Reset();
     }
 
     IEnumerator DespawnObject()
@@ -240,8 +268,10 @@ public class CSPractice : MonoBehaviour
 
     void EnableField()
     {
+        timer.Reset();
         left.GetComponent<Button>().enabled = true;
         middle.GetComponent<Button>().enabled = true;
+        timer.Start();
     }
 
     IEnumerator incorrectDisappear()
@@ -253,6 +283,7 @@ public class CSPractice : MonoBehaviour
     void WriteInDataSaver(int currentTrial, string left, string middle, string right, string targetItem, double reaction, int CRESP)
     {
         CSDataSaver.MeasurePractice(currentTrial, left, middle, right, targetItem, reaction, CRESP);
+        timer.Start();
         timer.Reset();
     }
 }

@@ -65,6 +65,7 @@ public class CSPracticeTwo : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(timer.ElapsedMilliseconds);
         if(!STS_27.isPlaying && buff == 0)
         {
             STS_28.Play();
@@ -87,13 +88,17 @@ public class CSPracticeTwo : MonoBehaviour
         }
         if (!STS_29.isPlaying && buff >= 2)
         {
-            timer.Reset();
-            right.GetComponent<Button>().interactable = true;
-            middle.GetComponent<Button>().interactable = true;
-            left.GetComponent<Button>().interactable = true;
-            timer.Start();
+            EnableField();
             buff++;
         }
+    }
+    
+    void EnableField()
+    {
+        right.GetComponent<Button>().interactable = true;
+        middle.GetComponent<Button>().interactable = true;
+        left.GetComponent<Button>().interactable = true;
+        timer.Start();
     }
     void PhaseTwoIntro()
     {
@@ -180,7 +185,6 @@ public class CSPracticeTwo : MonoBehaviour
         SpawnLeft(left);
         SpawnMiddle(middle);
         SpawnRight(right);
-        timer.Start();
     }
 
     void SpawnLeft(GameObject item)
@@ -210,11 +214,8 @@ public class CSPracticeTwo : MonoBehaviour
         correct.SetActive(false);
         if (targetItem == clicked)
         {
-
             cresp = 1;
-
             correct.SetActive(true);
-
         }
         else
 
@@ -243,6 +244,8 @@ public class CSPracticeTwo : MonoBehaviour
             currentTrial++;
             StartCoroutine(DespawnObject());
         }
+        //timer.Reset();
+        //timer.Stop();
     }
 
     IEnumerator DespawnObject()
@@ -254,6 +257,8 @@ public class CSPracticeTwo : MonoBehaviour
         correct.SetActive(false);
         incorrect.SetActive(false);
         currentTask(currentTrial);
+        timer.Reset();
+        timer.Stop();
     }
 
     IEnumerator incorrectDisappear()
@@ -264,7 +269,9 @@ public class CSPracticeTwo : MonoBehaviour
 
     void WriteInDataSaver(int currentTrial, string left, string middle, string right, string targetItem, double reaction, int CRESP)
     {
+        
         CSDataSaver.MeasurePracticeTwo(currentTrial, left, middle, right, targetItem, reaction, CRESP);
+        timer.Stop();
         timer.Reset();
     }
 }
