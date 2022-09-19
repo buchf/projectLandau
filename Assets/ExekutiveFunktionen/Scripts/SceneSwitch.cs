@@ -47,6 +47,21 @@ public class SceneSwitch : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 131);
     }
 
+    public void WCSTStart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 163);
+    }
+
+    public void CoverStoryStart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 167);
+    }
+
+    public void CoverStoryOutroStart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 170);
+    }
+
     public void ReadInput(string s)
     {
         inputVPN = s;

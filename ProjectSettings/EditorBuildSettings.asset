@@ -506,4 +506,34 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/prt/prt18.unity
     guid: fb74af1adc25d0c40826a30fad45b363
+  - enabled: 1
+    path: Assets/ExekutiveFunktionen/Flexibility/Scenes/WCST_Intro.unity
+    guid: 71934eaac5db5614b8706d56b87398db
+  - enabled: 1
+    path: Assets/ExekutiveFunktionen/Flexibility/Scenes/WCST_Practice.unity
+    guid: e8770db519ad1994cab223128c45b8c6
+  - enabled: 1
+    path: Assets/ExekutiveFunktionen/Flexibility/Scenes/WCST_Play.unity
+    guid: 517ecf7debcfac247948f91c6bb6192f
+  - enabled: 1
+    path: Assets/ExekutiveFunktionen/Flexibility/Scenes/WCST_Outro.unity
+    guid: 3492583a981a7aa4cbc38d26e76886e8
+  - enabled: 1
+    path: Assets/ExekutiveFunktionen/Scenes/CoverStory/CoverStory1.unity
+    guid: 719e7a3c954d00e4d83e177465c202c2
+  - enabled: 1
+    path: Assets/ExekutiveFunktionen/Scenes/CoverStory/CoverStory2.unity
+    guid: bef781c9adde5d943be5329bb179604d
+  - enabled: 1
+    path: Assets/ExekutiveFunktionen/Scenes/CoverStory/CoverStory3.unity
+    guid: ac1ad50a46fa81542949905dfc889095
+  - enabled: 1
+    path: Assets/ExekutiveFunktionen/Scenes/CoverStory/CoverStory4.unity
+    guid: 6c49ce84b09625040957c8e08138ed1a
+  - enabled: 1
+    path: Assets/ExekutiveFunktionen/Scenes/CoverStory/CoverStory5.unity
+    guid: 9de0863dcffcf2d45845aa5bd1dec502
+  - enabled: 1
+    path: Assets/ExekutiveFunktionen/Scenes/CoverStory/CoverStory6.unity
+    guid: 71daec93d4d4a754b8d0711760c04323
   m_configObjects: {}

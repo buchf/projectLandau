@@ -17,7 +17,7 @@ public class CorsiIntro : MonoBehaviour
     {
         if (!Corsi_01.isPlaying)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1);
         }
     }
 }
