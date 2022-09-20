@@ -33,7 +33,8 @@ public class GoNoGoPractice : MonoBehaviour
     public static Stopwatch timer = new Stopwatch();
     public int counter;
     public int trial;
-    public int practiceerrors;
+    public int practiceerrors = 0;
+    public int practicehits = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -71,7 +72,7 @@ public class GoNoGoPractice : MonoBehaviour
 
         if (counter == 11 && trial == 2 && buff2 == 0)
         {
-            if (practiceerrors >= 2)
+            if (practiceerrors >= 2 || practicehits < 5)
             {
                 timer.Reset();
                 RepeatPractice();
@@ -194,6 +195,8 @@ public class GoNoGoPractice : MonoBehaviour
     {
         if (shownAnimal == cow)
             practiceerrors++;
+        else
+            practicehits++;
         timer.Reset();
         SelectNextAnimal();
 
