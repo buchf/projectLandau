@@ -86,19 +86,19 @@ public class WCST_Play : MonoBehaviour
             timer.Reset();
         }
     }
-    
+
     public void CardClick(GameObject clickedObject)
     {
         timer.Stop();
         GetClickedCard(clickedObject);
-        
+
 
         clicked = clickedObject;
         clickedColor = clicked.GetComponent<CardDisplay>().card.color;
         clickedNum = clicked.GetComponent<CardDisplay>().card.number;
         clickedShape = clicked.GetComponent<CardDisplay>().card.shape;
 
-       
+
 
         if (correctChain == 0 && sortCategory == 0)
         {
@@ -111,7 +111,7 @@ public class WCST_Play : MonoBehaviour
         }
 
 
-        
+
 
         //schwierig, chain = 0 first automatisch ausloest und chain > 0 weitergeht, wenn chain gebreakt wird dann wird automatisch correctchain 0 ausgeloest
 
@@ -196,8 +196,8 @@ public class WCST_Play : MonoBehaviour
     }
     private void FirstCompareCards()
     {
-        
-        
+
+
         //for schleife unten in die if abfrage da erst unten die sort category festgelegt wird
         if (blockNumber == 2)
         {
@@ -212,8 +212,8 @@ public class WCST_Play : MonoBehaviour
                 if (clickedColor == currentColor) sortCategory = 1;
                 if (clickedShape == currentShape) sortCategory = 2;
                 if (clickedNum == currentNum) sortCategory = 3;
-                
-                for(int i = 0; i < usedRules.Count; i++)
+
+                for (int i = 0; i < usedRules.Count; i++)
                 {
                     if (sortCategory == usedRules[i]) checkList = true;
                 }
@@ -253,7 +253,7 @@ public class WCST_Play : MonoBehaviour
                 }
             }
 
-            
+
 
 
         }
@@ -288,7 +288,7 @@ public class WCST_Play : MonoBehaviour
             }
         }
 
-        
+
     }
     IEnumerator IntroSequenz()
     {
@@ -342,7 +342,7 @@ public class WCST_Play : MonoBehaviour
 
         if (blockNumber == 2 && correctChain == 6)
         {
-            
+
             usedRulesTwo.Add(sortCategory);
             block2Buff++;
             if ((blockNumber == 2 && position == 47) || blockNumber == 2 && block2Buff == 3)
@@ -363,7 +363,7 @@ public class WCST_Play : MonoBehaviour
             }
             if (correctChain == 6 && blockNumber == 1 && position != 24 && usedRules.Count != 3)
             {
-                
+
                 usedRules.Add(sortCategory);
                 if (usedRules.Count < 3)
                 {
@@ -376,7 +376,7 @@ public class WCST_Play : MonoBehaviour
                 EnableKeys();
             }
         }
-        
+
         if (position == 24 || (usedRules.Count == 3 && blockNumber == 1))
         {
             StartCoroutine(BlockSwitch());
@@ -395,7 +395,7 @@ public class WCST_Play : MonoBehaviour
         cardBorder.SetActive(false);
         position++;
         yield return new WaitForSeconds(1f);
-        
+
         if (blockNumber == 2 && position == 48)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -545,6 +545,6 @@ public class WCST_Play : MonoBehaviour
     void WriteInDataSaver(int blockNum, int trialType, int sortCat, string WCST, int respOne, int respTwo, int respThree, int CRESP, float timer, int acc)
     {
         //WCST_Data.MeasurePractice(0,1,position+1,trialType, sortCategory,current.name,correctResponse[0], correctResponse[1], correctResponse[2], clickedResponse, 123,trialType);
-        WCST_Data.MeasureTest(1, blockNumber +1, position + 1, trialType, sortCat, WCST, respOne, respTwo, respThree, CRESP, timer, acc);
+        WCST_Data.MeasureTest(1, blockNumber + 1, position + 1, trialType, sortCat, WCST, respOne, respTwo, respThree, CRESP, timer, acc);
     }
 }
