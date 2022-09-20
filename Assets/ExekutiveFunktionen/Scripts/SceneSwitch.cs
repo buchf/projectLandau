@@ -10,6 +10,10 @@ public class SceneSwitch : MonoBehaviour
      * Easy Scene Switcher index = 0 is the intro, 1 = the play scene, 2 = Outroscene
      * 
      */
+    private void Start()
+    {
+        reverse = false;
+    }
 
     private string inputVPN = "";
     public static bool reverse = false;
@@ -49,6 +53,11 @@ public class SceneSwitch : MonoBehaviour
 
     public void WCSTStart()
     {
+        WCST_Data.header.Clear();
+        WCST_Data.practice.Clear();
+        WCST_Data.test.Clear();
+        WCST_Data.results.Clear();
+        WCST_Data.VPN = inputVPN;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 163);
     }
 
