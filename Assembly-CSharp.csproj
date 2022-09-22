@@ -88,6 +88,7 @@
      <Compile Include="Assets\Backend\UI\PlayButton.cs" />
      <Compile Include="Assets\ExekutiveFunktionen\Scripts\Corsi\DataSaver.cs" />
      <Compile Include="Assets\ExekutiveFunktionen\Scripts\Corsi\Player.cs" />
+     <Compile Include="Assets\InstructionSpawning.cs" />
      <Compile Include="Assets\ExekutiveFunktionen\Scripts\CardSorting\CSOutro.cs" />
      <Compile Include="Assets\ExekutiveFunktionen\Scripts\Corsi\CorsiPractice.cs" />
      <Compile Include="Assets\Backend\UI\Bauklotz.cs" />

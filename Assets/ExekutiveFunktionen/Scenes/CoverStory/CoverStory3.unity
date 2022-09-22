@@ -327,7 +327,7 @@ GameObject:
   - component: {fileID: 1742799167}
   - component: {fileID: 1742799166}
   m_Layer: 0
-  m_Name: Logo_mit_Lessa
+  m_Name: Logo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -373,7 +373,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2af5d68e5e777464e92f7961ce7cd2b6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 45ac439e105f79645bb8eeda17b0f341, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -425,7 +425,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 036939e90a10eee4592fb10a427a04e1, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6adad69c96f26414493a0a24fa799311, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

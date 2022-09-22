@@ -327,7 +327,7 @@ GameObject:
   - component: {fileID: 1619220629}
   - component: {fileID: 1619220628}
   m_Layer: 0
-  m_Name: Szene_3_1200x821px_RGB
+  m_Name: Szene_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -373,7 +373,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d5a1b9f4aa0f87f46ac405c1f1d21b4c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ed04afb8cacbc1d4bb0938576b1eb444, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -425,7 +425,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 87d5407a22247814280a87f91288b17a, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ec88c15e368b1324ebd77336ee8e6e9f, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

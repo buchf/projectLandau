@@ -26,6 +26,8 @@ public class SceneSwitch : MonoBehaviour
         DataSaver.z4.Clear();
         DataSaver.z5.Clear();
         DataSaver.z6.Clear();
+        DataSaver.z7.Clear();
+        DataSaver.z8.Clear();
         DataSaver.results.Clear();
         Randomizer.countFalseTask = 0;
         Randomizer.totalTasks = 0;
