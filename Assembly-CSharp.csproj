@@ -87,6 +87,7 @@
      <Compile Include="Assets\ExekutiveFunktionen\Flexibility\Scripts\WCST_Practice.cs" />
      <Compile Include="Assets\Backend\UI\PlayButton.cs" />
      <Compile Include="Assets\ExekutiveFunktionen\Scripts\Corsi\DataSaver.cs" />
+     <Compile Include="Assets\TellMeOnceTrigger.cs" />
      <Compile Include="Assets\ExekutiveFunktionen\Scripts\Corsi\Player.cs" />
      <Compile Include="Assets\InstructionSpawning.cs" />
      <Compile Include="Assets\ExekutiveFunktionen\Scripts\CardSorting\CSOutro.cs" />
