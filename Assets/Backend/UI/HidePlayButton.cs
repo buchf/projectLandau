@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class HidePlayButton : MonoBehaviour
 {
-    public float SekundenBisVerschwinden = 12.0f;
+    public float SekundenBisVerschwinden;
+
     // Start is called before the first frame update
     void Start()
     {

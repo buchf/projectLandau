@@ -2363,6 +2363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SekundenBisErscheinen: 1.5
+  timer: 0
 --- !u!1 &166204287
 GameObject:
   m_ObjectHideFlags: 0
@@ -5468,6 +5469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SekundenBisErscheinen: 13.2
+  timer: 0
 --- !u!1 &381155311
 GameObject:
   m_ObjectHideFlags: 0
@@ -11304,6 +11306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SekundenBisErscheinen: 1.5
+  timer: 0
 --- !u!1 &786860770 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7804640534241815781, guid: 3e2b78ed7b5c80f43a96ba36f7c099ca, type: 3}
@@ -11327,6 +11330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SekundenBisErscheinen: 1.5
+  timer: 0
 --- !u!114 &786860773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11340,6 +11344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SekundenBisErscheinen: 1.5
+  timer: 0
 --- !u!1 &795212280
 GameObject:
   m_ObjectHideFlags: 0
@@ -12782,6 +12787,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SekundenBisErscheinen: 13.2
+  timer: 0
 --- !u!212 &914142683
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13913,6 +13919,71 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &987141914
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 303862391086869193, guid: 04143813b3d265648a638d9026631d89, type: 3}
+      propertyPath: m_Text
+      value: Intro
+      objectReference: {fileID: 0}
+    - target: {fileID: 303862391086869193, guid: 04143813b3d265648a638d9026631d89, type: 3}
+      propertyPath: m_CharacterSize
+      value: 0.065
+      objectReference: {fileID: 0}
+    - target: {fileID: 303862391086869195, guid: 04143813b3d265648a638d9026631d89, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 303862391086869195, guid: 04143813b3d265648a638d9026631d89, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 303862391086869195, guid: 04143813b3d265648a638d9026631d89, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 303862391086869195, guid: 04143813b3d265648a638d9026631d89, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 303862391086869195, guid: 04143813b3d265648a638d9026631d89, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 303862391086869195, guid: 04143813b3d265648a638d9026631d89, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 303862391086869195, guid: 04143813b3d265648a638d9026631d89, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 303862391086869195, guid: 04143813b3d265648a638d9026631d89, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 303862391086869195, guid: 04143813b3d265648a638d9026631d89, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 303862391086869195, guid: 04143813b3d265648a638d9026631d89, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 303862391086869195, guid: 04143813b3d265648a638d9026631d89, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 303862391086869206, guid: 04143813b3d265648a638d9026631d89, type: 3}
+      propertyPath: m_Name
+      value: Intro
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 04143813b3d265648a638d9026631d89, type: 3}
 --- !u!1 &1000471984
 GameObject:
   m_ObjectHideFlags: 0
@@ -27169,4 +27240,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8000eef7bad41cd40b3377ea26e6ae9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SekundenBisErscheinen: 6
+  SekundenBisErscheinen: 6.1
+  timer: 0

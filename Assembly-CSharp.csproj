@@ -79,6 +79,7 @@
      <Compile Include="Assets\Backend\IO\Measurement.cs" />
      <Compile Include="Assets\CSIntroOutro.cs" />
      <Compile Include="Assets\TellMeTrigger.cs" />
+     <Compile Include="Assets\instructionMeshSpawning.cs" />
      <Compile Include="Assets\ExekutiveFunktionen\Flexibility\Scripts\WCST_Intro.cs" />
      <Compile Include="Assets\ExekutiveFunktionen\Scripts\SceneSwitch.cs" />
      <Compile Include="Assets\Backend\ControlFlow\InstructionBase.cs" />
