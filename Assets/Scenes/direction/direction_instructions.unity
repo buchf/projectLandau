@@ -2363,7 +2363,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SekundenBisErscheinen: 1.5
-  timer: 0
 --- !u!1 &166204287
 GameObject:
   m_ObjectHideFlags: 0
@@ -5469,7 +5468,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SekundenBisErscheinen: 13.2
-  timer: 0
 --- !u!1 &381155311
 GameObject:
   m_ObjectHideFlags: 0
@@ -11306,7 +11304,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SekundenBisErscheinen: 1.5
-  timer: 0
 --- !u!1 &786860770 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7804640534241815781, guid: 3e2b78ed7b5c80f43a96ba36f7c099ca, type: 3}
@@ -11330,7 +11327,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SekundenBisErscheinen: 1.5
-  timer: 0
 --- !u!114 &786860773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11344,7 +11340,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SekundenBisErscheinen: 1.5
-  timer: 0
 --- !u!1 &795212280
 GameObject:
   m_ObjectHideFlags: 0
@@ -12787,7 +12782,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SekundenBisErscheinen: 13.2
-  timer: 0
 --- !u!212 &914142683
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -27176,4 +27170,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SekundenBisErscheinen: 6
-  timer: 0
