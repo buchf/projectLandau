@@ -49,16 +49,18 @@ public class CSPractice : MonoBehaviour
     int currentTrial = 0;
     int test = 0;
 
-    int buff = 0;
+     public int buff = 0;
+    public int buff2 = 0;
 
     void Start()
     {
+        buff2 = 0;
+        buff = 0;
         test = 0;
         currentTrial = 1;
         currentTask(currentTrial);
     }
 
-    [System.Obsolete]
     void Update()
     {
         if (currentTrial == 1)
@@ -103,18 +105,21 @@ public class CSPractice : MonoBehaviour
             }
         }
 
-        if (currentTrial == 4 && !STS_16.isPlaying && buff == 6 && correct.active == false)
+        if (currentTrial == 4 && !STS_16.isPlaying && buff2 == 1)
         {
-            STS_16.Play();
-            continueButton.gameObject.SetActive(true);
-            buff = 3;
-            
+            continueButton.GetComponent<Button>().interactable = true;
+            buff2 = 2;
+            //STS_16.Play();
+            // continueButton.gameObject.SetActive(true);
+            // buff = 3;
+
         }
+        /*
         if (currentTrial == 4 && !STS_16.isPlaying && buff == 3)
         {
             continueButton.interactable = true;
             buff = 4;
-        }
+        } */
     }
     
     public void currentTask(int currentTrial)
@@ -148,6 +153,13 @@ public class CSPractice : MonoBehaviour
             right = two_Hat_Blue;
             targetItem = middle;
             SpawnFirst(left, middle);
+        }
+        if (currentTrial == 4)
+        {
+            STS_16.Play();
+            buff2 = 1;
+            continueButton.gameObject.SetActive(true);
+            continueButton.GetComponent<Button>().interactable = false;
         }
     }
 
