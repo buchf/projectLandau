@@ -60,6 +60,8 @@ public class CSPracticeTwo : MonoBehaviour
     {
         PhaseTwoIntro();
         currentTrial = 4;
+        buff = 0;
+        test = 0;
         //currentTask(currentTrial);
     }
 
