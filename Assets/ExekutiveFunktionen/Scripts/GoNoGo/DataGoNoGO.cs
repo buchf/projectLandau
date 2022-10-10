@@ -20,6 +20,7 @@ public class DataGoNoGO : MonoBehaviour
 
     public static StringBuilder overall = new StringBuilder();
     public static StringBuilder header = new StringBuilder();
+    public static StringBuilder timePointnogo = new StringBuilder(); //
 
     public static List<StringBuilder> results = new List<StringBuilder>();
     
@@ -35,6 +36,9 @@ public class DataGoNoGO : MonoBehaviour
         fileName = "VPN" + VPN + "_goNoGo.csv";
         fileName = checkFilename(fileName);
         filePath = Path.Combine(Application.persistentDataPath, fileName);
+        timePointnogo.Append("Participant's ID," + "Date," + "Time" + "\n" + VPN + "," + System.DateTime.Now.ToString("dd/MM/yyyy") + "," + System.DateTime.Now.ToString("HH:mm:ss") + "\n\n"); //
+
+
         overall.Append("Go-Nogo Task,Gesamtpunktzahl,"+ gesamtPunktzahl +"\n");
         overall.Append(",Hits," + GoNoGo.correctClick + "\n");
         overall.Append(",Misses," + GoNoGo.incorrectNoClick + "\n");
@@ -42,6 +46,7 @@ public class DataGoNoGO : MonoBehaviour
         overall.Append(",False Alarms," + GoNoGo.incorrectClick + "\n\n\n");
         header.Append(",aktuelles NoGo-Tier,praesentiertes Tier, Click(Button), CRESP, RT (in ms)\n");
 
+        results.Add(timePointnogo); //
         results.Add(overall);
         results.Add(header);
         results.Add(z1);
@@ -83,5 +88,6 @@ public class DataGoNoGO : MonoBehaviour
         DataGoNoGO.results.Clear();
         DataGoNoGO.header.Clear();
         DataGoNoGO.z1.Clear();
+        timePointnogo.Clear(); //
     }
 }

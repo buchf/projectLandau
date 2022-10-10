@@ -232,7 +232,7 @@ public class CSPlay : MonoBehaviour
         if (currentTrial == 26)
         {
             SpawnFunctionTwo(two_Hat_Blue, one_Flower_Blue, three_Hat_Yellow);
-            targetItem = one_Flower_Blue;
+            targetItem = two_Hat_Blue;
         }
         if (currentTrial == 27)
         {

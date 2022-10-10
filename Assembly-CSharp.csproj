@@ -83,6 +83,7 @@
      <Compile Include="Assets\ExekutiveFunktionen\Flexibility\Scripts\WCST_Intro.cs" />
      <Compile Include="Assets\ExekutiveFunktionen\Scripts\SceneSwitch.cs" />
      <Compile Include="Assets\Backend\ControlFlow\InstructionBase.cs" />
+     <Compile Include="Assets\TimeRunner.cs" />
      <Compile Include="Assets\Backend\ControlFlow\Implementations\CogTrials.cs" />
      <Compile Include="Assets\Backend\ControlFlow\Experiment.cs" />
      <Compile Include="Assets\ExekutiveFunktionen\Flexibility\Scripts\WCST_Practice.cs" />

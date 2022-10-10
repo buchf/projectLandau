@@ -3230,8 +3230,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000061035156, y: 342.19263}
-  m_SizeDelta: {x: -200, y: -84.385254}
+  m_AnchoredPosition: {x: -0.000061035156, y: 322.19263}
+  m_SizeDelta: {x: -200, y: -124.385254}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &853773869
 MonoBehaviour:
@@ -3791,6 +3791,7 @@ GameObject:
   - component: {fileID: 1281649332}
   - component: {fileID: 1281649335}
   - component: {fileID: 1281649336}
+  - component: {fileID: 1281649337}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3892,6 +3893,22 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_MaxRayIntersections: 0
+--- !u!114 &1281649337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281649331}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcaccceb76cdf384680ea2c6dfc42c06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  txtDatum: {fileID: 0}
+  txtUhrzeit: {fileID: 0}
+  Datum: 
+  Uhrzeit: 
 --- !u!1 &1309737022
 GameObject:
   m_ObjectHideFlags: 0
@@ -4091,8 +4108,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -258, y: 114}
-  m_SizeDelta: {x: 797.3961, y: 706}
+  m_AnchoredPosition: {x: -258, y: 107}
+  m_SizeDelta: {x: 797.3961, y: 770}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1360879378
 MonoBehaviour:
@@ -5882,8 +5899,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -258, y: -96}
-  m_SizeDelta: {x: 797.3961, y: 856}
+  m_AnchoredPosition: {x: -258, y: -104}
+  m_SizeDelta: {x: 797.3961, y: 810}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1831672169
 MonoBehaviour:

@@ -16,6 +16,8 @@ public class CSDataSaver : MonoBehaviour
 
     int i = 1;
 
+    public static StringBuilder timePointsts = new StringBuilder(); //
+
     public static StringBuilder header = new StringBuilder();
     public static StringBuilder overall = new StringBuilder();
 
@@ -33,9 +35,12 @@ public class CSDataSaver : MonoBehaviour
         fileName = checkFilename(fileName);
         filePath = Path.Combine(Application.persistentDataPath, fileName);
 
+        timePointsts.Append("Participant's ID," + "Date," + "Time" +"\n" + VPN + "," + System.DateTime.Now.ToString("dd/MM/yyyy") + "," + System.DateTime.Now.ToString("HH:mm:ss") + "\n\n"); //
+
         header.Append("Experimental Phase,Block number,Trial Type,Trial #,Item left,Item middle,Item right,Target Item,RT (in ms),Correct Response\n");
         score.Append("\nGesamtscore," + CSPlay.correctResponse.ToString());
-        
+
+        results.Add(timePointsts); //
         results.Add(header);
         results.Add(practice);
         results.Add(test);
@@ -100,6 +105,7 @@ public class CSDataSaver : MonoBehaviour
         practiceTwo.Clear();
         testTwo.Clear();
         score.Clear();
+        timePointsts.Clear(); //
     }
 
 }

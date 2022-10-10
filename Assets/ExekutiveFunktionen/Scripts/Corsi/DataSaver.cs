@@ -42,6 +42,8 @@ public class DataSaver : MonoBehaviour
     public static StringBuilder z7 = new StringBuilder();
     public static StringBuilder z8 = new StringBuilder();
 
+    public static StringBuilder timePointcorsi = new StringBuilder(); //
+
     public static int count = 1;
     int i = 1;
    
@@ -49,8 +51,11 @@ public class DataSaver : MonoBehaviour
 
     private void Start()
     {
-        
-        if(SceneSwitch.reverse == true)
+
+        timePointcorsi.Clear();
+
+
+        if (SceneSwitch.reverse == true)
         {
             fileName = "VPN" + VPN + "_corsi_reverse.csv";
             fileName = checkFilenameReverse(fileName);
@@ -64,7 +69,7 @@ public class DataSaver : MonoBehaviour
         filePath = Path.Combine(Application.persistentDataPath, fileName);
 
         accuracyPercentage = float.Parse(accuracy) / Randomizer.totlalAccuracyClicks * 100;
-       
+
         /*
          * z1 ist die Struktur fuer die "overall" - Results
          * z1 ist zustaendig fuer die gesamten richtigen Sequenzen, die Genauigkeit 
@@ -75,10 +80,12 @@ public class DataSaver : MonoBehaviour
          * 
          * 
          */
+        timePointcorsi.Append("Participant's ID," + "Date," + "Time" + "\n" + VPN + "," + System.DateTime.Now.ToString("dd/MM/yyyy") + "," + System.DateTime.Now.ToString("HH:mm:ss") + "\n\n"); //
 
         z1.Append("Corsi" + ",Sequences correct:," + rightTask + " ,of, " + Randomizer.totalTasks + "\n");
         z1.Append(",Clicks Accuracy:," + accuracyPercentage.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) + "%\n" + ",Total Time: ," + totalTime.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) +"ms\n");
         z1.Append("\n,Trial no., Full sequence correct,Reaction Time,First click,Second click,Third click,Fourth click,Fifth click,Sixth click,Seventh click,Eighth click\n");
+        results.Add(timePointcorsi);
         results.Add(z1);
         results.Add(z0);
         results.Add(z2);
