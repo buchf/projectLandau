@@ -36,7 +36,7 @@ public class DataGoNoGO : MonoBehaviour
         fileName = "VPN" + VPN + "_goNoGo.csv";
         fileName = checkFilename(fileName);
         filePath = Path.Combine(Application.persistentDataPath, fileName);
-        timePointnogo.Append("Participant's ID," + "Date," + "Time" + "\n" + VPN + "," + System.DateTime.Now.ToString("dd/MM/yyyy") + "," + System.DateTime.Now.ToString("HH:mm:ss") + "\n\n"); //
+        timePointnogo.Append(VPN + "," + System.DateTime.Now.ToString("dd/MM/yyyy") + "," + System.DateTime.Now.ToString("HH:mm:ss") + "\n\n"); //
 
 
         overall.Append("Go-Nogo Task,Gesamtpunktzahl,"+ gesamtPunktzahl +"\n");

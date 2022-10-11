@@ -35,7 +35,7 @@ public class CSDataSaver : MonoBehaviour
         fileName = checkFilename(fileName);
         filePath = Path.Combine(Application.persistentDataPath, fileName);
 
-        timePointsts.Append("Participant's ID," + "Date," + "Time" +"\n" + VPN + "," + System.DateTime.Now.ToString("dd/MM/yyyy") + "," + System.DateTime.Now.ToString("HH:mm:ss") + "\n\n"); //
+        timePointsts.Append(VPN + "," + System.DateTime.Now.ToString("dd/MM/yyyy") + "," + System.DateTime.Now.ToString("HH:mm:ss") + "\n\n"); //
 
         header.Append("Experimental Phase,Block number,Trial Type,Trial #,Item left,Item middle,Item right,Target Item,RT (in ms),Correct Response\n");
         score.Append("\nGesamtscore," + CSPlay.correctResponse.ToString());
