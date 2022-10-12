@@ -175,7 +175,8 @@ public abstract class Block
     protected virtual string Aggregate(Measurement.Block data, string header)
     {
         var returnString = new StringBuilder(data.Typ);
-        if(header != null)
+        returnString.AppendFormat(",Gesamtscore:,,,,,,{0},{1}", System.DateTime.Now.ToString("dd/MM/yyyy"), System.DateTime.Now.ToString("HH:mm:ss")); //
+        if (header != null)
             returnString.AppendFormat("\n,{0}", header);
         returnString.Append("\n");
         foreach (var trial in Trials)
@@ -325,7 +326,7 @@ public class PretestBlock : GenericBlock<SelectionTrial>
     protected override string Aggregate(Measurement.Block data, string header)
     {
         var returnString = new StringBuilder(data.Typ);
-        returnString.AppendFormat(",Gesamtpunktzahl:,{0}", points);
+        returnString.AppendFormat(",Gesamtscore:,{0},,,,,{1},{2}", points, System.DateTime.Now.ToString("dd / MM / yyyy"), System.DateTime.Now.ToString("HH: mm: ss")); //
         if (header != null)
             returnString.AppendFormat("\n,{0}", header);
         returnString.Append("\n");
