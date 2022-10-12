@@ -36,14 +36,12 @@ public class DataGoNoGO : MonoBehaviour
         fileName = "VPN" + VPN + "_goNoGo.csv";
         fileName = checkFilename(fileName);
         filePath = Path.Combine(Application.persistentDataPath, fileName);
-        timePointnogo.Append(VPN + "," + System.DateTime.Now.ToString("dd/MM/yyyy") + "," + System.DateTime.Now.ToString("HH:mm:ss") + "\n\n"); //
+        timePointnogo.Append(VPN + ",Gesamtscore:,"+ gesamtPunktzahl + "," + System.DateTime.Now.ToString("dd/MM/yyyy") + "," + System.DateTime.Now.ToString("HH:mm:ss") + "\n\n"); //
 
-
-        overall.Append("Go-Nogo Task,Gesamtpunktzahl,"+ gesamtPunktzahl +"\n");
-        overall.Append(",Hits," + GoNoGo.correctClick + "\n");
+        overall.Append("Go-Nogo Task,Hits," + GoNoGo.correctClick + "\n");
         overall.Append(",Misses," + GoNoGo.incorrectNoClick + "\n");
         overall.Append(",Correct Rejections," + GoNoGo.correctNoClick + "\n");
-        overall.Append(",False Alarms," + GoNoGo.incorrectClick + "\n\n\n");
+        overall.Append(",False Alarms," + GoNoGo.incorrectClick + "\n\n");
         header.Append(",aktuelles NoGo-Tier,praesentiertes Tier, Click(Button), CRESP, RT (in ms)\n");
 
         results.Add(timePointnogo); //

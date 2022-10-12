@@ -80,7 +80,7 @@ public class DataSaver : MonoBehaviour
          * 
          * 
          */
-        timePointcorsi.Append(VPN + "," + System.DateTime.Now.ToString("dd/MM/yyyy") + "," + System.DateTime.Now.ToString("HH:mm:ss") + "\n\n"); //
+        timePointcorsi.Append(VPN + ",Gesamtscore:," + rightTask + "," + System.DateTime.Now.ToString("dd/MM/yyyy") + "," + System.DateTime.Now.ToString("HH:mm:ss") + "\n\n"); //
 
         z1.Append("Corsi" + ",Sequences correct:," + rightTask + " ,of, " + Randomizer.totalTasks + "\n");
         z1.Append(",Clicks Accuracy:," + accuracyPercentage.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) + "%\n" + ",Total Time: ," + totalTime.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) +"ms\n");

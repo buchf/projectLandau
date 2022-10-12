@@ -76,6 +76,7 @@
      <Compile Include="Assets\Backend\UI\RichtungsstickerInstancer.cs" />
      <Compile Include="Assets\Backend\ControlFlow\Block.cs" />
      <Compile Include="Assets\ExekutiveFunktionen\Flexibility\Scripts\WCST_Play.cs" />
+     <Compile Include="Assets\Kindersicherung.cs" />
      <Compile Include="Assets\Backend\IO\Measurement.cs" />
      <Compile Include="Assets\CSIntroOutro.cs" />
      <Compile Include="Assets\TellMeTrigger.cs" />
