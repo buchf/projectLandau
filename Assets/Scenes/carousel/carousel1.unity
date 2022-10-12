@@ -660,6 +660,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sanduhr
       objectReference: {fileID: 0}
+    - target: {fileID: 5598345970155819665, guid: 6c09a1460bfe67d45a1e05935a1ed961, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6249968693716496787, guid: 6c09a1460bfe67d45a1e05935a1ed961, type: 3}
       propertyPath: UnpausePrefab
       value: 
@@ -812,7 +816,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &594287169
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1499,7 +1503,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1755839238
 Transform:
   m_ObjectHideFlags: 0
@@ -1579,7 +1583,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Instruct: {fileID: 1942102212}
   clickedTime: 0
-  timeForEffect: 5
 --- !u!61 &1755839242
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1622,7 +1625,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &1942102212
 AudioSource:
   m_ObjectHideFlags: 0

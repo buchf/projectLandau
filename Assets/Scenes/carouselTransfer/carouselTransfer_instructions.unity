@@ -3417,7 +3417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8000eef7bad41cd40b3377ea26e6ae9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SekundenBisErscheinen: 15
+  SekundenBisErscheinen: 14.5
   timer: 0
 --- !u!1 &265782063
 GameObject:
@@ -9250,6 +9250,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Propeller (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8359097544614913268, guid: 24fecfa9551663d439ec18bac298f479, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8954547348671741255, guid: 24fecfa9551663d439ec18bac298f479, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -9367,7 +9371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8000eef7bad41cd40b3377ea26e6ae9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SekundenBisErscheinen: 15
+  SekundenBisErscheinen: 14.5
   timer: 0
 --- !u!1 &692662027
 GameObject:
@@ -9778,7 +9782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8000eef7bad41cd40b3377ea26e6ae9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SekundenBisErscheinen: 15
+  SekundenBisErscheinen: 14.5
   timer: 0
 --- !u!1 &715999970
 GameObject:
@@ -11095,7 +11099,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8000eef7bad41cd40b3377ea26e6ae9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SekundenBisErscheinen: 15
+  SekundenBisErscheinen: 14.5
   timer: 0
 --- !u!1 &813068389
 GameObject:
@@ -12900,7 +12904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8000eef7bad41cd40b3377ea26e6ae9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SekundenBisErscheinen: 15
+  SekundenBisErscheinen: 14.5
   timer: 0
 --- !u!1 &989045733
 GameObject:
@@ -18017,7 +18021,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8000eef7bad41cd40b3377ea26e6ae9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SekundenBisErscheinen: 15
+  SekundenBisErscheinen: 14.5
   timer: 0
 --- !u!1 &1357735300
 GameObject:
@@ -23900,7 +23904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8000eef7bad41cd40b3377ea26e6ae9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SekundenBisErscheinen: 15
+  SekundenBisErscheinen: 14.5
   timer: 0
 --- !u!1 &1819645523
 GameObject:
@@ -24397,7 +24401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8000eef7bad41cd40b3377ea26e6ae9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SekundenBisErscheinen: 15
+  SekundenBisErscheinen: 14.5
   timer: 0
 --- !u!1 &1847958523
 GameObject:
@@ -24730,7 +24734,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8000eef7bad41cd40b3377ea26e6ae9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SekundenBisErscheinen: 15
+  SekundenBisErscheinen: 14.5
   timer: 0
 --- !u!1 &1880669577
 GameObject:
@@ -27523,7 +27527,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8000eef7bad41cd40b3377ea26e6ae9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SekundenBisErscheinen: 15
+  SekundenBisErscheinen: 14.5
   timer: 0
 --- !u!1 &2094307399
 GameObject:
@@ -28016,7 +28020,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8000eef7bad41cd40b3377ea26e6ae9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SekundenBisErscheinen: 15
+  SekundenBisErscheinen: 14.5
   timer: 0
 --- !u!1 &2131687599
 GameObject:

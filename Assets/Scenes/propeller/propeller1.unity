@@ -374,6 +374,7 @@ GameObject:
   - component: {fileID: 841478916}
   - component: {fileID: 841478915}
   - component: {fileID: 841478914}
+  - component: {fileID: 841478917}
   - component: {fileID: 841478913}
   m_Layer: 0
   m_Name: Transparent
@@ -381,7 +382,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &841478913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -487,6 +488,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &841478917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841478912}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce8dbf496cf40b241b6e2b95dc063c21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entsicherung: 0
+  sicherung: 2
 --- !u!1001 &923929265
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1044,7 +1059,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &1679782543
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1350,7 +1365,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &2081390121
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1519,6 +1534,10 @@ PrefabInstance:
     - target: {fileID: 5598345970155819665, guid: 6c09a1460bfe67d45a1e05935a1ed961, type: 3}
       propertyPath: m_Name
       value: Sanduhr
+      objectReference: {fileID: 0}
+    - target: {fileID: 5598345970155819665, guid: 6c09a1460bfe67d45a1e05935a1ed961, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6249968693716496787, guid: 6c09a1460bfe67d45a1e05935a1ed961, type: 3}
       propertyPath: UnpausePrefab
