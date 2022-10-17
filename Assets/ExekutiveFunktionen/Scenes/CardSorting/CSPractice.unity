@@ -582,6 +582,8 @@ MonoBehaviour:
   one_Flower_Red: {fileID: 641539391}
   one_Hat_Yellow: {fileID: 1825453917}
   two_Hat_Blue: {fileID: 654009784}
+  buff: 0
+  buff2: 0
 --- !u!114 &251314221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1863,7 +1865,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 303862391086869193, guid: 04143813b3d265648a638d9026631d89, type: 3}
       propertyPath: m_Text
-      value: "\xDCbung"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 303862391086869193, guid: 04143813b3d265648a638d9026631d89, type: 3}
       propertyPath: m_CharacterSize

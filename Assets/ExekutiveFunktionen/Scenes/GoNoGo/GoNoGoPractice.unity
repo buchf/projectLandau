@@ -473,7 +473,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 303862391086869193, guid: 04143813b3d265648a638d9026631d89, type: 3}
       propertyPath: m_Text
-      value: "\xDCbung"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 303862391086869193, guid: 04143813b3d265648a638d9026631d89, type: 3}
       propertyPath: m_CharacterSize
@@ -1052,6 +1052,7 @@ MonoBehaviour:
   counter: 0
   trial: 0
   practiceerrors: 0
+  practicehits: 0
 --- !u!1 &858494999
 GameObject:
   m_ObjectHideFlags: 0
