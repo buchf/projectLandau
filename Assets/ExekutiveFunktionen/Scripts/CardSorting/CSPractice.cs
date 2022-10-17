@@ -48,12 +48,13 @@ public class CSPractice : MonoBehaviour
 
     int currentTrial = 0;
     int test = 0;
-
-     public int buff = 0;
+    private int exit;
+    public int buff = 0;
     public int buff2 = 0;
 
     void Start()
     {
+        exit = 0;
         buff2 = 0;
         buff = 0;
         test = 0;
@@ -121,10 +122,10 @@ public class CSPractice : MonoBehaviour
             buff = 4;
         } */
     }
-    
+
     public void currentTask(int currentTrial)
     {
-        if(currentTrial == 1)
+        if (currentTrial == 1)
         {
             STS_14.Play();
             left = one_Fairy_Red;
@@ -199,7 +200,7 @@ public class CSPractice : MonoBehaviour
     }
 
     IEnumerator Wait(GameObject right)
-    { 
+    {
         yield return new WaitForSecondsRealtime(1f);
         SpawnRight(right);
         EnableField();
@@ -213,23 +214,29 @@ public class CSPractice : MonoBehaviour
         int cresp = 0;
         incorrect.SetActive(false);
         correct.SetActive(false);
+
         if (targetItem == clicked)
         {
-            
+
             cresp = 1;
-            
+
             correct.SetActive(true);
-            
+            left.gameObject.GetComponent<Button>().transition = Selectable.Transition.None;
+            left.gameObject.GetComponent<Button>().interactable = false;
+            middle.gameObject.GetComponent<Button>().transition = Selectable.Transition.None;
+            middle.gameObject.GetComponent<Button>().interactable = false;
+
+
         }
         else
-            
+
         {
             test++;
             incorrect.SetActive(true);
             StartCoroutine(incorrectDisappear());
         }
 
-        if(cresp == 0 && test ==1)
+        if (cresp == 0 && test == 1)
         {
             WriteInDataSaver(currentTrial, left.name.ToString(), middle.name.ToString(), right.name.ToString(), targetItem.name.ToString(), timer.ElapsedMilliseconds, cresp);
         }
@@ -297,4 +304,13 @@ public class CSPractice : MonoBehaviour
         timer.Start();
         timer.Reset();
     }
+    public void ExitButton()
+    {
+        exit++;
+        if (exit == 3)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 3);
+        }
+    }
+
 }

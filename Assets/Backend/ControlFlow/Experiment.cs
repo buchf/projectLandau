@@ -164,7 +164,7 @@ public class Experiment : MonoBehaviour
             SetUIStatus(false);
     }
 
-    private void SetUIStatus(bool active)
+    public void SetUIStatus(bool active)
     {
         GameObject[] lockables = GameObject.FindGameObjectsWithTag("Lockable");
         var lockableButtons = from l in lockables where l.GetComponent<Button>() != null select l;
@@ -178,7 +178,6 @@ public class Experiment : MonoBehaviour
                 c.a = 0.5f;
             button.GetComponent<Image>().color = c;
         }
-
     }
 
     public bool ReplayMode { get; private set; }

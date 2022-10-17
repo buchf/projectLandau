@@ -9,9 +9,6 @@ using UnityEngine.UI;
 public class CSPracticeTwo : MonoBehaviour
 {
 
-    
-
-
     public Button continueButton;
     public TextMesh continueText;
 
@@ -54,10 +51,13 @@ public class CSPracticeTwo : MonoBehaviour
     int currentTrial = 0;
     int test = 0;
     int buff = 0;
-
+    private int exit;
 
     void Start()
     {
+        exit = 0;
+        timer.Reset();
+        timer.Stop();
         PhaseTwoIntro();
         currentTrial = 4;
         buff = 0;
@@ -67,13 +67,12 @@ public class CSPracticeTwo : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(timer.ElapsedMilliseconds);
-        if(!STS_27.isPlaying && buff == 0)
+        if (!STS_27.isPlaying && buff == 0)
         {
             STS_28.Play();
             buff++;
         }
-        if(!STS_28.isPlaying && buff == 1)
+        if (!STS_28.isPlaying && buff == 1)
         {
             left.GetComponent<Button>().interactable = true;
             left.GetComponent<Button>().transition = Selectable.Transition.ColorTint;
@@ -85,22 +84,38 @@ public class CSPracticeTwo : MonoBehaviour
             right.SetActive(false);
             middle.SetActive(false);
             currentTask(currentTrial);
-            
+
             buff++;
         }
-        if (!STS_29.isPlaying && buff >= 2)
+        if (!STS_29.isPlaying && buff == 2)
         {
             EnableField();
             buff++;
         }
     }
-    
+
     void EnableField()
     {
+
         right.GetComponent<Button>().interactable = true;
+
         middle.GetComponent<Button>().interactable = true;
+        // middle.GetComponent<Button>().transition = Selectable.Transition.ColorTint;
         left.GetComponent<Button>().interactable = true;
+        //left.GetComponent<Button>().transition = Selectable.Transition.ColorTint;
         timer.Start();
+    }
+    private void DisableField()
+    {
+        right.GetComponent<Button>().transition = Selectable.Transition.None;
+        left.GetComponent<Button>().transition = Selectable.Transition.None;
+        middle.GetComponent<Button>().transition = Selectable.Transition.None;
+        right.GetComponent<Button>().interactable = false;
+        //right.GetComponent<Button>().transition = Selectable.Transition.None;
+        middle.GetComponent<Button>().interactable = false;
+        //middle.GetComponent<Button>().transition = Selectable.Transition.None;
+        left.GetComponent<Button>().interactable = false;
+        //left.GetComponent<Button>().transition = Selectable.Transition.None;
     }
     void PhaseTwoIntro()
     {
@@ -133,11 +148,12 @@ public class CSPracticeTwo : MonoBehaviour
             right = two_Fairy_Red;
             targetItem = middle;
             STS_29.Play();
+
             SpawnFunction(left, middle, right);
             left.GetComponent<Button>().interactable = false;
             middle.GetComponent<Button>().interactable = false;
             right.GetComponent<Button>().interactable = false;
-            
+
         }
 
         if (currentTrial == 5)
@@ -147,6 +163,7 @@ public class CSPracticeTwo : MonoBehaviour
             right = one_Hat_Red;
             targetItem = left;
             STS_29.Play();
+            buff = 2;
             SpawnFunction(left, middle, right);
             left.GetComponent<Button>().interactable = false;
             middle.GetComponent<Button>().interactable = false;
@@ -159,6 +176,7 @@ public class CSPracticeTwo : MonoBehaviour
             right = three_Hat_Yellow;
             targetItem = right;
             STS_29.Play();
+            buff = 2;
             SpawnFunction(left, middle, right);
             left.GetComponent<Button>().interactable = false;
             middle.GetComponent<Button>().interactable = false;
@@ -209,6 +227,8 @@ public class CSPracticeTwo : MonoBehaviour
 
     public void Compare(GameObject clicked)
     {
+        Debug.Log("CAJSDLKJASD");
+        DisableField();
         Debug.Log(targetItem.name);
         Debug.Log(clicked.name);
         int cresp = 0;
@@ -216,8 +236,10 @@ public class CSPracticeTwo : MonoBehaviour
         correct.SetActive(false);
         if (targetItem == clicked)
         {
+
             cresp = 1;
             correct.SetActive(true);
+
         }
         else
 
@@ -267,13 +289,23 @@ public class CSPracticeTwo : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         incorrect.SetActive(false);
+        EnableField();
     }
 
     void WriteInDataSaver(int currentTrial, string left, string middle, string right, string targetItem, double reaction, int CRESP)
     {
-        
+
         CSDataSaver.MeasurePracticeTwo(currentTrial, left, middle, right, targetItem, reaction, CRESP);
         timer.Stop();
         timer.Reset();
+    }
+
+    public void ExitButton()
+    {
+        exit++;
+        if (exit == 3)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 }

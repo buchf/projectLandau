@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SceneSwitch : MonoBehaviour
 {
@@ -10,13 +11,17 @@ public class SceneSwitch : MonoBehaviour
      * Easy Scene Switcher index = 0 is the intro, 1 = the play scene, 2 = Outroscene
      * 
      */
+
+    public static string inputVPN;
+    public  Experiment experiment;
+    public static bool reverse = false;
+    public InputField vpnField;
+
     private void Start()
     {
         reverse = false;
     }
 
-    private string inputVPN = "";
-    public static bool reverse = false;
     public void StartGame()
     {
         DataSaver.z0.Clear();
@@ -77,6 +82,8 @@ public class SceneSwitch : MonoBehaviour
     {
         inputVPN = s;
     }
+
+    
 
     public void SetReverse()
     {
