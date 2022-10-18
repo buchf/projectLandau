@@ -20,8 +20,11 @@ public class TextFieldHandler : MonoBehaviour
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
             vpnField.text = SceneSwitch.inputVPN;
-            //experiment.OnVPNChanged(vpnField.text);
-            EnableMenu();
+            if (!string.IsNullOrEmpty(vpnField.text))
+            {
+                EnableMenu();
+            }
+            
         }
     }
 

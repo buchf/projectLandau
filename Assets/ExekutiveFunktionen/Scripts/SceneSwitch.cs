@@ -13,9 +13,8 @@ public class SceneSwitch : MonoBehaviour
      */
 
     public static string inputVPN;
-    public  Experiment experiment;
     public static bool reverse = false;
-    public InputField vpnField;
+
 
     private void Start()
     {
