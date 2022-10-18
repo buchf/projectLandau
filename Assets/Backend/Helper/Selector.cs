@@ -8,7 +8,7 @@ public abstract class Selector : MonoBehaviour, IPointerDownHandler, IPointerUpH
     private bool LocallySelected = false;
 
     protected float ClickedDuration = 0.0f;
-    protected float TargetTimeForEffect = 0.1f;
+    protected float TargetTimeForEffect = 0.01f;
     public float Progress { get { return ClickedDuration / TargetTimeForEffect; } }
 
     protected abstract bool IsGloballySelected();

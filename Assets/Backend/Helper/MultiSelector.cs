@@ -17,7 +17,7 @@ public class MultiSelector<T> : Selector
     private void Awake()
     {
         ClickedDuration = 0.0f;
-        TargetTimeForEffect = 0.1f;
+        TargetTimeForEffect = 0.01f;
     }
     void Start()
     {
