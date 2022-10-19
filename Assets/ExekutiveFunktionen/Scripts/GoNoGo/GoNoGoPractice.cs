@@ -33,8 +33,8 @@ public class GoNoGoPractice : MonoBehaviour
     public static Stopwatch timer = new Stopwatch();
     public int counter;
     public int trial;
-    public int practiceerrors = 0;
-    public int practicehits = 0;
+    // public int practiceerrors = 0;
+    // public int practicehits = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -72,14 +72,14 @@ public class GoNoGoPractice : MonoBehaviour
 
         if (counter == 11 && trial == 2 && buff2 == 0)
         {
-            if (practiceerrors >= 2 || practicehits < 5)
-            {
-                timer.Reset();
-                RepeatPractice();
-            }
-            else
-            {
-                audiobuff.Play();
+            // if (practiceerrors >= 2 || practicehits < 5)
+            // {
+            // timer.Reset();
+            //  RepeatPractice();
+            //  }
+            // else
+            //  {
+            audiobuff.Play();
                 buff2 = 1;
                 timer.Stop();
                 shownAnimal.gameObject.SetActive(false);
@@ -88,11 +88,11 @@ public class GoNoGoPractice : MonoBehaviour
                 continueText.gameObject.SetActive(true);
                 continueButton.gameObject.SetActive(true);
                 continueButton.interactable = false;
-                //redoButton.gameObject.SetActive(true);
-            }
+            //redoButton.gameObject.SetActive(true);
+            //  }
         }
 
-       
+
 
         if (counter == 11 && trial != 2 && !GoNoGo_02.isPlaying && buff == 1)
         {
@@ -193,10 +193,10 @@ public class GoNoGoPractice : MonoBehaviour
 
     public void clickButton()
     {
-        if (shownAnimal == cow)
-            practiceerrors++;
-        else
-            practicehits++;
+        // if (shownAnimal == cow)
+        // practiceerrors++;
+        // else
+        // practicehits++;
         timer.Reset();
         SelectNextAnimal();
 
