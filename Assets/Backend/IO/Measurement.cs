@@ -13,7 +13,7 @@ using System.Xml.Serialization;
 
 public class Measurement : MonoBehaviour
 {
-    private Messdaten data;
+    public Messdaten data;
     private System.Diagnostics.Stopwatch timer;
 
     public int VPN_Num
