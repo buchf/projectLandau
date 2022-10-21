@@ -437,7 +437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40c7a67ec4a00c741bc1c68c433be4ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SekundenBisVerschwinden: 30
+  SekundenBisVerschwinden: 20
 --- !u!212 &157984142
 SpriteRenderer:
   m_ObjectHideFlags: 0
