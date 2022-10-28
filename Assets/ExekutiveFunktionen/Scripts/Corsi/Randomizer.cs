@@ -15,6 +15,7 @@ public class Randomizer : MonoBehaviour
     public static int totalTasks = 0;
     public static int totlalAccuracyClicks = 0;
     public static bool reverse;
+    public static bool isIncreasing = false; //
     public TextMesh increaseText;
     [SerializeField] Button increaseButton;
 
@@ -30,6 +31,8 @@ public class Randomizer : MonoBehaviour
 
     private void Start()
     {
+        DataSaver.count = 1;
+        totlalAccuracyClicks = 0; //
         buff = 0;
         Debug.Log(reverse);
         player = FindObjectOfType<Player>();
@@ -242,7 +245,7 @@ public class Randomizer : MonoBehaviour
      */
     IEnumerator SequenzZero(int a)
     {
-        disableField();
+        disableField(isIncreasing);
 
         yield return new WaitForSeconds(speed);
         SpawnFairyInBlock(a);
@@ -254,7 +257,7 @@ public class Randomizer : MonoBehaviour
     }
     IEnumerator SequenzOne(int a, int b)
     {
-        disableField();
+        disableField(isIncreasing);
         
         yield return new WaitForSeconds(speed);
         SpawnFairyInBlock(a);
@@ -269,7 +272,7 @@ public class Randomizer : MonoBehaviour
 
     IEnumerator SequenzTwo(int a, int b, int c)
     {
-        disableField();
+        disableField(isIncreasing);
         yield return new WaitForSeconds(speed);
         SpawnFairyInBlock(a);
         yield return new WaitForSeconds(speed);
@@ -285,7 +288,7 @@ public class Randomizer : MonoBehaviour
 
     IEnumerator SequenzThree(int a, int b, int c , int d)
     {
-        disableField();
+        disableField(isIncreasing);
         yield return new WaitForSeconds(speed);
         SpawnFairyInBlock(a);
         yield return new WaitForSeconds(speed);
@@ -303,7 +306,7 @@ public class Randomizer : MonoBehaviour
 
     IEnumerator SequenzFour(int a, int b, int c, int d, int e)
     {
-        disableField();
+        disableField(isIncreasing);
         yield return new WaitForSeconds(speed);
         SpawnFairyInBlock(a);
         yield return new WaitForSeconds(speed);
@@ -322,7 +325,7 @@ public class Randomizer : MonoBehaviour
     }
     IEnumerator SequenzFive(int a, int b, int c, int d, int e, int f)
     {
-        disableField();
+        disableField(isIncreasing);
         yield return new WaitForSeconds(speed);
         SpawnFairyInBlock(a);
         yield return new WaitForSeconds(speed);
@@ -345,7 +348,7 @@ public class Randomizer : MonoBehaviour
     //
     IEnumerator SequenzSix(int a, int b, int c, int d, int e, int f, int g)
     {
-        disableField();
+        disableField(isIncreasing);
         yield return new WaitForSeconds(speed);
         SpawnFairyInBlock(a);
         yield return new WaitForSeconds(speed);
@@ -368,7 +371,7 @@ public class Randomizer : MonoBehaviour
     }
     IEnumerator SequenzSeven(int a, int b, int c, int d, int e, int f, int g, int h)
     {
-        disableField();
+        disableField(isIncreasing);
         yield return new WaitForSeconds(speed);
         SpawnFairyInBlock(a);
         yield return new WaitForSeconds(speed);
@@ -408,20 +411,20 @@ public class Randomizer : MonoBehaviour
             blocks[i].GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
             blocks[i].GetComponent<Collider2D>().enabled = true;
         }
-
-        
     }
-    public void disableField()
+
+    public void disableField(bool increasing)
     {
-        
         for (int i = 0; i < blocks.Count; i++)
         {
             blocks[i].GetComponent<SpriteRenderer>().color = Color.grey;
-            blocks[i].GetComponent<Collider2D>().enabled = false;
+            blocks[i].GetComponent<Collider2D>().enabled = false;  
         }
 
-        totalTasks++;
-        
+        if (!increasing)
+            totalTasks++;
+    
+        isIncreasing = false;
     }
 
     void increaseWarning()
@@ -432,7 +435,8 @@ public class Randomizer : MonoBehaviour
         }
         else
         {
-            disableField();
+            isIncreasing = true;
+            disableField(isIncreasing);
             /*
             for (int i = 0; i < blocks.Count; i++)
             {

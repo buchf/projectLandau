@@ -36,13 +36,13 @@ public class DataGoNoGO : MonoBehaviour
         fileName = "VPN" + VPN + "_goNoGo.csv";
         fileName = checkFilename(fileName);
         filePath = Path.Combine(Application.persistentDataPath, fileName);
-        timePointnogo.Append(VPN + ",Gesamtscore:,"+ gesamtPunktzahl + "," + System.DateTime.Now.ToString("dd/MM/yyyy") + "," + System.DateTime.Now.ToString("HH:mm:ss") + "\n\n"); //
+        timePointnogo.Append(VPN + ",Total score:,"+ gesamtPunktzahl + ",Date:," + System.DateTime.Now.ToString("dd/MM/yyyy") + ",Time:," + System.DateTime.Now.ToString("HH:mm:ss") + "\n\n"); //
 
-        overall.Append("Go-Nogo Task,Hits," + GoNoGo.correctClick + "\n");
-        overall.Append(",Misses," + GoNoGo.incorrectNoClick + "\n");
-        overall.Append(",Correct Rejections," + GoNoGo.correctNoClick + "\n");
-        overall.Append(",False Alarms," + GoNoGo.incorrectClick + "\n\n");
-        header.Append(",aktuelles NoGo-Tier,praesentiertes Tier, Click(Button), CRESP, RT (in ms)\n");
+        overall.Append("Task:,Go-NoGo, \nHits:," + GoNoGo.correctClick + "\n");
+        overall.Append("Misses:," + GoNoGo.incorrectNoClick + "\n");
+        overall.Append("Correct rejections:," + GoNoGo.correctNoClick + "\n");
+        overall.Append("False alarms:," + GoNoGo.incorrectClick + "\n\n");
+        header.Append("VP_ID,Correct response,RT (in ms),Block,Trial,NoGo-animal,Presented animal,Click\n");
 
         results.Add(timePointnogo); //
         results.Add(overall);
@@ -60,9 +60,9 @@ public class DataGoNoGO : MonoBehaviour
         }
         return fileName;
     }
-    public static void MeasureSequenz(string currentAnimal, string actualAnimal, int clicked, int CRESP, double reaction)
+    public static void MeasureSequenz(string currentAnimal, string actualAnimal, int clicked, int CRESP, double reaction, int item)
     {
-        z1.AppendFormat(",{0},{1},{2},{3},{4}\n", currentAnimal, actualAnimal, clicked, CRESP, reaction.ToString("0", System.Globalization.CultureInfo.InvariantCulture));
+        z1.AppendFormat("{0},{1},{2},{3},{4},{5},{6},{7}\n", VPN, CRESP, reaction.ToString("0", System.Globalization.CultureInfo.InvariantCulture), GoNoGo.trial, item, currentAnimal, actualAnimal, clicked); //
     }
 
     private string ListToString(List<StringBuilder> results)
@@ -87,5 +87,8 @@ public class DataGoNoGO : MonoBehaviour
         DataGoNoGO.header.Clear();
         DataGoNoGO.z1.Clear();
         timePointnogo.Clear(); //
+        GoNoGo.trialNo = 1; //
+        GoNoGo.isFirst = false;
+
     }
 }

@@ -65,6 +65,8 @@ public class CSPlay : MonoBehaviour
     public TextMesh practiceText;
     public Button button;
 
+    public static int scorePhaseOne = 0; //
+    public static int scorePhaseTwo = 0; //
     public static int correctResponse = 0;
     public static Stopwatch timer = new Stopwatch();
 
@@ -185,6 +187,8 @@ public class CSPlay : MonoBehaviour
         }
         if (currentTrial == 19 && blockNummer == 3)
         {
+            scorePhaseOne = correctResponse; //
+
             audioFiles[currentTrial].Play();
             practiceText.gameObject.SetActive(true);
             button.gameObject.SetActive(true);
@@ -241,6 +245,7 @@ public class CSPlay : MonoBehaviour
         }
         if(currentTrial == 28)
         {
+            scorePhaseTwo = correctResponse - scorePhaseOne; //
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
         }
     }

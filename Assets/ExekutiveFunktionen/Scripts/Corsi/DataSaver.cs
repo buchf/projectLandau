@@ -51,9 +51,7 @@ public class DataSaver : MonoBehaviour
 
     private void Start()
     {
-
         timePointcorsi.Clear();
-
 
         if (SceneSwitch.reverse == true)
         {
@@ -80,11 +78,11 @@ public class DataSaver : MonoBehaviour
          * 
          * 
          */
-        timePointcorsi.Append(VPN + ",Gesamtscore:," + rightTask + "," + System.DateTime.Now.ToString("dd/MM/yyyy") + "," + System.DateTime.Now.ToString("HH:mm:ss") + "\n\n"); //
+        timePointcorsi.Append(VPN + ",Total score:," + rightTask + ",Date:," + System.DateTime.Now.ToString("dd/MM/yyyy") + ",Time:," + System.DateTime.Now.ToString("HH:mm:ss") + "\n\n"); //
 
-        z1.Append("Corsi" + ",Sequences correct:," + rightTask + " ,of, " + Randomizer.totalTasks + "\n");
-        z1.Append(",Clicks Accuracy:," + accuracyPercentage.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) + "%\n" + ",Total Time: ," + totalTime.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) +"ms\n");
-        z1.Append("\n,Trial no., Full sequence correct,Reaction Time,First click,Second click,Third click,Fourth click,Fifth click,Sixth click,Seventh click,Eighth click\n");
+        z1.Append("Task:,Corsi\n" + "Correct sequences:," + rightTask + "\nPresented sequences:," + Randomizer.totalTasks + "\n");
+        z1.Append("Clicks accuracy:," + accuracyPercentage.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) + "%\n" + "Total time (in ms): ," + totalTime.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) +"\n");
+        z1.Append("\nVP_ID,Correct response,RT (in ms),Block (i.e. sequence length),Trial,First click,Second click,Third click,Fourth click,Fifth click,Sixth click,Seventh click,Eighth click\n");
         results.Add(timePointcorsi);
         results.Add(z1);
         results.Add(z0);
@@ -148,50 +146,49 @@ public class DataSaver : MonoBehaviour
 
     public static void MeasureSequenzZero(int fullSequenz, double reaction, int click1)
     {
-        z0.AppendFormat(",sequenz{0}_1,{1},{2},{3}\n", count, fullSequenz, reaction.ToString("0", System.Globalization.CultureInfo.InvariantCulture), click1);
+        z0.AppendFormat(VPN + ",{1},{2},1,{0},{3}\n", count, fullSequenz, reaction.ToString("0", System.Globalization.CultureInfo.InvariantCulture), click1);
         CSVCounter();
     }
     public static void MeasureSequenzOne(int fullSequenz, double reaction, int click1, int click2)
     {
-        z2.AppendFormat(",sequenz{0}_2,{1},{2},{3},{4}\n", count, fullSequenz, reaction.ToString("0", System.Globalization.CultureInfo.InvariantCulture), click1 ,click2 );
+        z2.AppendFormat(VPN + ",{1},{2},2,{0},{3},{4}\n", count, fullSequenz, reaction.ToString("0", System.Globalization.CultureInfo.InvariantCulture), click1 ,click2 );
         CSVCounter();
     }
     public static void MeasureSequenzTwo(int fullSequenz, double reaction, int click1, int click2, int click3)
     {
-        z3.AppendFormat(",sequenz{0}_3,{1},{2},{3},{4},{5}\n", count, fullSequenz, reaction.ToString("0", System.Globalization.CultureInfo.InvariantCulture), click1, click2, click3);
+        z3.AppendFormat(VPN + ",{1},{2},3,{0},{3},{4},{5}\n", count, fullSequenz, reaction.ToString("0", System.Globalization.CultureInfo.InvariantCulture), click1, click2, click3);
         CSVCounter();
     }
     public static void MeasureSequenzThree(int fullSequenz, double reaction, int click1, int click2, int click3, int click4)
     {
-        z4.AppendFormat(",sequenz{0}_4,{1},{2},{3},{4},{5},{6}\n", count, fullSequenz, reaction.ToString("0", System.Globalization.CultureInfo.InvariantCulture), click1, click2, click3, click4);
+        z4.AppendFormat(VPN + ",{1},{2},4,{0},{3},{4},{5},{6}\n", count, fullSequenz, reaction.ToString("0", System.Globalization.CultureInfo.InvariantCulture), click1, click2, click3, click4);
         CSVCounter();
     }
 
     public static void MeasureSequenzFour(int fullSequenz, double reaction, int click1, int click2, int click3, int click4, int click5)
     {
-        z5.AppendFormat(",sequenz{0}_5,{1},{2},{3},{4},{5},{6},{7}\n", count, fullSequenz, reaction.ToString("0", System.Globalization.CultureInfo.InvariantCulture), click1, click2, click3, click4, click5);
+        z5.AppendFormat(VPN + ",{1},{2},5,{0},{3},{4},{5},{6},{7}\n", count, fullSequenz, reaction.ToString("0", System.Globalization.CultureInfo.InvariantCulture), click1, click2, click3, click4, click5);
         CSVCounter();
     }
     public static void MeasureSequenzFive(int fullSequenz, double reaction, int click1, int click2, int click3, int click4, int click5, int click6)
     {
-        z6.AppendFormat(",sequenz{0}_6,{1},{2},{3},{4},{5},{6},{7},{8}\n", count, fullSequenz, reaction.ToString("0", System.Globalization.CultureInfo.InvariantCulture), click1, click2, click3, click4, click5, click6);
+        z6.AppendFormat(VPN + ",{1},{2},6,{0},{3},{4},{5},{6},{7},{8}\n", count, fullSequenz, reaction.ToString("0", System.Globalization.CultureInfo.InvariantCulture), click1, click2, click3, click4, click5, click6);
         CSVCounter();
     }
     //
     public static void MeasureSequenzSix(int fullSequenz, double reaction, int click1, int click2, int click3, int click4, int click5, int click6, int click7)
     {
-        z7.AppendFormat(",sequenz{0}_7,{1},{2},{3},{4},{5},{6},{7},{8},{9}\n", count, fullSequenz, reaction.ToString("0", System.Globalization.CultureInfo.InvariantCulture), click1, click2, click3, click4, click5, click6, click7);
+        z7.AppendFormat(VPN + ",{1},{2},7,{0},{3},{4},{5},{6},{7},{8},{9}\n", count, fullSequenz, reaction.ToString("0", System.Globalization.CultureInfo.InvariantCulture), click1, click2, click3, click4, click5, click6, click7);
         CSVCounter();
     }
     public static void MeasureSequenzSeven(int fullSequenz, double reaction, int click1, int click2, int click3, int click4, int click5, int click6, int click7, int click8)
     {
-        z8.AppendFormat(",sequenz{0}_8,{1},{2},{3},{4},{5},{6},{7},{8},{9},{10}\n", count, fullSequenz, reaction.ToString("0", System.Globalization.CultureInfo.InvariantCulture), click1, click2, click3, click4, click5, click6, click7, click8);
+        z8.AppendFormat(VPN + ",{1},{2},8,{0},{3},{4},{5},{6},{7},{8},{9},{10}\n", count, fullSequenz, reaction.ToString("0", System.Globalization.CultureInfo.InvariantCulture), click1, click2, click3, click4, click5, click6, click7, click8);
         CSVCounter();
     }
     //
-    public static void CSVCounter() // Anzahl absolvierter Trials pro Sequenzlaenge
+    public static void CSVCounter() // Anzahl insgesamt absolvierter Trials
     {
-            if (count == 6) count = 0;
             count++;
     }
 }

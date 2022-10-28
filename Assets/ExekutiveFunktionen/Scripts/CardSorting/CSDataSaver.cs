@@ -35,9 +35,9 @@ public class CSDataSaver : MonoBehaviour
         fileName = checkFilename(fileName);
         filePath = Path.Combine(Application.persistentDataPath, fileName);
 
-        timePointsts.Append(VPN + ",Gesamtscore:," + CSPlay.correctResponse.ToString() + "," + System.DateTime.Now.ToString("dd/MM/yyyy") + "," + System.DateTime.Now.ToString("HH:mm:ss") + "\n\n"); //
+        timePointsts.Append(VPN + ",Total score:," + CSPlay.correctResponse.ToString() + ",Date:," + System.DateTime.Now.ToString("dd/MM/yyyy") + ",Time:," + System.DateTime.Now.ToString("HH:mm:ss") + "\n\n"); //
 
-        header.Append("Something's the same\n" + "Experimental Phase,Block number,Trial Type,Trial #,Item left,Item middle,Item right,Target Item,RT (in ms),Correct Response\n");
+        header.Append("Task:,Something's the same\n" + "Score phase 1:," + CSPlay.scorePhaseOne.ToString() + "\n" + "Score phase 2:," + CSPlay.scorePhaseTwo.ToString() + "\n\n\n\n" + "VP_ID,Correct response,RT (in ms),Block,Trial,Experimental condition,Temporal block,Item left,Item middle,Item right,Chosen item\n");
         // score.Append("\nGesamtscore," + CSPlay.correctResponse.ToString());
 
         results.Add(timePointsts); //
@@ -77,19 +77,19 @@ public class CSDataSaver : MonoBehaviour
 
     public static void MeasurePractice(int trial, string itemLeft, string itemMid, string itemRight, string targetItem, double reaction, int CRESP)
     {
-        practice.AppendFormat("Practice,1,1,U{0},{1},{2},{3},{4},{5},{6}\n", trial, itemLeft, itemMid, itemRight, targetItem, reaction, CRESP);
+        practice.AppendFormat(VPN + ",{6},{5},1,U{0},Practice,1,{1},{2},{3},{4}\n", trial, itemLeft, itemMid, itemRight, targetItem, reaction, CRESP);
     }
     public static void MeasurePracticeTwo(int trial, string itemLeft, string itemMid, string itemRight, string targetItem, double reaction, int CRESP)
     {
-        practiceTwo.AppendFormat("Practice,3,2,U{0},{1},{2},{3},{4},{5},{6}\n", trial, itemLeft, itemMid, itemRight, targetItem, reaction, CRESP);
+        practiceTwo.AppendFormat(VPN + ",{6},{5},2,U{0},Practice,3,{1},{2},{3},{4}\n", trial, itemLeft, itemMid, itemRight, targetItem, reaction, CRESP);
     }
     public static void MeasureTest(int trial, string itemLeft, string itemMid, string itemRight, string targetItem, double reaction, int CRESP)
     {
-        test.AppendFormat("Test,2,1,{0},{1},{2},{3},{4},{5},{6}\n", trial, itemLeft,itemMid, itemRight, targetItem, reaction, CRESP);
+        test.AppendFormat(VPN + ",{6},{5},1,{0},Test,2,{1},{2},{3},{4}\n", trial, itemLeft,itemMid, itemRight, targetItem, reaction, CRESP);
     }
     public static void MeasureTestTwo(int trial, string itemLeft, string itemMid, string itemRight, string targetItem, double reaction, int CRESP)
     {
-        testTwo.AppendFormat("Test,4,2,{0},{1},{2},{3},{4},{5},{6}\n", trial, itemLeft, itemMid, itemRight, targetItem, reaction, CRESP);
+        testTwo.AppendFormat(VPN + ",{6},{5},2,{0},Test,4,{1},{2},{3},{4}\n", trial, itemLeft, itemMid, itemRight, targetItem, reaction, CRESP);
     }
 
     public static void ClearAllData()
