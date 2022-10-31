@@ -46,6 +46,8 @@ public class CSPracticeTwo : MonoBehaviour
 
     private GameObject targetItem;
     private GameObject clickedItem;
+    public string targetDimension1;
+    public string targetDimension2;
 
     public static Stopwatch timer = new Stopwatch();
     int currentTrial = 0;
@@ -147,6 +149,8 @@ public class CSPracticeTwo : MonoBehaviour
             middle = one_Flower_Red;
             right = two_Fairy_Red;
             targetItem = middle;
+            targetDimension1 = "color";
+            targetDimension2 = "shape";
             STS_29.Play();
 
             SpawnFunction(left, middle, right);
@@ -162,6 +166,8 @@ public class CSPracticeTwo : MonoBehaviour
             middle = two_Flower_Blue;
             right = one_Hat_Red;
             targetItem = left;
+            targetDimension1 = "number";
+            targetDimension2 = "shape";
             STS_29.Play();
             buff = 2;
             SpawnFunction(left, middle, right);
@@ -175,6 +181,8 @@ public class CSPracticeTwo : MonoBehaviour
             middle = two_Flower_Yellow;
             right = three_Hat_Yellow;
             targetItem = right;
+            targetDimension1 = "number";
+            targetDimension2 = "color";
             STS_29.Play();
             buff = 2;
             SpawnFunction(left, middle, right);
@@ -251,13 +259,13 @@ public class CSPracticeTwo : MonoBehaviour
 
         if (cresp == 0 && test == 1)
         {
-            WriteInDataSaver(currentTrial, left.name.ToString(), middle.name.ToString(), right.name.ToString(), targetItem.name.ToString(), timer.ElapsedMilliseconds, cresp);
+            WriteInDataSaver(currentTrial, left.name.ToString(), middle.name.ToString(), right.name.ToString(), targetItem.name.ToString(), timer.ElapsedMilliseconds, cresp, targetDimension1, targetDimension2);
         }
 
         if (cresp == 1 && test == 0)
         {
             test = 0;
-            WriteInDataSaver(currentTrial, left.name.ToString(), middle.name.ToString(), right.name.ToString(), targetItem.name.ToString(), timer.ElapsedMilliseconds, cresp);
+            WriteInDataSaver(currentTrial, left.name.ToString(), middle.name.ToString(), right.name.ToString(), targetItem.name.ToString(), timer.ElapsedMilliseconds, cresp, targetDimension1, targetDimension2);
             currentTrial++;
             StartCoroutine(DespawnObject());
         }
@@ -292,10 +300,10 @@ public class CSPracticeTwo : MonoBehaviour
         EnableField();
     }
 
-    void WriteInDataSaver(int currentTrial, string left, string middle, string right, string targetItem, double reaction, int CRESP)
+    void WriteInDataSaver(int currentTrial, string left, string middle, string right, string targetItem, double reaction, int CRESP, string targetDimension1, string targetDimension2)
     {
 
-        CSDataSaver.MeasurePracticeTwo(currentTrial, left, middle, right, targetItem, reaction, CRESP);
+        CSDataSaver.MeasurePracticeTwo(currentTrial, left, middle, right, targetItem, reaction, CRESP, targetDimension1, targetDimension2);
         timer.Stop();
         timer.Reset();
     }
