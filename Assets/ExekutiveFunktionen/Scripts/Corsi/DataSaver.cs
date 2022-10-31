@@ -80,7 +80,13 @@ public class DataSaver : MonoBehaviour
          */
         timePointcorsi.Append(VPN + ",Total score:," + rightTask + ",Date:," + System.DateTime.Now.ToString("dd/MM/yyyy") + ",Time:," + System.DateTime.Now.ToString("HH:mm:ss") + "\n\n"); //
 
-        z1.Append("Task:,Corsi\n" + "Correct sequences:," + rightTask + "\nPresented sequences:," + Randomizer.totalTasks + "\n");
+        if (SceneSwitch.reverse)
+        {
+            z1.Append("Task:,Corsi reverse\n" + "Correct sequences:," + rightTask + "\nPresented sequences:," + Randomizer.totalTasks + "\n");
+        }
+        else
+            z1.Append("Task:,Corsi\n" + "Correct sequences:," + rightTask + "\nPresented sequences:," + Randomizer.totalTasks + "\n");
+        
         z1.Append("Clicks accuracy:," + accuracyPercentage.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) + "%\n" + "Total time (in ms): ," + totalTime.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) +"\n");
         z1.Append("\nVP_ID,Correct response,RT (in ms),Block (i.e. sequence length),Trial,First click,Second click,Third click,Fourth click,Fifth click,Sixth click,Seventh click,Eighth click\n");
         results.Add(timePointcorsi);
