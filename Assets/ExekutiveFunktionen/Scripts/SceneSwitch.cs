@@ -20,7 +20,7 @@ public class SceneSwitch : MonoBehaviour
     private void Start()
     {
         
-        reverse = false;
+        
     }
 
     public void StartGame()
