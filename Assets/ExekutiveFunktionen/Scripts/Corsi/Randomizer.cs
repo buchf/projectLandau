@@ -22,6 +22,8 @@ public class Randomizer : MonoBehaviour
 
     public static int countFalseTask = 0;
     public AudioSource increaseAudio;
+    public AudioSource increaseBackwardsAudio; //
+
     private int buff = 0;
 
     public static int clickedBlocks = 0;
@@ -44,7 +46,7 @@ public class Randomizer : MonoBehaviour
     public void Update()
     {
 
-        if (!increaseAudio.isPlaying && buff == 1)
+        if (!increaseAudio.isPlaying && !increaseBackwardsAudio.isPlaying && buff == 1)
         {
             increaseButton.interactable = true;
             buff = 0;
@@ -446,7 +448,10 @@ public class Randomizer : MonoBehaviour
             increaseButton.gameObject.SetActive(true);
             increaseButton.interactable = false;
             buff = 1;
-            increaseAudio.Play();
+            if (SceneSwitch.reverse) //
+                increaseBackwardsAudio.Play(); //
+            else //
+                increaseAudio.Play();
         }
 
         
