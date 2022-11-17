@@ -165,13 +165,13 @@ public class CSPlay : MonoBehaviour
         }
         if (currentTrial == 12)
         {
-            SpawnFunction(two_Flower_Blue, two_Hat_Red, three_Fairy_Blue);
+            SpawnFunction(two_Hat_Red, two_Flower_Blue, three_Fairy_Blue);
             targetItem = two_Flower_Blue;
             targetDimension1 = "color";
         }
         if (currentTrial == 13)
         {
-            SpawnFunction(three_Hat_Red, three_Fairy_Yellow, one_Flower_Red);
+            SpawnFunction(three_Fairy_Yellow, three_Hat_Red, one_Flower_Red);
             targetItem = three_Hat_Red;
             targetDimension1 = "color";
         }
@@ -219,7 +219,7 @@ public class CSPlay : MonoBehaviour
         
         if (currentTrial == 19 && blockNummer == 4)
         {
-            SpawnFunctionTwo(two_Fairy_Yellow, one_Fairy_Red, two_Hat_Blue);
+            SpawnFunctionTwo(two_Hat_Blue, one_Fairy_Red, two_Fairy_Yellow);
             targetItem = two_Fairy_Yellow;
             targetDimension1 = "number";
             targetDimension2 = "shape";
@@ -240,7 +240,7 @@ public class CSPlay : MonoBehaviour
         }
         if (currentTrial == 22)
         {
-            SpawnFunctionTwo(two_Fairy_Blue, two_Flower_Red, one_Hat_Blue);
+            SpawnFunctionTwo(one_Hat_Blue, two_Flower_Red, two_Fairy_Blue);
             targetItem = two_Fairy_Blue;
             targetDimension1 = "number";
             targetDimension2 = "color";
@@ -268,7 +268,7 @@ public class CSPlay : MonoBehaviour
         }
         if (currentTrial == 26)
         {
-            SpawnFunctionTwo(two_Hat_Blue, one_Flower_Blue, three_Hat_Yellow);
+            SpawnFunctionTwo(three_Hat_Yellow, one_Flower_Blue, two_Hat_Blue);
             targetItem = two_Hat_Blue;
             targetDimension1 = "color";
             targetDimension2 = "shape";

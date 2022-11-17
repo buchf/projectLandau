@@ -37,7 +37,7 @@ public class CSDataSaver : MonoBehaviour
 
         timePointsts.Append(VPN + ",Total score:," + CSPlay.correctResponse.ToString() + ",Date:," + System.DateTime.Now.ToString("dd/MM/yyyy") + ",Time:," + System.DateTime.Now.ToString("HH:mm:ss") + "\n\n"); //
 
-        header.Append("Task:,Something's the same\n" + "Score phase 1:," + CSPlay.scorePhaseOne.ToString() + "\n" + "Score phase 2:," + CSPlay.scorePhaseTwo.ToString() + "\n\n\n\n" + "VP_ID,Correct response,RT (in ms),Block,Trial,Experimental condition,Temporal block,Item left,Item middle,Item right,Chosen item, Target dimension one, Target dimension two\n");
+        header.Append("Task:,Something's the same\n" + "Score phase 1:," + CSPlay.scorePhaseOne.ToString() + "\n" + "Score phase 2:," + CSPlay.scorePhaseTwo.ToString() + "\n\n\n\n" + "VP_ID,Correct response,RT,Block,Trial,Experimental condition,Temporal block,Item left,Item middle,Item right,Chosen item, Target dimension one, Target dimension two\n");
         // score.Append("\nGesamtscore," + CSPlay.correctResponse.ToString());
 
         results.Add(timePointsts); //

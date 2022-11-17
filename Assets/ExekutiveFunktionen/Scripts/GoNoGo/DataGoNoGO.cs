@@ -38,13 +38,13 @@ public class DataGoNoGO : MonoBehaviour
         filePath = Path.Combine(Application.persistentDataPath, fileName);
         timePointnogo.Append(VPN + ",Total score:,"+ gesamtPunktzahl + ",Date:," + System.DateTime.Now.ToString("dd/MM/yyyy") + ",Time:," + System.DateTime.Now.ToString("HH:mm:ss") + "\n\n"); //
 
-        overall.Append("Task:,Go-NoGo, \nHits:," + GoNoGo.correctClick + "\n");
+        overall.Append("Task:,Go-NoGo,Presentation time:," + GoNoGo.presentationTime + ",Response registration:," + GoNoGo.responseRegistration + ",ISI:," + GoNoGo.interStim + "\nHits:," + GoNoGo.correctClick + "\n");
         overall.Append("Misses:," + GoNoGo.incorrectNoClick + "\n");
         overall.Append("Correct rejections:," + GoNoGo.correctNoClick + "\n");
         overall.Append("False alarms:," + GoNoGo.incorrectClick + "\n\n");
-        header.Append("VP_ID,Correct response,RT (in ms),Block,Trial,NoGo-animal,Presented animal,Click\n");
-
-        results.Add(timePointnogo); //
+        header.Append("VP_ID,Correct response,RT,Block,Trial,NoGo-animal,Presented animal,Click,Trial type\n");
+        
+        results.Add(timePointnogo);
         results.Add(overall);
         results.Add(header);
         results.Add(z1);
@@ -60,9 +60,9 @@ public class DataGoNoGO : MonoBehaviour
         }
         return fileName;
     }
-    public static void MeasureSequenz(string currentAnimal, string actualAnimal, int clicked, int CRESP, double reaction, int item)
+    public static void MeasureSequenz(string currentAnimal, string actualAnimal, int clicked, int CRESP, double reaction, int item, string trialtype)
     {
-        z1.AppendFormat("{0},{1},{2},{3},{4},{5},{6},{7}\n", VPN, CRESP, reaction.ToString("0", System.Globalization.CultureInfo.InvariantCulture), GoNoGo.trial, item, currentAnimal, actualAnimal, clicked); //
+        z1.AppendFormat("{0},{1},{2},{3},{4},{5},{6},{7},{8}\n", VPN, CRESP, reaction.ToString("0", System.Globalization.CultureInfo.InvariantCulture), GoNoGo.trial, item, currentAnimal, actualAnimal, clicked, trialtype); //
     }
 
     private string ListToString(List<StringBuilder> results)

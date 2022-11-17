@@ -10,7 +10,7 @@ public class Randomizer : MonoBehaviour
     [SerializeField] List<Transform> blocks = new List<Transform>();
     public GameObject fairy;
     public Player player;
-    float speed = 1f;
+    public static float speed = 1f;
     public int count1, count2 = 0;
     public static int totalTasks = 0;
     public static int totlalAccuracyClicks = 0;

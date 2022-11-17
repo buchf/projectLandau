@@ -10,12 +10,12 @@ public class CorsiPractice : MonoBehaviour
     public GameObject fairy;
     public int count1, count2 = 0;
     public TextMesh increaseText;
-    float speed = 1f;
 
     private AudioSource introAudio;
     public AudioSource corsi_02;
     public AudioSource corsi_02_back;
     public AudioSource corsiIncrease;
+    public AudioSource increaseBackwardsAudio; //
     private int buff = 0;
 
     //UI Variable
@@ -67,7 +67,7 @@ public class CorsiPractice : MonoBehaviour
             button.interactable = true;
             buff = 1;
         }
-        if(!corsiIncrease.isPlaying && buff == 2)
+        if(!corsiIncrease.isPlaying && !increaseBackwardsAudio.isPlaying && buff == 2)
         {
             button2.interactable = true;
             buff = 3;
@@ -78,10 +78,9 @@ public class CorsiPractice : MonoBehaviour
             buff = 5;
         }
 
-        //wenn clickedblocks length = sequenztlengt -> startsequenz
+        //wenn clickedblocks length = sequenzlength -> startsequenz
        if(clickedBlocks == sequenzBlocks)
        {
-            
             player.CleanListsPractice();
             clickedBlocks = 0;
             if (player.listCompareVar == 1)
@@ -90,15 +89,13 @@ public class CorsiPractice : MonoBehaviour
             }
             else
             {
-                StartCoroutine(IncorrectSequence());
+               StartCoroutine(IncorrectSequence());
             }
-            
         }
     }
 
     public void StartFirstSequenz()
     {
-        
         //count1++;
         StartSequenz();
     }
@@ -132,7 +129,7 @@ public class CorsiPractice : MonoBehaviour
         //Zahlen fuer die verschiedenen Trials wurden mithilfe der GetRandom Funktion erstellt
 
         //Trial 0
-        //first sequenz
+        //first sequence
         if (count1 == 0 && count2 == 0)
         {
             fairy.transform.position = new Vector3(-6f, 3f, -1);
@@ -168,7 +165,10 @@ public class CorsiPractice : MonoBehaviour
         disableField();
         button2.gameObject.SetActive(true);
         button2.interactable = false;
-        corsiIncrease.Play();
+        if (SceneSwitch.reverse) //
+            increaseBackwardsAudio.Play(); //
+        else //
+            corsiIncrease.Play();
         buff = 2;
         increaseText.gameObject.SetActive(true);
     }
@@ -271,20 +271,20 @@ public class CorsiPractice : MonoBehaviour
     IEnumerator SequenzZero(int a)
     {
         disableField();
-        yield return new WaitForSeconds(speed);
+        yield return new WaitForSeconds(Randomizer.speed);
         SpawnFairyInBlock(a);
-        yield return new WaitForSeconds(speed);
+        yield return new WaitForSeconds(Randomizer.speed);
         fairy.SetActive(false);
         enableField();
     }
     IEnumerator SequenzOne(int a, int b)
     {
         disableField();
-        yield return new WaitForSeconds(speed);
+        yield return new WaitForSeconds(Randomizer.speed);
         SpawnFairyInBlock(a);
-        yield return new WaitForSeconds(speed);
+        yield return new WaitForSeconds(Randomizer.speed);
         SpawnFairyInBlock(b);
-        yield return new WaitForSeconds(speed);
+        yield return new WaitForSeconds(Randomizer.speed);
         fairy.SetActive(false);
         enableField();
     }

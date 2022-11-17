@@ -117,36 +117,22 @@ public class GoNoGoPractice : MonoBehaviour
             }
         }
 
-
-
         if (counter == 11 && trial != 2 && !GoNoGo_02.isPlaying && buff == 1)
         {
             counter = 1;
             trial++;
-            //       timer.Stop();
-            //       enableIntro();
-            //       buff = 2;
         }
 
 
-
-        if (timer.Elapsed.TotalSeconds >= 0.5)
+        if (timer.Elapsed.TotalMilliseconds >= GoNoGo.presentationTime)
         {
             shownAnimal.SetActive(false);
         }
 
-        if (timer.Elapsed.TotalSeconds >= 1.0 && counter != 11)
-        {
+        if (timer.Elapsed.TotalMilliseconds >= GoNoGo.responseRegistration && counter != 11) 
+        { 
             timer.Reset();
-            //if(counter == 11)
-            // {
-            //  timer.Stop();
-            //  }
-            //  else
-            // {
             SelectNextAnimal();
-            // }
-
         }
     }
     void enableIntro()
@@ -189,7 +175,6 @@ public class GoNoGoPractice : MonoBehaviour
 
         timer.Start();
     }
-
 
 
     public void StartGoNoGo()
@@ -244,7 +229,7 @@ public class GoNoGoPractice : MonoBehaviour
     {
         shownAnimal.SetActive(false);
         shownAnimal = donkey;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(GoNoGo.interStim/1000);
         shownAnimal.SetActive(true);
         button.enabled = true;
         timer.Start();
@@ -254,7 +239,7 @@ public class GoNoGoPractice : MonoBehaviour
     {
         shownAnimal.SetActive(false);
         shownAnimal = chicken;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(GoNoGo.interStim / 1000);
         shownAnimal.SetActive(true);
         button.enabled = true;
         timer.Start();
@@ -264,7 +249,7 @@ public class GoNoGoPractice : MonoBehaviour
     {
         shownAnimal.SetActive(false);
         shownAnimal = cow;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(GoNoGo.interStim / 1000);
         shownAnimal.SetActive(true);
         button.enabled = true;
         timer.Start();
@@ -274,10 +259,9 @@ public class GoNoGoPractice : MonoBehaviour
     {
         shownAnimal.SetActive(false);
         shownAnimal = pig;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(GoNoGo.interStim / 1000);
         shownAnimal.SetActive(true);
         button.enabled = true;
         timer.Start();
     }
-
 }

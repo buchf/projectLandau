@@ -234,7 +234,7 @@ public class GreenStabilityTrial : StabilityTrial, ISelectorTrial<Auswahlsymbol>
 
         var z2 = new StringBuilder();
         var info = System.Globalization.CultureInfo.InvariantCulture;
-        z2.AppendFormat("{0},{1},{2},({3};{4}),{5},{6},{7},{8}", Solution.Item1, CRESP, attempts, coords.x.ToString("#0.00", info), coords.y.ToString("#0.00", info), RT[0], RT[1], RT[2], RT_total);
+        z2.AppendFormat("{0},{1},{2},({3}|{4}),{5},{6},{7},{8}", Solution.Item1, CRESP, attempts, coords.x.ToString("#0.00", info), coords.y.ToString("#0.00", info), RT[0], RT[1], RT[2], RT_total);
         results.Add(z2);
     }
 }

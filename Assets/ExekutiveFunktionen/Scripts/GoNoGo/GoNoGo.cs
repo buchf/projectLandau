@@ -19,15 +19,17 @@ public class GoNoGo : MonoBehaviour
     GameObject shownAnimal;
     GameObject currentAnimal;
 
-    
 
     public static Stopwatch timer = new Stopwatch();
 
     //counter zum durchiterieren und trialcounter um ab 10 das targettier zu wechseln
     public int counter = 0;
     public static int trial = 1;
+    public static double presentationTime = 500;
+    public static double responseRegistration = 1000;
+    public static float interStim = 1000;
+    public string trialType = "";
 
-    
     public static int correctClick = 0;
     public static int incorrectClick = 0;
     public static int correctNoClick = 0;
@@ -55,23 +57,28 @@ public class GoNoGo : MonoBehaviour
 
     private void Update()
     {
-        if (timer.Elapsed.TotalSeconds >= 0.5)
+
+        if (timer.Elapsed.TotalMilliseconds >= presentationTime)
         {
-            currentAnimal.SetActive(false);
+            shownAnimal.SetActive(false); //
         }
-        if (timer.Elapsed.TotalSeconds >= 1)
+
+        if (timer.Elapsed.TotalMilliseconds >= responseRegistration)
         {
+                
             if (shownAnimal == currentAnimal)
             {
+                trialType = "NoGo";
                 checkAnimal = 1;
                 correctNoClick++;
             }
             else
             {
+                trialType = "Go";
                 checkAnimal = 0;
                 incorrectNoClick++;
             }
-            WriteInDatasaver(currentAnimal.name, shownAnimal.name, 0, checkAnimal, timer.Elapsed.TotalMilliseconds, trialNo);
+            WriteInDatasaver(currentAnimal.name, shownAnimal.name, 0, checkAnimal, timer.Elapsed.TotalMilliseconds, trialNo, trialType);
             SelectNextAnimal(isFirst);
         }
 
@@ -89,8 +96,6 @@ public class GoNoGo : MonoBehaviour
             counter = 1;
             trial = 1;
         }
-
-        //falls timer > 2 sekunden dann naechstes tier
         
     }
 
@@ -169,22 +174,24 @@ public class GoNoGo : MonoBehaviour
     {
         if (shownAnimal == currentAnimal)
         {
+            trialType = "NoGo";
             checkAnimal = 0;
             incorrectClick++;
         }
         if(shownAnimal != currentAnimal)
         {
+            trialType = "Go";
             checkAnimal = 1;
             correctClick++;
         }
-        WriteInDatasaver(currentAnimal.name, shownAnimal.name, 1, checkAnimal, timer.Elapsed.TotalMilliseconds, trialNo);
+        WriteInDatasaver(currentAnimal.name, shownAnimal.name, 1, checkAnimal, timer.Elapsed.TotalMilliseconds, trialNo, trialType);
         //aufrufen um nach betaetigen des buttons direkt zum naechsten tier zu gelangen
         SelectNextAnimal(isFirst);
     }
 
-    private void WriteInDatasaver(string current, string shown, int click, int CRESP, double reaction, int item)
+    private void WriteInDatasaver(string current, string shown, int click, int CRESP, double reaction, int item, string trialtype)
     {
-        DataGoNoGO.MeasureSequenz(current,shown,click,CRESP,reaction,item);
+        DataGoNoGO.MeasureSequenz(current,shown,click,CRESP,reaction,item,trialtype);
         timer.Reset();
     }
 
@@ -193,7 +200,7 @@ public class GoNoGo : MonoBehaviour
     {
         shownAnimal.SetActive(false);
         shownAnimal = donkey;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(interStim / 1000);
         shownAnimal.SetActive(true);
         button.enabled = true;
         timer.Start();
@@ -203,7 +210,7 @@ public class GoNoGo : MonoBehaviour
     {
         shownAnimal.SetActive(false);
         shownAnimal = chicken;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(interStim/1000);
         shownAnimal.SetActive(true);
         button.enabled = true;
         timer.Start();
@@ -213,7 +220,7 @@ public class GoNoGo : MonoBehaviour
     {
         shownAnimal.SetActive(false);
         shownAnimal = cow;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(interStim / 1000);
         shownAnimal.SetActive(true);
         button.enabled = true;
         timer.Start();
@@ -223,7 +230,7 @@ public class GoNoGo : MonoBehaviour
     {
         shownAnimal.SetActive(false);
         shownAnimal = pig;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(interStim / 1000);
         shownAnimal.SetActive(true);
         button.enabled = true;
         timer.Start();

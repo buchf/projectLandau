@@ -142,7 +142,7 @@ public class SpeedTrial : CogTrial, ISelectorTrial<Auswahlzahnrad>
 {
     public override void Aggregate(Measurement.Trial data)
     {
-        results.Add(new StringBuilder("RT-Erstauswahl,RT-LetzteWahl,RT-Gesamt,AnzahlSelektionen,RESP-Typ,CRESP"));
+     // results.Add(new StringBuilder("RT-Erstauswahl,RT-LetzteWahl,RT-Gesamt,AnzahlSelektionen,RESP-Typ,CRESP")); // speed headline
 
         long RT1 = 0;
         long RT2 = 0;
@@ -223,7 +223,7 @@ public class DirectionTrial : CogTrial, ITrialFunctionality<Richtungssticker>//,
 
     public override void Aggregate(Measurement.Trial data)
     {
-        results.Add(new StringBuilder("RT-Gesamt,Zahnrad,RT-Erstauswahl,RT-LetzteWahl,AnzahlSelektionen,RESP,CRESP"));
+    //  results.Add(new StringBuilder("RT-Gesamt,Zahnrad,RT-Erstauswahl,RT-LetzteWahl,AnzahlSelektionen,RESP,CRESP")); //direction headline
 
         List<int> indices = new List<int>();
         for(int i = 0; i<Cogs.Count; ++i)
