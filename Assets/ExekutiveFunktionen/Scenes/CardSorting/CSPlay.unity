@@ -957,6 +957,8 @@ MonoBehaviour:
   three_Hat_Blue: {fileID: 1421169189}
   three_Hat_Red: {fileID: 137831888}
   three_Hat_Yellow: {fileID: 1007354198}
+  targetDimension1: 
+  targetDimension2: 
   practiceText: {fileID: 798344114}
   button: {fileID: 1968583322}
 --- !u!1 &482019123
@@ -5907,7 +5909,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -100, y: -100}
-  m_SizeDelta: {x: 120, y: 120}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1968583322
 MonoBehaviour:

@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class PlayButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     private float ClickedDuration = 0.0f;
-    public float TargetTimeForEffect = 0.4f;
+    public float TargetTimeForEffect = 0.2f; // 0.4f
     //public delegate void ExecutionFunction();
     //public ExecutionFunction execute;
     public UnityEvent OnPress;

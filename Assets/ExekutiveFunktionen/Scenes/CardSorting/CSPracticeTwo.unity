@@ -885,7 +885,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -100, y: -100}
-  m_SizeDelta: {x: 120, y: 120}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1019086462
 MonoBehaviour:
@@ -2803,6 +2803,8 @@ MonoBehaviour:
   three_Hat_Yellow: {fileID: 1219242747}
   correct: {fileID: 2049625153}
   incorrect: {fileID: 1969872178}
+  targetDimension1: 
+  targetDimension2: 
 --- !u!1 &1938710459
 GameObject:
   m_ObjectHideFlags: 0
