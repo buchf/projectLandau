@@ -55,6 +55,7 @@
      <Compile Include="Assets\ExekutiveFunktionen\Scripts\GoNoGo\GoNoGoPractice.cs" />
      <Compile Include="Assets\Backend\UI\Zahnrad.cs" />
      <Compile Include="Assets\ExekutiveFunktionen\Flexibility\Scripts\WCST_Outro.cs" />
+     <Compile Include="Assets\ExekutiveFunktionen\Scripts\REC_Play.cs" />
      <Compile Include="Assets\ExekutiveFunktionen\Flexibility\Scripts\WCST_Data.cs" />
      <Compile Include="Assets\ExekutiveFunktionen\Scripts\Corsi\BlockClick.cs" />
      <Compile Include="Assets\Backend\Helper\DragNDrop.cs" />
@@ -74,6 +75,7 @@
      <Compile Include="Assets\ExekutiveFunktionen\Scripts\Corsi\CorsiIntro.cs" />
      <Compile Include="Assets\ExekutiveFunktionen\Scripts\GoNoGo\GoNoGoOutro.cs" />
      <Compile Include="Assets\Backend\UI\RichtungsstickerInstancer.cs" />
+     <Compile Include="Assets\ExekutiveFunktionen\Scripts\DataREC.cs" />
      <Compile Include="Assets\Backend\ControlFlow\Block.cs" />
      <Compile Include="Assets\ExekutiveFunktionen\Flexibility\Scripts\WCST_Play.cs" />
      <Compile Include="Assets\Kindersicherung.cs" />

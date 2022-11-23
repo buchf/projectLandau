@@ -85,7 +85,7 @@ public class DataSaver : MonoBehaviour
             z1.Append("Task:,Corsi reverse,Highlight duration per field:," + Randomizer.speed*1000 + "\n" + "Correct sequences:," + rightTask + "\nPresented sequences:," + Randomizer.totalTasks + "\n");
         }
         else
-            z1.Append("Task:,Corsi,Highlight duration per field:," + Randomizer.speed * 1000 + "\n" + "Correct sequences:," + rightTask + "\nPresented sequences:," + Randomizer.totalTasks + ",Highlight duration per field:," + Randomizer.speed * 1000 + "\n");
+            z1.Append("Task:,Corsi,Highlight duration per field:," + Randomizer.speed * 1000 + "\n" + "Correct sequences:," + rightTask + "\nPresented sequences:," + Randomizer.totalTasks + "\n");
         
         z1.Append("Clicks accuracy:," + accuracyPercentage.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) + "%\n" + "Total time (in ms): ," + totalTime.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) +"\n");
         z1.Append("\nVP_ID,Correct response,RT,Block,Trial,First click,Second click,Third click,Fourth click,Fifth click,Sixth click,Seventh click,Eighth click\n");

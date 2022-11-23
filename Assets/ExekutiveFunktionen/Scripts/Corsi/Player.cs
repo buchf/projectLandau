@@ -53,7 +53,6 @@ public class Player : MonoBehaviour
     {
         if (Randomizer.reverse == true)
         {
-
             CompareListsReversePractice();
         }
         else
@@ -68,7 +67,6 @@ public class Player : MonoBehaviour
     {
         if(Randomizer.reverse == true)
         {
-            
             CompareListsReverse();
         }
         else
