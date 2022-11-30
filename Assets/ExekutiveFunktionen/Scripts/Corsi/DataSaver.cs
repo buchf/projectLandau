@@ -7,21 +7,13 @@ using System.IO;
 using System.Text;
 using System.Linq;
 
-
-
-
-
 public class DataSaver : MonoBehaviour
 {
-
-
     public static string rightTask, accuracy;
     public static double totalTime;
     public float accuracyPercentage = 0.0f;
 
     //Number for full programm
-    
-
 
     //VPN nummer soll im gesamten project den Input vom Textfeld VPN bekommen sodass die datei auf diejenige Versuchsperson sich bezieht
     public static string VPN;
@@ -82,11 +74,12 @@ public class DataSaver : MonoBehaviour
 
         if (SceneSwitch.reverse)
         {
-            z1.Append("Task:,Corsi reverse,Highlight duration per field:," + Randomizer.speed*1000 + "\n" + "Correct sequences:," + rightTask + "\nPresented sequences:," + Randomizer.totalTasks + "\n");
+            z1.Append("Task:,Corsi reverse,");
         }
         else
-            z1.Append("Task:,Corsi,Highlight duration per field:," + Randomizer.speed * 1000 + "\n" + "Correct sequences:," + rightTask + "\nPresented sequences:," + Randomizer.totalTasks + "\n");
-        
+            z1.Append("Task:,Corsi,");
+
+        z1.Append("Highlight duration per field:," + Randomizer.speed * 1000 + ",Practice Errors:," + CorsiPractice.totalPracticeErr + "\n" + "Correct sequences:," + rightTask + "\nPresented sequences:," + Randomizer.totalTasks + "\n");
         z1.Append("Clicks accuracy:," + accuracyPercentage.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) + "%\n" + "Total time (in ms): ," + totalTime.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture) +"\n");
         z1.Append("\nVP_ID,Correct response,RT,Block,Trial,First click,Second click,Third click,Fourth click,Fifth click,Sixth click,Seventh click,Eighth click\n");
         results.Add(timePointcorsi);
@@ -100,8 +93,7 @@ public class DataSaver : MonoBehaviour
         results.Add(z7);
         results.Add(z8);
         File.WriteAllText(filePath, ListToString(results));
-
-    }
+}
 
     public string checkFilename(string fileName)
     {
