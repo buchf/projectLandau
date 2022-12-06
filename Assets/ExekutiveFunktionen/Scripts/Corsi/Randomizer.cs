@@ -53,7 +53,7 @@ public class Randomizer : MonoBehaviour
             buff = 0;
         }
         
-        if(clickedBlocks == sequenzBlocks && trigger == false)
+        if(clickedBlocks >= sequenzBlocks && trigger == false)
         {
             trigger = true;
             player.CleanLists();
