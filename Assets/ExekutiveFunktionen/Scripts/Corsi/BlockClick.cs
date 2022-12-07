@@ -35,9 +35,11 @@ public class BlockClick : MonoBehaviour
     //Block der geklickt wird, ist fuer 0.2 sekunden grau und wird anschliessend wieder weiss
     IEnumerator ClickTimeAnimation()
     {
+        gameObject.GetComponent<BoxCollider2D>().enabled = false; // 
         gameObject.GetComponent<SpriteRenderer>().color = Color.grey;
         yield return new WaitForSeconds(.2f);
         gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
+        gameObject.GetComponent<BoxCollider2D>().enabled = true; //
         Randomizer.clickedBlocks++;
     }
 }
