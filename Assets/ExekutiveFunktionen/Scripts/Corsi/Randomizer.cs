@@ -27,7 +27,7 @@ public class Randomizer : MonoBehaviour
     private int buff = 0;
 
     public static int clickedBlocks = 0;
-    public static int sequenzBlocks = 1;
+    int sequenzBlocks = 1;
 
 
 

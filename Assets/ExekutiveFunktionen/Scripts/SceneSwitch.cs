@@ -39,7 +39,7 @@ public class SceneSwitch : MonoBehaviour
         Randomizer.totalTasks = 0;
         DataSaver.VPN = inputVPN;
         Randomizer.reverse = reverse;
-        CorsiPractice.totalPracticeErr = 0;
+        
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 123);
     }
 
