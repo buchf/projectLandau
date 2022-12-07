@@ -8,7 +8,8 @@ public class CorsiPractice : MonoBehaviour
 {
     
     public GameObject fairy;
-    public int count1, count2 = 0;
+    public int count1, count2, practiceErr = 0;
+    public static int totalPracticeErr = 0;
     public TextMesh increaseText;
 
     private AudioSource introAudio;
@@ -17,6 +18,7 @@ public class CorsiPractice : MonoBehaviour
     public AudioSource corsiIncrease;
     public AudioSource increaseBackwardsAudio; //
     private int buff = 0;
+    
 
     //UI Variable
     public TextMesh introText;
@@ -85,6 +87,7 @@ public class CorsiPractice : MonoBehaviour
             clickedBlocks = 0;
             if (player.listCompareVar == 1)
             {
+               practiceErr = 0;
                StartCoroutine(CorrectSequence());
             }
             else
@@ -101,14 +104,10 @@ public class CorsiPractice : MonoBehaviour
     }
 
     public void StartSequenz()
-    {
-        
+    { 
         //Debug.Log(DataSaver.filePath.ToString());
         fairy.SetActive(true);
         fairy.transform.position = new Vector3(-6f, 3f, -1);
-
-        
-
         
         if (count1 == 2 && count2 == 1)
         {
@@ -303,10 +302,17 @@ public class CorsiPractice : MonoBehaviour
     IEnumerator IncorrectSequence()
     {
         HideFieldForCheck();
+        practiceErr += 1; //
+        totalPracticeErr += 1;
         incorrectStar.SetActive(true);
         yield return new WaitForSeconds(1f);
         incorrectStar.SetActive(false);
         showField();
+        if (practiceErr > 2)
+        {
+            count1++;
+            practiceErr = 0;
+        }
         StartSequenz();
     }
 
