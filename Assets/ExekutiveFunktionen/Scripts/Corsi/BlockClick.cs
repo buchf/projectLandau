@@ -13,7 +13,7 @@ public class BlockClick : MonoBehaviour
 
     public Player player;
 
-
+    
 
     private void Start()
     {
@@ -22,17 +22,13 @@ public class BlockClick : MonoBehaviour
 
     public void OnMouseDown()
     {
+        
         player.increaseClick();
-        if (gameObject.CompareTag("Block"))
+        if ( gameObject.CompareTag("Block"))
         {
             player.clickedBlocks.Add(gameObject);
-            Randomizer.clickedBlocks++;
-            if (Randomizer.clickedBlocks < Randomizer.sequenzBlocks)
-            {
-                StartCoroutine(ClickTimeAnimation());
-            }
-
-        }
+            StartCoroutine(ClickTimeAnimation());
+        }       
     }
 
 
@@ -42,6 +38,6 @@ public class BlockClick : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().color = Color.grey;
         yield return new WaitForSeconds(.2f);
         gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
-        // Randomizer.clickedBlocks++;
+        Randomizer.clickedBlocks++;
     }
 }
