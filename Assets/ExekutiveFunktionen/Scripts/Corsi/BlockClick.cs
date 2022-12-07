@@ -26,7 +26,12 @@ public class BlockClick : MonoBehaviour
         if (gameObject.CompareTag("Block"))
         {
             player.clickedBlocks.Add(gameObject);
-            StartCoroutine(ClickTimeAnimation());
+            Randomizer.clickedBlocks++;
+            if (Randomizer.clickedBlocks < Randomizer.sequenzBlocks)
+            {
+                StartCoroutine(ClickTimeAnimation());
+            }
+
         }
     }
 
@@ -37,6 +42,6 @@ public class BlockClick : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().color = Color.grey;
         yield return new WaitForSeconds(.2f);
         gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255);
-        Randomizer.clickedBlocks++;
+        // Randomizer.clickedBlocks++;
     }
 }
