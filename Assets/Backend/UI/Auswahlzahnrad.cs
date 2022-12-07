@@ -10,7 +10,7 @@ public class Auswahlzahnrad : MultiSelector<Auswahlzahnrad>
     void Awake()
     {
         ClickedDuration = 0.0f;
-        TargetTimeForEffect = 0.1f;
+        TargetTimeForEffect = 0.01f;
 
 
         CircleCollider2D[] colliders = GetComponents<CircleCollider2D>();
