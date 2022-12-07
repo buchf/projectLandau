@@ -18,7 +18,7 @@ public class Randomizer : MonoBehaviour
     public static bool isIncreasing = false; //
     public TextMesh increaseText;
     [SerializeField] Button increaseButton;
-    public bool trigger = false;
+
 
     public static int countFalseTask = 0;
     public AudioSource increaseAudio;
@@ -33,7 +33,6 @@ public class Randomizer : MonoBehaviour
 
     private void Start()
     {
-        trigger = false;
         DataSaver.count = 1;
         totlalAccuracyClicks = 0; //
         buff = 0;
@@ -53,9 +52,8 @@ public class Randomizer : MonoBehaviour
             buff = 0;
         }
         
-        if(clickedBlocks == sequenzBlocks && trigger == false)
+        if(clickedBlocks == sequenzBlocks)
         {
-            trigger = true;
             player.CleanLists();
             clickedBlocks = 0;
             StartSequenz();
@@ -199,8 +197,6 @@ public class Randomizer : MonoBehaviour
 
     void SpawnFairyInBlock(int blockNumber)
     {
-        clickedBlocks = 0;
-        trigger = false;
         switch (blockNumber)
         {
             case 1:
