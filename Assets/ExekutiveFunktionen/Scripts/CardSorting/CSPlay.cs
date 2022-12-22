@@ -51,10 +51,12 @@ public class CSPlay : MonoBehaviour
     public GameObject three_Hat_Blue;
     public GameObject three_Hat_Red;
     public GameObject three_Hat_Yellow;
+    public GameObject blackTest;
 
     private GameObject left;
     private GameObject right;
     private GameObject middle;
+    
 
     private GameObject targetItem;
     private GameObject clickedItem;
@@ -208,7 +210,7 @@ public class CSPlay : MonoBehaviour
         if (currentTrial == 19 && blockNummer == 3)
         {
             scorePhaseOne = correctResponse; //
-
+            blackTest.gameObject.SetActive(false);
             audioFiles[currentTrial].Play();
             practiceText.gameObject.SetActive(true);
             button.gameObject.SetActive(true);
@@ -219,6 +221,7 @@ public class CSPlay : MonoBehaviour
         
         if (currentTrial == 19 && blockNummer == 4)
         {
+            blackTest.gameObject.SetActive(false);
             SpawnFunctionTwo(two_Hat_Blue, one_Fairy_Red, two_Fairy_Yellow);
             targetItem = two_Fairy_Yellow;
             targetDimension1 = "number";

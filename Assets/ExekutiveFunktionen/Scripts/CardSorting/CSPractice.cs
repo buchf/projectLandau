@@ -20,6 +20,7 @@ public class CSPractice : MonoBehaviour
 
     public GameObject correct;
     public GameObject incorrect;
+    public GameObject black;
 
     //Practice Trial 1
     public GameObject one_Fairy_Red;
@@ -162,6 +163,7 @@ public class CSPractice : MonoBehaviour
         }
         if (currentTrial == 4)
         {
+            black.gameObject.SetActive(false);
             STS_16.Play();
             buff2 = 1;
             continueButton.gameObject.SetActive(true);
