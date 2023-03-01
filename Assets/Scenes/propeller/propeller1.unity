@@ -807,7 +807,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40c7a67ec4a00c741bc1c68c433be4ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SekundenBisVerschwinden: 20
+  SekundenBisVerschwinden: 0
 --- !u!212 &1543208530
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1666,6 +1666,10 @@ PrefabInstance:
       propertyPath: UnpausePrefab
       value: 
       objectReference: {fileID: 2559028945021462610, guid: ebcb0bcfe37fdc24998e6e678b6c7c57, type: 3}
+    - target: {fileID: 6249968693716496787, guid: 6c09a1460bfe67d45a1e05935a1ed961, type: 3}
+      propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c09a1460bfe67d45a1e05935a1ed961, type: 3}
 --- !u!1001 &9163362925618440630
